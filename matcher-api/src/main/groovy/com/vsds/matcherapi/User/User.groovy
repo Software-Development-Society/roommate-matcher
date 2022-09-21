@@ -5,18 +5,17 @@ class User {
     String name
     String email
     String sex
-    String classYear
-    String age
+    int classYear
+    int age
     Map<String, String> formResponse
 
-    User(UUID userId, String name, String email, String sex, String classYear, String age, Map<String, String> formResponse) {
+    User(UUID userId, String name, String email, String sex, int classYear, int age) {
         this.userId = userId
         this.name = name
         this.email = email
         this.sex = sex
         this.classYear = classYear
         this.age = age
-        this.formResponse = formResponse
     }
 
     UUID getUserId() {
@@ -35,15 +34,19 @@ class User {
         return sex
     }
 
-    String getClassYear() {
+    int getClassYear() {
         return classYear
     }
 
-    String getAge() {
+    int getAge() {
         return age
     }
 
     Map<String, String> getFormResponse() {
         return formResponse
+    }
+
+    void setFormResponse(Map<String, String> formResponse) {
+        this.formResponse = formResponse
     }
 }
