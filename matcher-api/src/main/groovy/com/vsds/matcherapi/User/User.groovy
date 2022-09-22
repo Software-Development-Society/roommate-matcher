@@ -1,52 +1,77 @@
 package com.vsds.matcherapi.User
 
 class User {
-    UUID userId
-    String name
-    String email
-    String sex
-    int classYear
-    int age
-    Map<String, String> formResponse
+    static UUID userId
+    static String name
+    static String email
+    static String sex
+    static int classYear
+    static int age
+    static Map<String, String> formResponse
+    static ArrayList matchList
 
-    User(UUID userId, String name, String email, String sex, int classYear, int age) {
-        this.userId = userId
-        this.name = name
-        this.email = email
-        this.sex = sex
-        this.classYear = classYear
-        this.age = age
-    }
 
-    UUID getUserId() {
+    static UUID getUserId() {
         return userId
     }
 
-    String getName() {
+    static String getName() {
         return name
     }
 
-    String getEmail() {
+    static String getEmail() {
         return email
     }
 
-    String getSex() {
+    static String getSex() {
         return sex
     }
 
-    int getClassYear() {
+    static int getClassYear() {
         return classYear
     }
 
-    int getAge() {
+    static int getAge() {
         return age
     }
 
-    Map<String, String> getFormResponse() {
+    static Map<String, String> getFormResponse() {
         return formResponse
     }
 
-    void setFormResponse(Map<String, String> formResponse) {
+    static void setFormResponse(Map<String, String> formResponse) {
         this.formResponse = formResponse
+    }
+
+    static ArrayList getMatchList() {
+        return matchList
+    }
+
+    static void setUserId(UUID userId) {
+        User.userId = userId
+    }
+
+    static void setName(String name) {
+        User.name = name
+    }
+
+    static void setEmail(String email) {
+        User.email = email
+    }
+
+    static void setSex(String sex) {
+        User.sex = sex
+    }
+
+    static void setClassYear(int classYear) {
+        User.classYear = classYear
+    }
+
+    static void setAge(int age) {
+        User.age = age
+    }
+
+    static void setMatchList(ArrayList matchList) {
+        User.matchList = matchList
     }
 }
