@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController
 class MatcherLoginController {
     @GetMapping
     public String helloWorld(){
-        return "hello world!"
+        return "hello world"
     }
 
     @PostMapping("login-handling")
