@@ -7,6 +7,7 @@ class User {
     static String sex
     static int classYear
     static int age
+    static String bio;
     static Map<String, String> formResponse
     static ArrayList matchList
 
@@ -43,6 +44,14 @@ class User {
         this.formResponse = formResponse
     }
 
+    static void setBio(String bio) {
+        User.bio = bio
+    }
+
+    static String getBio() {
+        return bio
+    }
+
     static ArrayList getMatchList() {
         return matchList
     }
@@ -74,4 +83,15 @@ class User {
     static void setMatchList(ArrayList matchList) {
         User.matchList = matchList
     }
+
+    static void developmentUser(){
+        setName("John Doe")
+        setEmail("jdoe@villanova.edu")
+        setAge(19)
+        setClassYear(2025)
+        setAge()
+
+    }
+
+
 }
