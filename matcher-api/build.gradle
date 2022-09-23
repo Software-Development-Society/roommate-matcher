@@ -2,6 +2,8 @@ plugins {
     id 'org.springframework.boot' version '2.7.3'
     id 'io.spring.dependency-management' version '1.0.13.RELEASE'
     id 'groovy'
+
+
 }
 
 group = 'com.vsds'
@@ -11,6 +13,7 @@ sourceCompatibility = '11'
 repositories {
     mavenCentral()
 }
+
 
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter'
@@ -22,8 +25,10 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-web'
     implementation 'org.codehaus.groovy:groovy'
     implementation 'org.json:json:20220320'
-    implementation 'org.codehaus.groovy:groovy-json:3.0.11'
+    implementation 'org.codehaus.groovy:groovy-json:3.0.12'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    implementation 'org.mongodb:mongodb-driver-sync:4.7.1'
+
 }
 
 tasks.named('test') {
