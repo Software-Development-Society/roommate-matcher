@@ -23,7 +23,7 @@ import static com.mongodb.client.model.Updates.*;
 class DatabaseServices {
 
 
-    static void main(String[] args) {
+//    static void main(String[] args) {
 //        MongoClient client = MongoClients.create("mongodb+srv://vsds:2TrmWIOuqVQcKvWU@vsds.nio2wr0.mongodb.net/?retryWrites=true&w=majority")
 //        MongoDatabase database = client.getDatabase("roommateMatcher")
 //        MongoCollection<Document> toys = database.getCollection("user")
@@ -43,6 +43,5 @@ class DatabaseServices {
         MongoCollection<Document> toys = database.getCollection("user")
         Document testDoc = new Document("_id", new ObjectId())
 
-
-    }
+//    }
 }

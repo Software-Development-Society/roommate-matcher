@@ -2,7 +2,8 @@ package com.vsds.matcherapi.User
 
 class User {
     static UUID userId
-    static String name
+    static String firstName
+    static String lastName
     static String email
     static String sex
     static int classYear
@@ -16,8 +17,12 @@ class User {
         return userId
     }
 
-    static String getName() {
-        return name
+    static String getFirstName() {
+        return firstName
+    }
+
+    static String getLastName() {
+        return lastName
     }
 
     static String getEmail() {
@@ -60,8 +65,12 @@ class User {
         User.userId = userId
     }
 
-    static void setName(String name) {
-        User.name = name
+    static void setFirstName(String name) {
+        User.firstName = name
+    }
+
+    static void setLastName(String lastName) {
+        User.lastName = lastName
     }
 
     static void setEmail(String email) {
@@ -85,7 +94,7 @@ class User {
     }
 
     static void developmentUser(){
-        setName("John Doe")
+        setFirstName("John Doe")
         setEmail("jdoe@villanova.edu")
         setAge(19)
         setClassYear(2025)

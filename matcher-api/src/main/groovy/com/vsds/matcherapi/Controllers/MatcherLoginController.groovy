@@ -14,13 +14,17 @@ class MatcherLoginController {
         return "hello world"
     }
 
-    @PostMapping("login-handling")
+    @PostMapping("/login-handling")
     public String loginHandling(String userId){
 
 
         return 'login success'
 
 
+    }
+    @GetMapping("/test")
+    public String test(){
+        return "Success"
     }
 
 }
