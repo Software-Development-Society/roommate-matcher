@@ -1,5 +1,6 @@
 package com.vsds.matcherapi.services
 
+import com.fasterxml.jackson.databind.deser.DataFormatReaders
 import com.mongodb.*;
 import com.mongodb.client.MongoClients;
 import com.mongodb.client.MongoClient;
@@ -8,9 +9,14 @@ import com.mongodb.client.MongoDatabase;
 import com.mongodb.client.model.Filters;
 
 import com.mongodb.client.model.UpdateOptions;
-import com.mongodb.client.result.*;
+import com.mongodb.client.result.*
+import com.vsds.matcherapi.MatcherApiApplication
+import com.vsds.matcherapi.User.User
+import com.vsds.matcherapi.database.DbUser
+import com.vsds.matcherapi.database.UserRepository;
 import org.bson.Document;
-import org.bson.types.ObjectId;
+import org.bson.types.ObjectId
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
 import java.util.Arrays;
@@ -22,26 +28,27 @@ import static com.mongodb.client.model.Updates.*;
 
 class DatabaseServices {
 
+        static void getUserFromId(String userId){
+                for (DbUser dbUser: MatcherApiApplication.visableRepo.findAll()){
+                        if (dbUser.getUserId() != null){
+                                if (dbUser.getUserId() == userId){
+                                        // issues when trying to save user
+                                        User.setUserId(dbUser.getUserId())
+                                        User.setFirstName(dbUser.getFirstName())
+                                        User.setLastName(dbUser.getLastName())
+                                        User.setSex(dbUser.getSex())
+                                        User.setClassYear(dbUser.getClassYear())
+                                        User.setAge(dbUser.getAge())
+                                        User.setBio(dbUser.getBio())
+                                }
+                        }
+                }
+                if (User.getName() == null) {
+                        print "ISSUE WITH GETTING USER"
+                }
+                else{
+                        print "user successfully created" + User.toString()
+                }
+        }
 
-//    static void main(String[] args) {
-//        MongoClient client = MongoClients.create("mongodb+srv://vsds:2TrmWIOuqVQcKvWU@vsds.nio2wr0.mongodb.net/?retryWrites=true&w=majority")
-//        MongoDatabase database = client.getDatabase("roommateMatcher")
-//        MongoCollection<Document> toys = database.getCollection("user")
-//        DBObject test = new BasicDBObject("name", "Holden")
-//        toys.insertOne(test)
-
-
-        ConnectionString connectionString = new ConnectionString("mongodb+srv://vsds:2TrmWIOuqVQcKvWU@vsds.nio2wr0.mongodb.net/?retryWrites=true&w=majority");
-        MongoClientSettings settings = MongoClientSettings.builder()
-                .applyConnectionString(connectionString)
-                .serverApi(ServerApi.builder()
-                        .version(ServerApiVersion.V1)
-                        .build())
-                .build();
-        MongoClient mongoClient = MongoClients.create(settings)
-        MongoDatabase database = mongoClient.getDatabase("roommateMatcher")
-        MongoCollection<Document> toys = database.getCollection("user")
-        Document testDoc = new Document("_id", new ObjectId())
-
-//    }
 }

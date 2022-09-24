@@ -10,10 +10,11 @@ import org.springframework.boot.autoconfigure.SpringBootApplication
 
 @SpringBootApplication
 class MatcherApiApplication implements CommandLineRunner {
-    private UserRepository userRepository
+    public UserRepository userRepository
+    public static UserRepository visableRepo
 
     @Autowired
-    public AppApplication(UserRepository userRepository){
+    AppApplication(UserRepository userRepository){
         this.userRepository = userRepository
     }
 
@@ -23,9 +24,7 @@ class MatcherApiApplication implements CommandLineRunner {
 
     @Override
     void run(String... args) throws Exception {
-        if (userRepository.findAll().isEmpty()){
-            userRepository.save(new DbUser("Holden","Cormier"))
-        }
+        visableRepo = userRepository
 
         for (DbUser dbUser: userRepository.findAll()){
             print dbUser

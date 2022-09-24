@@ -1,7 +1,7 @@
 package com.vsds.matcherapi.User
 
 class User {
-    static UUID userId
+    static String userId
     static String firstName
     static String lastName
     static String email
@@ -11,9 +11,10 @@ class User {
     static String bio;
     static Map<String, String> formResponse
     static ArrayList matchList
+    public User(){}
 
 
-    static UUID getUserId() {
+    static String getUserId() {
         return userId
     }
 
@@ -61,7 +62,7 @@ class User {
         return matchList
     }
 
-    static void setUserId(UUID userId) {
+    static void setUserId(String userId) {
         User.userId = userId
     }
 
@@ -92,15 +93,5 @@ class User {
     static void setMatchList(ArrayList matchList) {
         User.matchList = matchList
     }
-
-    static void developmentUser(){
-        setFirstName("John Doe")
-        setEmail("jdoe@villanova.edu")
-        setAge(19)
-        setClassYear(2025)
-        setAge()
-
-    }
-
 
 }
