@@ -28,26 +28,16 @@ import static com.mongodb.client.model.Updates.*;
 
 class DatabaseServices {
 
-        static void getUserFromId(String userId){
+        static DbUser getUserFromId(String userId){
                 for (DbUser dbUser: MatcherApiApplication.visableRepo.findAll()){
                         if (dbUser.getUserId() != null){
                                 if (dbUser.getUserId() == userId){
-                                        // issues when trying to save user
-                                        User.setUserId(dbUser.getUserId())
-                                        User.setFirstName(dbUser.getFirstName())
-                                        User.setLastName(dbUser.getLastName())
-                                        User.setSex(dbUser.getSex())
-                                        User.setClassYear(dbUser.getClassYear())
-                                        User.setAge(dbUser.getAge())
-                                        User.setBio(dbUser.getBio())
+                                        return dbUser
                                 }
                         }
                 }
                 if (User.getName() == null) {
                         print "ISSUE WITH GETTING USER"
-                }
-                else{
-                        print "user successfully created" + User.toString()
                 }
         }
 

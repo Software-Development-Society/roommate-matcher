@@ -2,6 +2,7 @@ package com.vsds.matcherapi.Controllers
 
 
 import com.vsds.matcherapi.User.User
+import com.vsds.matcherapi.database.DbUser
 import com.vsds.matcherapi.services.DatabaseServices
 import com.vsds.matcherapi.services.UserServices
 import org.springframework.web.bind.annotation.GetMapping
@@ -25,9 +26,9 @@ class MatcherLoginController {
     }
     @GetMapping("/login-test")
     public String test(){
-        User.setLastName("Cormier")
-//        DatabaseServices.getUserFromId("1000")
-        return "Test"
+        User.loadCurrentUser("1000")
+        String test = User.getLastName()
+        return test
 
     }
 
