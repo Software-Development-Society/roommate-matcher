@@ -35,3 +35,5 @@ out/
 
 ### VS Code ###
 .vscode/
+com/vsds/matcherapi/services/DatabaseServices.groovy
+matcher-api/src/main/resources/application.properties

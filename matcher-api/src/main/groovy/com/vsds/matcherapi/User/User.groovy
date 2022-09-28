@@ -1,97 +1,54 @@
 package com.vsds.matcherapi.User
 
+import com.vsds.matcherapi.database.DbUser
+import com.vsds.matcherapi.services.DatabaseServices
+
 class User {
-    static UUID userId
-    static String name
-    static String email
-    static String sex
-    static int classYear
-    static int age
-    static String bio;
-    static Map<String, String> formResponse
-    static ArrayList matchList
 
-
-    static UUID getUserId() {
-        return userId
+    static DbUser user
+    static void loadCurrentUser(String userId){
+        user = DatabaseServices.getUserFromId(userId)
+    }
+    static String getUserId(){
+        return user.getUserId()
     }
 
-    static String getName() {
-        return name
+    static String getFirstName(){
+        return user.getFirstName()
     }
 
-    static String getEmail() {
-        return email
+    static String getLastName(){
+        return user.getLastName()
     }
 
-    static String getSex() {
-        return sex
+    static String getEmail(){
+        return user.getEmail()
     }
 
-    static int getClassYear() {
-        return classYear
+    static String getSex(){
+        return user.getSex()
     }
 
-    static int getAge() {
-        return age
+    static int getClassYear(){
+        return user.getClassYear()
     }
 
-    static Map<String, String> getFormResponse() {
-        return formResponse
+    static int getAge(){
+        return user.getAge()
     }
 
-    static void setFormResponse(Map<String, String> formResponse) {
-        this.formResponse = formResponse
+    static String getBio(){
+        user.getBio()
+    }
+    static DbUser getUser(){
+        return user
+    }
+    static void setFirstName(String name){
+        user.setFirstName(name)
     }
 
-    static void setBio(String bio) {
-        User.bio = bio
-    }
-
-    static String getBio() {
-        return bio
-    }
-
-    static ArrayList getMatchList() {
-        return matchList
-    }
-
-    static void setUserId(UUID userId) {
-        User.userId = userId
-    }
-
-    static void setName(String name) {
-        User.name = name
-    }
-
-    static void setEmail(String email) {
-        User.email = email
-    }
-
-    static void setSex(String sex) {
-        User.sex = sex
-    }
-
-    static void setClassYear(int classYear) {
-        User.classYear = classYear
-    }
-
-    static void setAge(int age) {
-        User.age = age
-    }
-
-    static void setMatchList(ArrayList matchList) {
-        User.matchList = matchList
-    }
-
-    static void developmentUser(){
-        setName("John Doe")
-        setEmail("jdoe@villanova.edu")
-        setAge(19)
-        setClassYear(2025)
-        setAge()
+    static void updateDatabase(){
+        DatabaseServices.updateUser(user)
 
     }
-
-
 }

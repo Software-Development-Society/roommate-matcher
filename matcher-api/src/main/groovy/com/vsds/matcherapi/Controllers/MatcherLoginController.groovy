@@ -2,6 +2,8 @@ package com.vsds.matcherapi.Controllers
 
 
 import com.vsds.matcherapi.User.User
+import com.vsds.matcherapi.database.DbUser
+import com.vsds.matcherapi.services.DatabaseServices
 import com.vsds.matcherapi.services.UserServices
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PostMapping
@@ -14,13 +16,33 @@ class MatcherLoginController {
         return "hello world"
     }
 
-    @PostMapping("login-handling")
+    @PostMapping("/login-handling")
     public String loginHandling(String userId){
 
 
         return 'login success'
 
 
+    }
+    @GetMapping("/login-test")
+    public String test(){
+        User.loadCurrentUser("1000")
+        User.setFirstName("John")
+        User.updateDatabase()
+        String test = User.getLastName()
+        return test
+
+    }
+    @PostMapping("/login")
+    String login(String login){
+        User.loadCurrentUser("1000")
+        String test = User.getLastName()
+        return test
+    }
+
+    @GetMapping
+    String returnUser(){
+        return User.getFirstName() + User.getLastName()
     }
 
 }
