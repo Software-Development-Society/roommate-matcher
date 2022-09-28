@@ -6,3 +6,26 @@ body {
 h1{
     color: white;
 }
+
+
+
+#bar .bar_item{
+    float: left;
+    padding-top: .5em;
+}
+
+.menu_item{
+    display:inline
+}
+
+#logo{
+    padding-right: 10em;
+    padding-left: 1em;
+    width: 100px;
+    font-weight: bold;
+}
+
+#bar_image{
+    display: flex;
+    justify-content: center;
+}
