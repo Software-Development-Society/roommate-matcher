@@ -22,12 +22,8 @@ dependencies {
     developmentOnly 'org.springframework.boot:spring-boot-devtools'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     implementation 'org.springframework.boot:spring-boot-starter-data-mongodb'
-
-    implementation 'org.springframework.boot:spring-boot-starter-web'
-    implementation 'org.codehaus.groovy:groovy'
     implementation 'org.json:json:20220320'
     implementation 'org.codehaus.groovy:groovy-json:3.0.12'
-    testImplementation 'org.springframework.boot:spring-boot-starter-test'
     implementation 'org.mongodb:mongodb-driver-sync:4.7.1'
 
 }

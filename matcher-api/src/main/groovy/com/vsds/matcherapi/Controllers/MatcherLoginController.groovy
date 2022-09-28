@@ -27,9 +27,22 @@ class MatcherLoginController {
     @GetMapping("/login-test")
     public String test(){
         User.loadCurrentUser("1000")
+        User.setFirstName("John")
+        User.updateDatabase()
         String test = User.getLastName()
         return test
 
+    }
+    @PostMapping("/login")
+    String login(String login){
+        User.loadCurrentUser("1000")
+        String test = User.getLastName()
+        return test
+    }
+
+    @GetMapping
+    String returnUser(){
+        return User.getFirstName() + User.getLastName()
     }
 
 }

@@ -40,4 +40,15 @@ class User {
     static String getBio(){
         user.getBio()
     }
+    static DbUser getUser(){
+        return user
+    }
+    static void setFirstName(String name){
+        user.setFirstName(name)
+    }
+
+    static void updateDatabase(){
+        DatabaseServices.updateUser(user)
+
+    }
 }

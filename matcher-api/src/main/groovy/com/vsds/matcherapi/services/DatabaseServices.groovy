@@ -27,7 +27,6 @@ import static com.mongodb.client.model.Updates.*;
 
 
 class DatabaseServices {
-
         static DbUser getUserFromId(String userId){
                 for (DbUser dbUser: MatcherApiApplication.visableRepo.findAll()){
                         if (dbUser.getUserId() != null){
@@ -39,6 +38,10 @@ class DatabaseServices {
                 if (User.getName() == null) {
                         print "ISSUE WITH GETTING USER"
                 }
+        }
+
+        static void updateUser(DbUser user){
+                MatcherApiApplication.visableRepo.save(user)
         }
 
 }
