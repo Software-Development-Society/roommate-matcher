@@ -5,8 +5,10 @@ import com.vsds.matcherapi.User.User
 import com.vsds.matcherapi.database.DbUser
 import com.vsds.matcherapi.services.DatabaseServices
 import com.vsds.matcherapi.services.UserServices
+import groovy.json.JsonSlurper
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PostMapping
+import org.springframework.web.bind.annotation.RequestBody
 import org.springframework.web.bind.annotation.RestController
 
 @RestController
@@ -34,10 +36,14 @@ class MatcherLoginController {
 
     }
     @PostMapping("/login")
-    String login(String login){
-        User.loadCurrentUser("1000")
+    void login(@RequestBody String login){
+        println "The user id is: " +login
+        JsonSlurper slurper = new JsonSlurper()
+        def inputString = slurper.parseText(login)
+        String userId = inputString["user_id"]
+        User.loadCurrentUser(userId)
         String test = User.getLastName()
-        return test
+//        return test
     }
 
     @GetMapping
