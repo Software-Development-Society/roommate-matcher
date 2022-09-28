@@ -25,6 +25,7 @@ dependencies {
     implementation 'org.json:json:20220320'
     implementation 'org.codehaus.groovy:groovy-json:3.0.12'
     implementation 'org.mongodb:mongodb-driver-sync:4.7.1'
+    implementation 'org.codehaus.groovy:groovy-json:3.0.11'
 
 }
 
