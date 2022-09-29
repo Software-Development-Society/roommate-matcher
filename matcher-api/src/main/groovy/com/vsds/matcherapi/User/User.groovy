@@ -2,6 +2,7 @@ package com.vsds.matcherapi.User
 
 import com.vsds.matcherapi.database.DbUser
 import com.vsds.matcherapi.services.DatabaseServices
+import org.json.JSONObject
 
 class User {
 
@@ -46,9 +47,44 @@ class User {
     static void setFirstName(String name){
         user.setFirstName(name)
     }
+    static void setLastName(String name){
+        user.setLastName(name)
+    }
+    static void setEmail(String email){
+        user.setEmail(email)
+    }
+    static void setSex(String sex){
+        user.setSex(sex)
+    }
+    static void setAge(int age){
+        user.setAge(age)
+    }
+    static void setClassYear(int classYear){
+        user.setClassYear(classYear)
+    }
+    static void setBio(String bio){
+        user.setBio(bio)
+    }
+
+
+
+
 
     static void updateDatabase(){
         DatabaseServices.updateUser(user)
 
+    }
+
+
+    static JSONObject returnUser(){
+        JSONObject returnPayload = new JSONObject()
+        returnPayload.put("first_name", getFirstName())
+        returnPayload.put("last_name", getLastName())
+        returnPayload.put("email", getEmail())
+        returnPayload.put("sex", getSex())
+        returnPayload.put("age", getAge() as String)
+        returnPayload.put("class_year", getClassYear() as String)
+        returnPayload.put("bio", getBio())
+        return returnPayload
     }
 }
