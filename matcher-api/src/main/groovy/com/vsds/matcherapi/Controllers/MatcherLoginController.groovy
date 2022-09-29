@@ -36,7 +36,9 @@ class MatcherLoginController {
     @GetMapping("/data")
     String returnUser(){
         JSONObject returnPayload = User.returnUser()
+        String userId = User.getUserId()
         return returnPayload as String
     }
+
 
 }
