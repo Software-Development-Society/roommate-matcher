@@ -6,6 +6,7 @@ const passport = require("passport");
 const passportLocalMongoose = require("passport-local-mongoose");
 const mongoose = require("mongoose");
 const { response } = require("express");
+const axios = require('axios').default;
 
 const Schema = mongoose.Schema;
 
@@ -77,6 +78,7 @@ app.post("/login", function (req, res) {
         username: req.body.username,
         password: req.body.password,
     });
+    res.send("Worked");
     req.logIn(user, (err)=>{
         if(err){
             console.log("error");
@@ -85,6 +87,7 @@ app.post("/login", function (req, res) {
                 console.log(req.user);
                 console.log("You logged in good");
                 console.log(req.user.id);
+                
                 res.redirect("/");
             });
         }
@@ -109,6 +112,25 @@ app.post("/register", function (req, res) {
             
         }
     })
+});
+
+app.get("/test", async (req, res)=>{
+    const userID = req.query.userID;
+    console.log(userID);
+    //res.send(userID)
+    axios({
+        method: 'post',
+        url: 'http://localhost:8080/login',
+        data: {
+            user_id: userID,
+        }
+    }).then(response =>{
+        console.log(response);
+        res.send(response);
+    }).catch(error =>{
+        console.log(error);
+        res.send(error)
+    });
 });
 
 app.listen(3000, function () {
