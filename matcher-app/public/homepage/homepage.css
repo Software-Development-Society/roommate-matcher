@@ -8,10 +8,13 @@ h1{
 }
 
 
-
+.homebut{
+    color: white !important;
+}
 #bar .bar_item{
     float: left;
     padding-top: .5em;
+
 }
 
 .menu_item{
