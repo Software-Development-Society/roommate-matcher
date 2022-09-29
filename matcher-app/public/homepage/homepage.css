@@ -7,10 +7,21 @@ h1{
     color: white;
 }
 
+.navhome{
+    background-color: rgba(0,0,0,0.0) !important;
+}
 
 .homebut{
     color: white !important;
+    font-weight: bold;
 }
+.roomtitle{
+    color: white;
+    font-weight: bold;
+    text-align-last: center;
+    font-size: 25px;
+}
+
 #bar .bar_item{
     float: left;
     padding-top: .5em;
