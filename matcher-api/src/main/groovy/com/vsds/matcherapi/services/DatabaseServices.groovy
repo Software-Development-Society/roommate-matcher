@@ -60,4 +60,9 @@ class DatabaseServices {
         static void loadDataBase(){
 
         }
+
+        static void saveUserFormResponse(DbUser currentUser, ArrayList<Integer> formResponse){
+                currentUser.setAnswerList(formResponse)
+                updateUser(currentUser)
+        }
 }
