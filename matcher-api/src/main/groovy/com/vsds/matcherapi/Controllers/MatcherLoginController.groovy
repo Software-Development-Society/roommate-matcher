@@ -13,31 +13,39 @@ import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.RequestBody
 import org.springframework.web.bind.annotation.RestController
 
+import javax.xml.crypto.Data
+
 @RestController
 class MatcherLoginController {
     JsonSlurper slurper = new JsonSlurper()
-    @GetMapping("/login-test")
-    public String test(){
-        User.loadCurrentUser("1000")
-        User.setFirstName("John")
-        User.updateDatabase()
-        String test = User.getLastName()
-        return test
+
+    // used for testing only!!!
+    @GetMapping("/adduser")
+    String user(){
+        ArrayList<Integer> answerList = new ArrayList<>()
+        Random rand = new Random()
+        for (int i = 0; i < 30; i++){
+            int firstNum = rand.nextInt(5)+1
+            int secondNum = rand.nextInt(5)+1
+            answerList.add(firstNum * secondNum)
+
+        }
+        Map<String, Integer> matchedIds = new HashMap<>()
+        matchedIds.put("1000", 43)
+        DbUser test = new DbUser("Test", "User", "tuser@villanova.edu", "male", 2024, 20, "This is a test user", answerList, matchedIds)
+        test.setUserId("1001")
+        DatabaseServices.updateUser(test)
+        return test.getFirstName()
     }
+
+
     @PostMapping("/login")
     String login(@RequestBody String login){
         def inputString = slurper.parseText(login)
         String userId = inputString["user_id"]
-        User.loadCurrentUser(userId)
-        println "User Successfully logged in!"
-        return User.returnUser() as String
-    }
-
-    @GetMapping("/data")
-    String returnUser(){
-        JSONObject returnPayload = User.returnUser()
-        String userId = User.getUserId()
-        return returnPayload as String
+        User currentUser = DatabaseServices.getUser(userId)
+        println("New user logged in: " + currentUser.getFirstName())
+        return currentUser.returnUser() as String
     }
 
 

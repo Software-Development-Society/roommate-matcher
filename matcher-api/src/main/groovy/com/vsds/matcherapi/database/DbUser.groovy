@@ -22,11 +22,15 @@ class DbUser {
     private int age
     @Field
     private String bio
+    @Field
+    private ArrayList<Integer> answerList
+    @Field
+    private Map<String, Integer> matchedIds
 
 
     public DbUser(){}
 
-    DbUser(String firstName, String lastName, String email, String sex, int classYear, int age, String bio) {
+    DbUser(String firstName, String lastName, String email, String sex, int classYear, int age, String bio, ArrayList<Integer> answerList, Map<String, Integer> matchedIds) {
         this.firstName = firstName
         this.lastName = lastName
         this.email = email
@@ -34,6 +38,8 @@ class DbUser {
         this.classYear = classYear
         this.age = age
         this.bio = bio
+        this.answerList = answerList
+        this.matchedIds = matchedIds
     }
 
     void setUserId(String userId) {
@@ -68,6 +74,14 @@ class DbUser {
         this.bio = bio
     }
 
+    void setAnswerList(ArrayList<Integer> answerList) {
+        this.answerList = answerList
+    }
+
+    void setMatchedIds(Map<String, Integer> matchedIds) {
+        this.matchedIds = matchedIds
+    }
+
     String getUserId() {
         return userId
     }
@@ -98,6 +112,14 @@ class DbUser {
 
     String getBio() {
         return bio
+    }
+
+    ArrayList<Integer> getAnswerList() {
+        return answerList
+    }
+
+    Map<String, Integer> getMatchedIds() {
+        return matchedIds
     }
 
     @Override

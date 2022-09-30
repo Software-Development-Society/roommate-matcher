@@ -16,7 +16,8 @@ import com.vsds.matcherapi.database.DbUser
 import com.vsds.matcherapi.database.UserRepository;
 import org.bson.Document;
 import org.bson.types.ObjectId
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Autowired
+import org.springframework.data.mongodb.repository.MongoRepository;
 
 import java.util.List;
 import java.util.Arrays;
@@ -44,4 +45,19 @@ class DatabaseServices {
                 MatcherApiApplication.visableRepo.save(user)
         }
 
+
+
+        static User getUser(String userId){
+                DbUser currentUser = getUserFromId(userId)
+                println(currentUser.getMatchedIds() as Map<String, Integer>)
+                return new User(currentUser.getUserId() as String, currentUser.getFirstName() as String, currentUser.getLastName() as String,
+                        currentUser.getEmail() as String, currentUser.getSex() as String, currentUser.classYear as int, currentUser.age as int, currentUser.getBio() as String,
+                        currentUser.getAnswerList() as ArrayList<Integer>, currentUser.getMatchedIds() as Map<String, Integer>)
+        }
+
+        //TO DO
+        //how can you get the most recent version of the db?
+        static void loadDataBase(){
+
+        }
 }
