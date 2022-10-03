@@ -25,12 +25,12 @@ class DbUser {
     @Field
     private ArrayList<Integer> answerList
     @Field
-    private Map<String, Integer> matchedIds
+    private Map<String, ArrayList<Integer>> matchedIds
 
 
     public DbUser(){}
 
-    DbUser(String firstName, String lastName, String email, String sex, int classYear, int age, String bio, ArrayList<Integer> answerList, Map<String, Integer> matchedIds) {
+    DbUser(String firstName, String lastName, String email, String sex, int classYear, int age, String bio, ArrayList<Integer> answerList, Map<String, ArrayList<Integer>> matchedIds) {
         this.firstName = firstName
         this.lastName = lastName
         this.email = email
@@ -78,7 +78,7 @@ class DbUser {
         this.answerList = answerList
     }
 
-    void setMatchedIds(Map<String, Integer> matchedIds) {
+    void setMatchedIds(Map<String, ArrayList<Integer>> matchedIds) {
         this.matchedIds = matchedIds
     }
 
@@ -118,7 +118,7 @@ class DbUser {
         return answerList
     }
 
-    Map<String, Integer> getMatchedIds() {
+    Map<String, ArrayList<Integer>> getMatchedIds() {
         return matchedIds
     }
 

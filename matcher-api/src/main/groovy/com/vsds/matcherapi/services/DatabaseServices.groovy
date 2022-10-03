@@ -52,7 +52,7 @@ class DatabaseServices {
                 println(currentUser.getMatchedIds() as Map<String, Integer>)
                 return new User(currentUser.getUserId() as String, currentUser.getFirstName() as String, currentUser.getLastName() as String,
                         currentUser.getEmail() as String, currentUser.getSex() as String, currentUser.classYear as int, currentUser.age as int, currentUser.getBio() as String,
-                        currentUser.getAnswerList() as ArrayList<Integer>, currentUser.getMatchedIds() as Map<String, Integer>)
+                        currentUser.getAnswerList() as ArrayList<Integer>, currentUser.getMatchedIds() as Map<String, ArrayList<Integer>>)
         }
 
         //TO DO
