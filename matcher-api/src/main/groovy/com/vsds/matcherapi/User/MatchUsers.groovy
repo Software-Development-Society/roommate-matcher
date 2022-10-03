@@ -2,6 +2,7 @@ package com.vsds.matcherapi.User
 
 import com.vsds.matcherapi.MatcherApiApplication
 import com.vsds.matcherapi.database.DbUser
+import com.vsds.matcherapi.services.UserServices
 import org.springframework.data.mongodb.core.aggregation.ArrayOperators
 
 class MatchUsers {
@@ -24,7 +25,7 @@ class MatchUsers {
             int personalityTotal = 0
             int habitsTotal = 0
             int miscTotal = 0
-            if (userToMatch.getUserId() != currentUser.getUserId()){
+            if (userToMatch.getUserId() != currentUser.getUserId() && UserServices.validateCorrectUser(userToMatch)){
                 for (int answerIndex = 0; answerIndex < currentUserResp.size()-1; answerIndex+=2){
                     int currentUserAns = currentUserResp.get(answerIndex) * currentUserResp.get(answerIndex + 1)
                     int matchUserAns = userToMatchResp.get(answerIndex) * userToMatchResp.get(answerIndex + 1)
