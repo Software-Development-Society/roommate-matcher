@@ -75,9 +75,9 @@ class DatabaseServices {
                         print("age")
                 }else if (userUpdate.equals("bio")){
                         print("bio")
-                }else if (userUpdate.equals("classYear")){
+                }else if (userUpdate.equals("class_year")){
                         print("class Year")
-                }else if (userUpdate.equals("userId")){
+                }else if (userUpdate.equals("user_id")){
                         print("userId")
                 }
         }
