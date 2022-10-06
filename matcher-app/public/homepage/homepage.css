@@ -18,6 +18,7 @@ h1{
     margin-left: -50px !important;
     margin-right: -50px !important;
     display: block;
+    position: sticky;
 }
 .navhome{
     background-color: rgba(0,0,0,0.0) !important;
