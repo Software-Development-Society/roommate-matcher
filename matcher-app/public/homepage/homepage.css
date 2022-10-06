@@ -7,6 +7,18 @@ h1{
     color: white;
 }
 
+
+.navbar {
+    position: relative;
+}
+
+.brand {
+    position: absolute;
+    left: 50%;
+    margin-left: -50px !important;
+    margin-right: -50px !important;
+    display: block;
+}
 .navhome{
     background-color: rgba(0,0,0,0.0) !important;
 }
