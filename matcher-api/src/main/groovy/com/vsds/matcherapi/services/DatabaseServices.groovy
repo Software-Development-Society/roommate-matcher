@@ -62,6 +62,23 @@ class DatabaseServices {
         }
 
         static void updateUser(Map<String, String> updateMap){
-
+                String userUpdate = updateMap.keySet()[1]
+                if(userUpdate.equals("first_name")){
+                        print("firstname")
+                } else if (userUpdate.equals("last_name")){
+                        print("lastname")
+                } else if (userUpdate.equals("email")){
+                        print("email")
+                }else if (userUpdate.equals("sex")){
+                        print("sex")
+                }else if (userUpdate.equals("age")){
+                        print("age")
+                }else if (userUpdate.equals("bio")){
+                        print("bio")
+                }else if (userUpdate.equals("classYear")){
+                        print("class Year")
+                }else if (userUpdate.equals("userId")){
+                        print("userId")
+                }
         }
 }
