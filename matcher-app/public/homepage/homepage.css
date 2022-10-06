@@ -27,6 +27,13 @@ h1{
 .homebut{
     color: white !important;
     font-weight: bold;
+    -webkit-transition: color 1s; /* For Safari 3.0 to 6.0 */
+     transition: color 1s; /* For modern browsers */
+}
+
+.homebut:hover {
+    filter: brightness(0);
+    color: #ff0000;
 }
 .roomtitle{
     color: white;
@@ -34,7 +41,10 @@ h1{
     text-align-last: center;
     font-size: 25px;
 }
-
+.roomtitle:hover {
+    filter: brightness(1.0); !important
+    color: #000000; !important
+}
 #bar .bar_item{
     float: left;
     padding-top: .5em;
@@ -50,7 +60,9 @@ h1{
     padding-left: 1em;
     width: 100px;
     font-weight: bold;
+
 }
+
 
 #bar_image{
     display: flex;
