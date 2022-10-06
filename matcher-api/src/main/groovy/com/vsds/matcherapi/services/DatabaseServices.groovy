@@ -60,4 +60,8 @@ class DatabaseServices {
         static void loadDataBase(){
 
         }
+
+        static void updateUser(Map<String, String> updateMap){
+
+        }
 }
