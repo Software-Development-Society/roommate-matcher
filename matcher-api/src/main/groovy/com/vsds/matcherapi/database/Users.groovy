@@ -5,7 +5,7 @@ import org.springframework.data.mongodb.core.mapping.Document
 import org.springframework.data.mongodb.core.mapping.Field
 
 @Document
-class DbUser {
+class Users {
     @Id
     private String userId
     @Field
@@ -24,9 +24,9 @@ class DbUser {
     private String bio
 
 
-    public DbUser(){}
+    public Users(){}
 
-    DbUser(String firstName, String lastName, String email, String sex, int classYear, int age, String bio) {
+    Users(String firstName, String lastName, String email, String sex, int classYear, int age, String bio) {
         this.firstName = firstName
         this.lastName = lastName
         this.email = email

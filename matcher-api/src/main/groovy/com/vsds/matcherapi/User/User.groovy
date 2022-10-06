@@ -1,12 +1,12 @@
 package com.vsds.matcherapi.User
 
-import com.vsds.matcherapi.database.DbUser
+import com.vsds.matcherapi.database.Users
 import com.vsds.matcherapi.services.DatabaseServices
 import org.json.JSONObject
 
 class User {
 
-    static DbUser user
+    static Users user
     static void loadCurrentUser(String userId){
         user = DatabaseServices.getUserFromId(userId)
     }
@@ -41,7 +41,7 @@ class User {
     static String getBio(){
         user.getBio()
     }
-    static DbUser getUser(){
+    static Users getUser(){
         return user
     }
     static void setFirstName(String name){
