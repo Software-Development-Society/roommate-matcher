@@ -22,7 +22,7 @@ app.use(session({
     //cookie: {secure: true}
 }));
 
-mongoose.connect("mongodb://localhost:27017/userDB"/*, {useNewUrlParser:true}*/);
+mongoose.connect("mongodb+srv://vsds:lnBKl03NLjuCiieO@vsds.nio2wr0.mongodb.net/roommateMatcher?retryWrites=true&w=majority"/*, {useNewUrlParser:true}*/);
 
 const userSchema = new Schema({
     fName: String,
