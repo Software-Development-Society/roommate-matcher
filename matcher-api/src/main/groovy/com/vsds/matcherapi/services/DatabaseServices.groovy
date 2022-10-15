@@ -28,7 +28,7 @@ class DatabaseServices {
 
         static User getUser(ObjectId userId){
                 Users currentUser = getUserFromId(userId)
-                println(currentUser.getMatchedIds() as Map<String, Integer>)
+                println("Current user" + currentUser)
                 return new User(currentUser.getUserId() as String, currentUser.getFirstName() as String, currentUser.getLastName() as String,
                         currentUser.getEmail() as String, currentUser.getSex() as String, currentUser.classYear as int, currentUser.age as int, currentUser.getBio() as String)
         }
