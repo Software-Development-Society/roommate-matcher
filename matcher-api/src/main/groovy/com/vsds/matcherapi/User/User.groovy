@@ -37,6 +37,17 @@ class User {
         this.matchedId = matchedId
     }
 
+    User(String userId, String firstName, String lastName, String email, String sex, int classYear, int age, String bio) {
+        this.userId = userId
+        this.firstName = firstName
+        this.lastName = lastName
+        this.email = email
+        this.sex = sex
+        this.classYear = classYear
+        this.age = age
+        this.bio = bio
+    }
+
     String getUserId() {
         return userId
     }
