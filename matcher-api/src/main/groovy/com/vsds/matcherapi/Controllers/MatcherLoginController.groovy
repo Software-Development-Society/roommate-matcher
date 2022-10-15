@@ -30,8 +30,12 @@ class MatcherLoginController {
             answerList.add(firstNum * secondNum)
 
         }
-        Map<String, Integer> matchedIds = new HashMap<>()
-        matchedIds.put("1000", 43)
+        Map<String, ArrayList<Integer>> matchedIds = new HashMap<>()
+        ArrayList<Integer> values = new ArrayList<>()
+        values.add(100)
+        values.add(102)
+        values.add(103)
+        matchedIds.put("1000", values)
         DbUser test = new DbUser("Test", "User", "tuser@villanova.edu", "male", 2024, 20, "This is a test user", answerList, matchedIds)
         test.setUserId("1001")
         DatabaseServices.updateUser(test)

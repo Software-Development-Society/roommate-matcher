@@ -55,11 +55,6 @@ class DatabaseServices {
                         currentUser.getAnswerList() as ArrayList<Integer>, currentUser.getMatchedIds() as Map<String, ArrayList<Integer>>)
         }
 
-        //TO DO
-        //how can you get the most recent version of the db?
-        static void loadDataBase(){
-
-        }
 
         static void saveUserFormResponse(DbUser currentUser, ArrayList<Integer> formResponse){
                 currentUser.setAnswerList(formResponse)
