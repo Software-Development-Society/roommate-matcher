@@ -2,18 +2,14 @@ package com.vsds.matcherapi.Controllers
 
 
 import com.vsds.matcherapi.User.User
-import com.vsds.matcherapi.database.DbUser
+import com.vsds.matcherapi.database.Users
 import com.vsds.matcherapi.services.DatabaseServices
-import com.vsds.matcherapi.services.UserServices
 import groovy.json.JsonSlurper
-import org.bson.json.JsonObject
-import org.json.JSONObject
+import org.bson.types.ObjectId
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.RequestBody
 import org.springframework.web.bind.annotation.RestController
-
-import javax.xml.crypto.Data
 
 @RestController
 class MatcherLoginController {
@@ -36,8 +32,7 @@ class MatcherLoginController {
         values.add(102)
         values.add(103)
         matchedIds.put("1000", values)
-        DbUser test = new DbUser("Test", "User", "tuser@villanova.edu", "male", 2024, 20, "This is a test user", answerList, matchedIds)
-        test.setUserId("1001")
+        Users test = new Users("John", "Doe", "jdoe@villanova.edu", "male", 2024, 20, "This is a new user", answerList, matchedIds)
         DatabaseServices.updateUser(test)
         return test.getFirstName()
     }

@@ -1,9 +1,8 @@
 package com.vsds.matcherapi.User
 
 import com.vsds.matcherapi.MatcherApiApplication
-import com.vsds.matcherapi.database.DbUser
+import com.vsds.matcherapi.database.Users
 import com.vsds.matcherapi.services.UserServices
-import org.springframework.data.mongodb.core.aggregation.ArrayOperators
 
 class MatchUsers {
     /*
@@ -18,7 +17,7 @@ class MatchUsers {
      */
     static Map<String, ArrayList<Integer>> matchAlgo(User currentUser){
         Map<String, ArrayList<Integer>> matchedIds = new HashMap<>()
-        for (DbUser userToMatch : MatcherApiApplication.visableRepo.findAll()){
+        for (Users userToMatch : MatcherApiApplication.visableRepo.findAll()){
             ArrayList<Integer> currentUserResp = currentUser.getAnswerList()
             ArrayList<Integer> userToMatchResp = userToMatch.getAnswerList()
 

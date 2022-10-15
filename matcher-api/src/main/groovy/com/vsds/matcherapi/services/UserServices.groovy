@@ -1,9 +1,9 @@
 package com.vsds.matcherapi.services
 
-import com.vsds.matcherapi.database.DbUser
+import com.vsds.matcherapi.database.Users
 
 class UserServices {
-    static boolean validateCorrectUser(DbUser user){
+    static boolean validateCorrectUser(Users user){
         try{
             String userId = user.getUserId()
             String firstName = user.getFirstName()

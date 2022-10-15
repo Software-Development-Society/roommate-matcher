@@ -1,11 +1,7 @@
 package com.vsds.matcherapi.User
 
-import com.vsds.matcherapi.database.DbUser
-import com.vsds.matcherapi.services.DatabaseServices
+
 import org.json.JSONObject
-import org.springframework.data.annotation.Id
-import org.springframework.data.mongodb.core.aggregation.ArrayOperators
-import org.springframework.data.mongodb.core.mapping.Field
 
 class User {
     private String userId
