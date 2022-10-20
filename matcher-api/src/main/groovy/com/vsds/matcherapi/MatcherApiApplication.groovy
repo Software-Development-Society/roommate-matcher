@@ -30,8 +30,8 @@ class MatcherApiApplication implements CommandLineRunner {
     void run(String... args) throws Exception {
         visableRepo = userRepository
 
-        for (Users dbUser: userRepository.findAll()){
-            print dbUser
+        for (Users users: userRepository.findAll()){
+            print users
         }
 
     }
