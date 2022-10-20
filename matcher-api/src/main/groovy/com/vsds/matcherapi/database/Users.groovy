@@ -31,7 +31,7 @@ class Users {
     @Field
     private ArrayList<Integer> answerList
     @Field
-    private Map<String, ArrayList<Integer>> matchedIds
+    private Map<ObjectId, ArrayList<Integer>> matchedIds
 
 
 
@@ -125,7 +125,7 @@ class Users {
         return answerList
     }
 
-    Map<String, ArrayList<Integer>> getMatchedIds() {
+    Map<ObjectId, ArrayList<Integer>> getMatchedIds() {
         return matchedIds
     }
 

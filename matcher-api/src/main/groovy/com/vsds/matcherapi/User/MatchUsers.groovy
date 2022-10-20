@@ -3,6 +3,7 @@ package com.vsds.matcherapi.User
 import com.vsds.matcherapi.MatcherApiApplication
 import com.vsds.matcherapi.database.Users
 import com.vsds.matcherapi.services.UserServices
+import org.bson.types.ObjectId
 
 class MatchUsers {
     /*
@@ -15,8 +16,8 @@ class MatchUsers {
     each question is compared to every other question and the total value is the sum of the difference of every question
     the lowest score is the persons best match
      */
-    static Map<String, ArrayList<Integer>> matchAlgo(User currentUser){
-        Map<String, ArrayList<Integer>> matchedIds = new HashMap<>()
+    static Map<ObjectId, ArrayList<Integer>> matchAlgo(User currentUser){
+        Map<ObjectId, ArrayList<Integer>> matchedIds = new HashMap<>()
         for (Users userToMatch : MatcherApiApplication.visableRepo.findAll()){
             ArrayList<Integer> currentUserResp = currentUser.getAnswerList()
             ArrayList<Integer> userToMatchResp = userToMatch.getAnswerList()
