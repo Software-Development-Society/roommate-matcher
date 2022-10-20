@@ -7,6 +7,10 @@ import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.CommandLineRunner
 import org.springframework.boot.SpringApplication
 import org.springframework.boot.autoconfigure.SpringBootApplication
+/*
+this is how the application runs
+DO NOT MODIFY THIS CODE!!!!
+ */
 
 @SpringBootApplication
 class MatcherApiApplication implements CommandLineRunner {
