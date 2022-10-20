@@ -6,7 +6,6 @@ body {
 h1{
     color: white;
 }
-<<<<<<< HEAD
 
 
 .navbar {
@@ -21,13 +20,11 @@ h1{
     display: block;
     position: sticky;
 }
-=======
 @media screen and (min-width: 480px) {
     body {
       background-color: lightgreen;
     }
   }
->>>>>>> 65507605dc7a254249aac754b26f0104f7d9895f
 .navhome{
     background-color: rgba(0,0,0,0.0) !important;
 }
@@ -49,10 +46,7 @@ h1{
     text-align-last: center;
     font-size: 25px;
 }
-.roomtitle:hover {
-    filter: brightness(1.0); !important
-    color: #000000; !important
-}
+
 #bar .bar_item{
     float: left;
     padding-top: .5em;
