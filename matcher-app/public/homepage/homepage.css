@@ -78,27 +78,19 @@ h1{
 }
 
 .card{
-    width: 50rem;
-    height: 10rem;
     width: 100%;
     padding-left: 5%;
     position: relative;
-    top: 12rem;
     top: 15%;
     border: none !important; 
     border-radius: 1em;
 }
 
-.card-body{
-    margin-left: 0px !important;
-    margin-right: 100px !important;
-}
 
 .card-title{
     color: white;
     font-weight: bold;
     text-align-last: left;
-    font-size: 30px;
     font-size: 40px;
 }
 
