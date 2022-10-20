@@ -40,7 +40,7 @@ class MatcherLoginController {
 
     @PostMapping("/login")
     String login(@RequestBody String login){
-        println(login)
+        println("Request body is: " +login)
         def inputString = slurper.parseText(login)
         ObjectId userId = new ObjectId(inputString["user_id"])
         println("User Id: " + userId)

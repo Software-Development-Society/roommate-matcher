@@ -27,8 +27,8 @@ app.use(session({
 mongoose.connect("mongodb+srv://vsds:lnBKl03NLjuCiieO@vsds.nio2wr0.mongodb.net/roommateMatcher?retryWrites=true&w=majority" /*, {useNewUrlParser:true}*/ );
 
 const userSchema = new Schema({
-    fName: String,
-    lName: String,
+    firstName: String,
+    lastName: String,
     age: Number,
     sex: String,
     classYear: Number,
@@ -88,31 +88,36 @@ app.post("/login", function (req, res) {
             passport.authenticate("local", {
                 failureRedirect: "Bozo"
             })(req, res, () => {
+                const userID = req.user.id;
                 console.log(req.user);
                 console.log("You logged in good");
                 console.log(req.user.id);
+                loginRequest(userID)
 
                 res.redirect("/");
+                
             });
         }
-        const userID = req.user.id;
-        console.log(userID);
+        
+
         //res.send(userID)
-        axios({
-            method: 'post',
-            url: 'http://localhost:8080/login',
-            data: {
-                user_id: userID,
-            }
-        }).then(response => {
-            console.log(response);
-            //res.send(response);
-        }).catch(error => {
-            console.log(error);
-            //res.send(error)
-        });
     })
 });
+async function loginRequest(userID){
+    axios({
+        method: 'post',
+        url: 'http://localhost:8080/login',
+        data: {
+            user_id: userID,
+        }
+    }).then(response => {
+        console.log(response);
+        //res.send(response);
+    }).catch(error => {
+        console.log(error);
+        //res.send(error)
+    });
+}
 
 /**
  * Register function takes a post request on the /register endpoint
@@ -122,8 +127,8 @@ app.post("/register", function (req, res) {
     console.log(req.body);
     User.register({
         username: req.body.username,
-        fName: req.body.fName,
-        lName: req.body.lName,
+        firstName: req.body.firstName,
+        lastName: req.body.lastName,
         age: Number(req.body.age),
         sex: req.body.sex,
         classYear: Number(req.body.classYear),
