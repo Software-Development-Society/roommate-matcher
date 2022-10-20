@@ -7,6 +7,11 @@ import org.springframework.data.mongodb.core.mapping.Field
 
 @Document
 class Users {
+    /*
+    this class connects our code to the database
+    the database contains a BSON object with these characteristics and when you iterate through the repository these objects are returned and the methods
+    that are declared here can be used on them
+     */
     @Id
     private ObjectId userId
     @Field
@@ -126,6 +131,6 @@ class Users {
 
     @Override
     public String toString(){
-        return String.format("User[id='%s', firstName='%s', lastName='%s']", userId, firstName, lastName)
+        return String.format("User[id='%s', firstName='%s', lastName='%s', email='%s']", userId, firstName, lastName, email)
     }
 }
