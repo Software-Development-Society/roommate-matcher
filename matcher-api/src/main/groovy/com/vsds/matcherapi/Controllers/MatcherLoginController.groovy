@@ -18,27 +18,11 @@ import javax.xml.crypto.Data
 @RestController
 class MatcherLoginController {
     JsonSlurper slurper = new JsonSlurper()
-
-    // used for testing only!!!
-    @GetMapping("/adduser")
-    String user(){
-        ArrayList<Integer> answerList = new ArrayList<>()
-        Random rand = new Random()
-        for (int i = 0; i < 30; i++){
-            int firstNum = rand.nextInt(5)+1
-            int secondNum = rand.nextInt(5)+1
-            answerList.add(firstNum * secondNum)
-
-        }
-        Map<String, Integer> matchedIds = new HashMap<>()
-        matchedIds.put("1000", 43)
-        DbUser test = new DbUser("Test", "User", "tuser@villanova.edu", "male", 2024, 20, "This is a test user", answerList, matchedIds)
-        test.setUserId("1001")
-        DatabaseServices.updateUser(test)
-        return test.getFirstName()
-    }
-
-
+    /*
+    input - takes a JSON formatted as {user_id:@hfgsih2w413}
+    method parses the json and converts it into a map with the key value pairs.
+    it then goes to the db and returns a json containing the user information
+     */
     @PostMapping("/login")
     String login(@RequestBody String login){
         def inputString = slurper.parseText(login)
