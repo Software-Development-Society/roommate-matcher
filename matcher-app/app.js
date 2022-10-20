@@ -32,7 +32,7 @@ const userSchema = new Schema({
     age: Number,
     sex: String,
     classYear: Number,
-    email: String,
+    username: String,
     password: String,
     bio: String
 });

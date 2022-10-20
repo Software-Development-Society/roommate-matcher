@@ -23,4 +23,8 @@ class UserServices {
         return true
     }
 
+    static String getValue(String value){
+
+    }
+
 }

@@ -8,12 +8,12 @@ import org.bson.types.ObjectId
 
 class DatabaseServices {
         static Users getUserFromId(ObjectId userId){
-                for (Users dbUser: MatcherApiApplication.visableRepo.findAll()){
-                        println("User gotten from repo :"+ dbUser.toString())
-                        if (dbUser.getUserId() != null){
-                                if (dbUser.getUserId() == userId){
-                                        println(dbUser.toString())
-                                        return dbUser
+                for (Users users: MatcherApiApplication.visableRepo.findAll()){
+                        println("User gotten from repo :"+ users.toString())
+                        if (users.getUserId() != null){
+                                if (users.getUserId() == userId){
+                                        println(users.toString())
+                                        return users
                                 }
                         }
                 }

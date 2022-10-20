@@ -33,5 +33,15 @@ class MatcherLoginController {
         return currentUser.returnUser() as String
     }
 
+    @PostMapping("/getInfo")
+    String getUserInfo(@RequestBody String info){
+        println("The request for getting user info is: " +info)
+        Map<String, String> inputString = slurper.parseText(info) as Map<String, String>
+        ObjectId userId = new ObjectId(inputString["user_id"])
+        User currentUser = DatabaseServices.getUser(userId)
+        String userUpdate = inputString.keySet()[1]
+
+    }
+
 
 }
