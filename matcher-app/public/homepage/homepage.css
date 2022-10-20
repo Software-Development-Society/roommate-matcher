@@ -6,7 +6,11 @@ body {
 h1{
     color: white;
 }
-
+@media screen and (min-width: 480px) {
+    body {
+      background-color: lightgreen;
+    }
+  }
 .navhome{
     background-color: rgba(0,0,0,0.0) !important;
 }
