@@ -1,11 +1,7 @@
 package com.vsds.matcherapi.User
 
-import com.vsds.matcherapi.database.DbUser
-import com.vsds.matcherapi.services.DatabaseServices
+
 import org.json.JSONObject
-import org.springframework.data.annotation.Id
-import org.springframework.data.mongodb.core.aggregation.ArrayOperators
-import org.springframework.data.mongodb.core.mapping.Field
 
 class User {
     private String userId
@@ -26,9 +22,9 @@ class User {
 
     private ArrayList<Integer> answerList
 
-    private Map<String, Integer> matchedId
+    private Map<String, ArrayList<Integer>> matchedId
 
-    User(String userId, String firstName, String lastName, String email, String sex, int classYear, int age, String bio, ArrayList<Integer> answerList, Map<String, Integer> matchedId) {
+    User(String userId, String firstName, String lastName, String email, String sex, int classYear, int age, String bio, ArrayList<Integer> answerList, Map<String, ArrayList<Integer>> matchedId) {
         this.userId = userId
         this.firstName = firstName
         this.lastName = lastName
@@ -39,6 +35,17 @@ class User {
         this.bio = bio
         this.answerList = answerList
         this.matchedId = matchedId
+    }
+
+    User(String userId, String firstName, String lastName, String email, String sex, int classYear, int age, String bio) {
+        this.userId = userId
+        this.firstName = firstName
+        this.lastName = lastName
+        this.email = email
+        this.sex = sex
+        this.classYear = classYear
+        this.age = age
+        this.bio = bio
     }
 
     String getUserId() {
@@ -77,7 +84,7 @@ class User {
         return answerList
     }
 
-    Map<String, Integer> getMatchedId() {
+    Map<String, ArrayList<Integer>> getMatchedId() {
         return matchedId
     }
 
@@ -117,7 +124,7 @@ class User {
         this.answerList = answerList
     }
 
-    void setMatchedId(Map<String, Integer> matchedId) {
+    void setMatchedId(Map<String, ArrayList<Integer>> matchedId) {
         this.matchedId = matchedId
     }
 
