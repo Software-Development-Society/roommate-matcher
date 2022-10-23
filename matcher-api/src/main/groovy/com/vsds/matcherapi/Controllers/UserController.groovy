@@ -10,6 +10,11 @@ import org.springframework.web.bind.annotation.RequestBody
 
 class UserController {
     JsonSlurper slurper = new JsonSlurper()
+    /*
+    input -> {"user_id":"@e3245y35, "value","first_name"}
+    takes the initial json and returns a json containing the information requested
+    return json -> {"first_name":"John"}
+     */
     @PostMapping("/getInfo")
     String getUserInfo(@RequestBody String info){
         println("The request for getting user info is: " +info)
