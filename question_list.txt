@@ -1,1 +1,23 @@
-
+How often do you expect to drink
+ > 5 times a week
+ > 3 times a week
+ 1 time a week
+ once a month
+ never 
+ 
+ When do you go to sleep
+ After 3 am
+ ~ 1:30 am
+ ~12:00 am
+ ~10:30 pm
+ Before 9pm
+ 
+ When do you wake up
+ After 12pm
+ ~ 10:30am
+ ~ 9:00am
+ ~ 7:30am
+ Before 6am
+ 
+ 
+ 
