@@ -19,7 +19,7 @@ class Users {
     @Field
     private String lastName
     @Field
-    private String email
+    private String username
     @Field
     private String sex
     @Field
@@ -37,10 +37,10 @@ class Users {
 
     public Users(){}
 
-    Users(String firstName, String lastName, String email, String sex, int classYear, int age, String bio, ArrayList<Integer[]> answerList, Map<ObjectId, ArrayList<Integer>> matchedIds) {
+    Users(String firstName, String lastName, String username, String sex, int classYear, int age, String bio, ArrayList<Integer[]> answerList, Map<ObjectId, ArrayList<Integer>> matchedIds) {
         this.firstName = firstName
         this.lastName = lastName
-        this.email = email
+        this.username = username
         this.sex = sex
         this.classYear = classYear
         this.age = age
@@ -62,7 +62,7 @@ class Users {
     }
 
     void setEmail(String email) {
-        this.email = email
+        this.username = email
     }
 
     void setSex(String sex) {
@@ -102,7 +102,7 @@ class Users {
     }
 
     String getEmail() {
-        return email
+        return username
     }
 
     String getSex() {
@@ -131,6 +131,6 @@ class Users {
 
     @Override
     public String toString(){
-        return String.format("User[id='%s', firstName='%s', lastName='%s', email='%s']", userId, firstName, lastName, email)
+        return String.format("User[id='%s', firstName='%s', lastName='%s', email='%s']", userId, firstName, lastName, username)
     }
 }

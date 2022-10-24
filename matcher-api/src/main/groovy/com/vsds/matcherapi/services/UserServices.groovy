@@ -2,6 +2,7 @@ package com.vsds.matcherapi.services
 
 import com.vsds.matcherapi.User.User
 import com.vsds.matcherapi.database.Users
+import org.bson.types.ObjectId
 
 class UserServices {
     static boolean validateCorrectUser(Users user){
@@ -15,7 +16,7 @@ class UserServices {
             int classYear = user.getClassYear()
             String bio = user.getBio()
             ArrayList<Integer> responses = user.getAnswerList()
-            Map<String, ArrayList<Integer>> matchedIds = user.getMatchedIds()
+            Map<ObjectId, ArrayList<Integer>> matchedIds = user.getMatchedIds()
         }
         catch (Exception e){
             println("ERROR IN FINDING USER: " +e)
