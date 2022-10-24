@@ -20,11 +20,11 @@ class User {
 
     private String bio
 
-    private ArrayList<Integer> answerList
+    private ArrayList<Integer[]> answerList
 
     private Map<String, ArrayList<Integer>> matchedId
 
-    User(String userId, String firstName, String lastName, String email, String sex, int classYear, int age, String bio, ArrayList<Integer> answerList, Map<String, ArrayList<Integer>> matchedId) {
+    User(String userId, String firstName, String lastName, String email, String sex, int classYear, int age, String bio, ArrayList<Integer[]> answerList, Map<String, ArrayList<Integer>> matchedId) {
         this.userId = userId
         this.firstName = firstName
         this.lastName = lastName
@@ -80,7 +80,7 @@ class User {
         return bio
     }
 
-    ArrayList<Integer> getAnswerList() {
+    ArrayList<Integer[]> getAnswerList() {
         return answerList
     }
 
@@ -120,7 +120,7 @@ class User {
         this.bio = bio
     }
 
-    void setAnswerList(ArrayList<Integer> answerList) {
+    void setAnswerList(ArrayList<Integer[]> answerList) {
         this.answerList = answerList
     }
 

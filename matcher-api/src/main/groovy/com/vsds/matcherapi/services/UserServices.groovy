@@ -1,5 +1,6 @@
 package com.vsds.matcherapi.services
 
+import com.vsds.matcherapi.User.User
 import com.vsds.matcherapi.database.Users
 
 class UserServices {
@@ -22,5 +23,38 @@ class UserServices {
         }
         return true
     }
+
+
+    static void updateUserFullJson(Map<String, String> updateInformation, User user){
+        for(String key : updateInformation.keySet()){
+            if (key == "first_name"){
+                user.setFirstName(updateInformation.get(key))
+            }
+            else if (key == "last_name"){
+                user.setLastName(updateInformation.get(key))
+            }
+            else if (key == "email"){
+                user.setEmail(updateInformation.get(key))
+            }
+            else if (key == "bio"){
+                user.setBio(updateInformation.get(key))
+            }
+            else if (key == "sex"){
+                user.setSex(updateInformation.get(key))
+            }
+            else if (key == "class_year"){
+                user.setClassYear(updateInformation.get(key) as int)
+            }
+            else if (key == "age"){
+                user.setAge(updateInformation.get(key) as int)
+            }
+            else if (key == "answer_list"){
+                user.setAnswerList(updateInformation.get(key) as ArrayList<Integer[]>)
+            }
+        }
+
+    }
+
+
 
 }

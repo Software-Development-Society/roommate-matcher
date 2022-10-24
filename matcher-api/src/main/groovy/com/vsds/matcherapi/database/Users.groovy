@@ -29,7 +29,7 @@ class Users {
     @Field
     private String bio
     @Field
-    private ArrayList<Integer> answerList
+    private ArrayList<Integer[]> answerList
     @Field
     private Map<ObjectId, ArrayList<Integer>> matchedIds
 
@@ -37,7 +37,7 @@ class Users {
 
     public Users(){}
 
-    Users(String firstName, String lastName, String email, String sex, int classYear, int age, String bio, ArrayList<Integer> answerList, Map<String, ArrayList<Integer>> matchedIds) {
+    Users(String firstName, String lastName, String email, String sex, int classYear, int age, String bio, ArrayList<Integer[]> answerList, Map<ObjectId, ArrayList<Integer>> matchedIds) {
         this.firstName = firstName
         this.lastName = lastName
         this.email = email
@@ -81,11 +81,11 @@ class Users {
         this.bio = bio
     }
 
-    void setAnswerList(ArrayList<Integer> answerList) {
+    void setAnswerList(ArrayList<Integer[]> answerList) {
         this.answerList = answerList
     }
 
-    void setMatchedIds(Map<String, ArrayList<Integer>> matchedIds) {
+    void setMatchedIds(Map<ObjectId, ArrayList<Integer>> matchedIds) {
         this.matchedIds = matchedIds
     }
 
@@ -121,7 +121,7 @@ class Users {
         return bio
     }
 
-    ArrayList<Integer> getAnswerList() {
+    ArrayList<Integer[]> getAnswerList() {
         return answerList
     }
 
