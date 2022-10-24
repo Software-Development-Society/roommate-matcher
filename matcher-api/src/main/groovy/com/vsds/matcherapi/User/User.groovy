@@ -1,6 +1,6 @@
 package com.vsds.matcherapi.User
 
-
+import org.bson.types.ObjectId
 import org.json.JSONObject
 
 class User {
@@ -22,9 +22,9 @@ class User {
 
     private ArrayList<Integer[]> answerList
 
-    private Map<String, ArrayList<Integer>> matchedId
+    private Map<ObjectId, ArrayList<Integer>> matchedId
 
-    User(String userId, String firstName, String lastName, String email, String sex, int classYear, int age, String bio, ArrayList<Integer[]> answerList, Map<String, ArrayList<Integer>> matchedId) {
+    User(String userId, String firstName, String lastName, String email, String sex, int classYear, int age, String bio, ArrayList<Integer[]> answerList, Map<ObjectId, ArrayList<Integer>> matchedId) {
         this.userId = userId
         this.firstName = firstName
         this.lastName = lastName
@@ -84,7 +84,7 @@ class User {
         return answerList
     }
 
-    Map<String, ArrayList<Integer>> getMatchedId() {
+    Map<ObjectId, ArrayList<Integer>> getMatchedId() {
         return matchedId
     }
 
@@ -124,7 +124,7 @@ class User {
         this.answerList = answerList
     }
 
-    void setMatchedId(Map<String, ArrayList<Integer>> matchedId) {
+    void setMatchedId(Map<ObjectId, ArrayList<Integer>> matchedId) {
         this.matchedId = matchedId
     }
 

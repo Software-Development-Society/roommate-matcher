@@ -52,7 +52,11 @@ class UserServices {
                 user.setAnswerList(updateInformation.get(key) as ArrayList<Integer[]>)
             }
         }
-
+        Users updatedUser = usersFromUser(user)
+        DatabaseServices.updateUser(updatedUser)
+    }
+    static Users usersFromUser(User user){
+        return new Users(user.getFirstName(), user.getLastName(), user.getEmail(), user.getSex(), user.getClassYear(), user.getAge(), user.getBio(), user.getAnswerList(), user.getMatchedId())
     }
 
 
