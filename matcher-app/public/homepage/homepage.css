@@ -87,6 +87,18 @@ h1{
     font-size: 40px;
 }
 
+/*This is modifying the btn-primary colors but you could create your own .btn-something class as well*/
+.btn-primary {
+    color: black;
+    background-color: white;
+    border-color: gray; /*set the color you want here*/
+}
+.btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open>.dropdown-toggle.btn-primary {
+    color: #fff;
+    background-color: rgb(0, 38, 255) !important; 
+    border-color: gray; /*set the color you want here*/
+}
+
 
 
 
