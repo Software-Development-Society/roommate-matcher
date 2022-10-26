@@ -1,6 +1,11 @@
+html{
+    height: 100vh;
+    overflow-y: hidden;
+    
+}
 body {
     background: linear-gradient(116.82deg, #1141EC 0%, #006EFF 43.82%, #009FFF 100%);
-    overflow: hidden;
+    overflow-y: scroll;
     height: 100vh;
 }
 
