@@ -19,7 +19,6 @@ How often do you expect to drink
  ~ 7:30am
  Before 6am
  
- 
  Do you mind other people in your room?
  I want people in my room all day every day
  I want people in my room frequently
@@ -27,4 +26,11 @@ How often do you expect to drink
  I only want people in my room rarely or with approval
  I never want other people in my room
  
+ Do you mind people spending the night in your dorm
  
+ 
+ 
+ How often do you smoke
+ 
+ 
+ Will you smoke in the room
