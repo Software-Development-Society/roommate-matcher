@@ -21,4 +21,10 @@ class MatchList {
         this.matchList = matchList
     }
 
+
+    @Override
+    String toString(){
+        return ""
+    }
+
 }

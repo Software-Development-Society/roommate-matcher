@@ -95,7 +95,11 @@ class User {
         this.bio = bio
     }
 
-
+    @Override
+    public String toString(){
+        return "First name: " + getFirstName() + "\nLast name: " + getLastName() + "\nEmail: " + getEmail() + "\nSex: " + getSex() + "\nAge:" + getAge() +
+                "\nClass year : " + getClassYear() + "\nBio: " + getBio();
+    }
 
     JSONObject returnUser(){
         JSONObject returnPayload = new JSONObject()
