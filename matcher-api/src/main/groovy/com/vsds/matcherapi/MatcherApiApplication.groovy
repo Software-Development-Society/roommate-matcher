@@ -1,12 +1,16 @@
 package com.vsds.matcherapi
 
-import com.vsds.matcherapi.User.User
-import com.vsds.matcherapi.database.DbUser
+
+import com.vsds.matcherapi.database.Users
 import com.vsds.matcherapi.database.UserRepository
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.CommandLineRunner
 import org.springframework.boot.SpringApplication
 import org.springframework.boot.autoconfigure.SpringBootApplication
+/*
+this is how the application runs
+DO NOT MODIFY THIS CODE!!!!
+ */
 
 @SpringBootApplication
 class MatcherApiApplication implements CommandLineRunner {
@@ -26,7 +30,7 @@ class MatcherApiApplication implements CommandLineRunner {
     void run(String... args) throws Exception {
         visableRepo = userRepository
 
-        for (DbUser dbUser: userRepository.findAll()){
+        for (Users dbUser: userRepository.findAll()){
             print dbUser
         }
 

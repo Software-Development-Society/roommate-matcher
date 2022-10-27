@@ -1,0 +1,18 @@
+How The Matching Algorithm Works
+Each question has two parts:
+	1. 5 multiple choice responses with 5 being the extreme on one end and 1 being the extreme on the other end
+	2. 4 options for how the user wishes the person they are matching with to respond
+The multiple choice questions are set up as follows:
+	1 -> 1
+	2 -> 3
+	3 -> 6
+	4 -> 9
+	5 -> 10
+The importance is rated as follows:
+	1 -> 1
+	2 -> 2
+	3 -> 4
+	4 -> 5
+For each question:
+	take both users multiple choice option and |x2-x1| => xScore
+	take both users importance and y2+y2 => yScore

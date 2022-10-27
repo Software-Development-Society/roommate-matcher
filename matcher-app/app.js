@@ -5,15 +5,20 @@ const bodyParser = require('body-parser');
 const passport = require("passport");
 const passportLocalMongoose = require("passport-local-mongoose");
 const mongoose = require("mongoose");
-const { response } = require("express");
+const {
+    response
+} = require("express");
+const axios = require('axios').default;
 
 const Schema = mongoose.Schema;
 
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({
     extended: true
-  }));
-  
+}));
+
+
+//ABSOLUTELY MAKE SURE TO CHANGE AND HIDE SECRET KEY BEFORE PRODUCTION
 app.use(session({
     secret: 'keyboard cat',
     resave: false,
@@ -21,11 +26,14 @@ app.use(session({
     //cookie: {secure: true}
 }));
 
-//mongoose.connect("mongodb://localhost:27017/userDB"/*, {useNewUrlParser:true}*/);
+
+//MAKE SURE TO HIDE AND CHANGE THIS AS WELL
+mongoose.connect("mongodb+srv://vsds:lnBKl03NLjuCiieO@vsds.nio2wr0.mongodb.net/roommateMatcher?retryWrites=true&w=majority" /*, {useNewUrlParser:true}*/ );
+
 
 const userSchema = new Schema({
-    fName: String,
-    lName: String,
+    firstName: String,
+    lastName: String,
     age: Number,
     sex: String,
     classYear: Number,
@@ -50,8 +58,8 @@ app.get("/", function (req, res) {
     res.sendFile(__dirname + "/index.html");
 });
 
-app.get("/secret", (req, res)=>{
-    if(req.isAuthenticated()){
+app.get("/secret", (req, res) => {
+    if (req.isAuthenticated()) {
         res.send("You're good");
     } else {
         res.redirect("/login");
@@ -77,19 +85,44 @@ app.post("/login", function (req, res) {
         username: req.body.username,
         password: req.body.password,
     });
-    req.logIn(user, (err)=>{
-        if(err){
+    //res.send("Worked");
+    req.logIn(user, (err) => {
+        if (err) {
             console.log("error");
         } else {
-            passport.authenticate("local", {failureRedirect:"Bozo"})(req, res, ()=>{
+            passport.authenticate("local", {
+                failureRedirect: "Bozo"
+            })(req, res, () => {
+                const userID = req.user.id;
                 console.log(req.user);
                 console.log("You logged in good");
                 console.log(req.user.id);
+                loginRequest(userID)
+
                 res.redirect("/");
+                
             });
         }
+        
+
+        //res.send(userID)
     })
 });
+async function loginRequest(userID){
+    axios({
+        method: 'post',
+        url: 'http://localhost:8080/login',
+        data: {
+            user_id: userID,
+        }
+    }).then(response => {
+        console.log(response);
+        //res.send(response);
+    }).catch(error => {
+        console.log(error);
+        //res.send(error)
+    });
+}
 
 /**
  * Register function takes a post request on the /register endpoint
@@ -97,18 +130,45 @@ app.post("/login", function (req, res) {
  */
 app.post("/register", function (req, res) {
     console.log(req.body);
-    User.register({username: req.body.username, fName: req.body.fName, lName: req.body.lName, age: Number(req.body.age), sex: req.body.sex, classYear: Number(req.body.classYear), bio: req.body.bio}, req.body.password, (err, user)=>{
-        if(err){
+    User.register({
+        username: req.body.username,
+        firstName: req.body.firstName,
+        lastName: req.body.lastName,
+        age: Number(req.body.age),
+        sex: req.body.sex,
+        classYear: Number(req.body.classYear),
+        bio: req.body.bio
+    }, req.body.password, (err, user) => {
+        if (err) {
             console.log(err);
             response.redirect("/register");
         } else {
-            passport.authenticate("local")(req, res, ()=>{
+            passport.authenticate("local")(req, res, () => {
                 console.log(req.user.id);
                 res.redirect("/");
             });
-            
+
         }
     })
+});
+
+app.get("/test", async (req, res) => {
+    const userID = req.query.userID;
+    console.log(userID);
+    //res.send(userID)
+    axios({
+        method: 'post',
+        url: 'http://localhost:8080/login',
+        data: {
+            user_id: userID,
+        }
+    }).then(response => {
+        console.log(response);
+        res.send(response);
+    }).catch(error => {
+        console.log(error);
+        res.send(error)
+    });
 });
 
 app.listen(3000, function () {

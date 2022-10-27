@@ -1,19 +1,25 @@
 package com.vsds.matcherapi.database
 
+import org.bson.types.ObjectId
 import org.springframework.data.annotation.Id
 import org.springframework.data.mongodb.core.mapping.Document
 import org.springframework.data.mongodb.core.mapping.Field
 
-@Document
-class DbUser {
+@Document(collection = "users")
+class Users {
+    /*
+    this class connects our code to the database
+    the database contains a BSON object with these characteristics and when you iterate through the repository these objects are returned and the methods
+    that are declared here can be used on them
+     */
     @Id
-    private String userId
+    private ObjectId userId
     @Field
     private String firstName
     @Field
     private String lastName
     @Field
-    private String email
+    private String username
     @Field
     private String sex
     @Field
@@ -22,21 +28,28 @@ class DbUser {
     private int age
     @Field
     private String bio
+    @Field
+    private ArrayList<Integer[]> answerList
+    @Field
+    private Map<ObjectId, ArrayList<Integer>> matchedIds
 
 
-    public DbUser(){}
 
-    DbUser(String firstName, String lastName, String email, String sex, int classYear, int age, String bio) {
+    public Users(){}
+
+    Users(String firstName, String lastName, String username, String sex, int classYear, int age, String bio, ArrayList<Integer[]> answerList, Map<ObjectId, ArrayList<Integer>> matchedIds) {
         this.firstName = firstName
         this.lastName = lastName
-        this.email = email
+        this.username = username
         this.sex = sex
         this.classYear = classYear
         this.age = age
         this.bio = bio
+        this.answerList = answerList
+        this.matchedIds = matchedIds
     }
 
-    void setUserId(String userId) {
+    void setUserId(ObjectId userId) {
         this.userId = userId
     }
 
@@ -49,7 +62,7 @@ class DbUser {
     }
 
     void setEmail(String email) {
-        this.email = email
+        this.username = email
     }
 
     void setSex(String sex) {
@@ -68,7 +81,15 @@ class DbUser {
         this.bio = bio
     }
 
-    String getUserId() {
+    void setAnswerList(ArrayList<Integer[]> answerList) {
+        this.answerList = answerList
+    }
+
+    void setMatchedIds(Map<ObjectId, ArrayList<Integer>> matchedIds) {
+        this.matchedIds = matchedIds
+    }
+
+    ObjectId getUserId() {
         return userId
     }
 
@@ -81,7 +102,7 @@ class DbUser {
     }
 
     String getEmail() {
-        return email
+        return username
     }
 
     String getSex() {
@@ -100,8 +121,16 @@ class DbUser {
         return bio
     }
 
+    ArrayList<Integer[]> getAnswerList() {
+        return answerList
+    }
+
+    Map<ObjectId, ArrayList<Integer>> getMatchedIds() {
+        return matchedIds
+    }
+
     @Override
     public String toString(){
-        return String.format("User[id='%s', firstName='%s', lastName='%s']", userId, firstName, lastName)
+        return String.format("User[id='%s', firstName='%s', lastName='%s', email='%s']", userId, firstName, lastName, username)
     }
 }

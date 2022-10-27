@@ -1,54 +1,145 @@
 package com.vsds.matcherapi.User
 
-import com.vsds.matcherapi.database.DbUser
-import com.vsds.matcherapi.services.DatabaseServices
+import org.bson.types.ObjectId
+import org.json.JSONObject
 
 class User {
+    private String userId
 
-    static DbUser user
-    static void loadCurrentUser(String userId){
-        user = DatabaseServices.getUserFromId(userId)
-    }
-    static String getUserId(){
-        return user.getUserId()
-    }
+    private String firstName
 
-    static String getFirstName(){
-        return user.getFirstName()
-    }
+    private String lastName
 
-    static String getLastName(){
-        return user.getLastName()
-    }
+    private String email
 
-    static String getEmail(){
-        return user.getEmail()
-    }
+    private String sex
 
-    static String getSex(){
-        return user.getSex()
-    }
+    private int classYear
 
-    static int getClassYear(){
-        return user.getClassYear()
-    }
+    private int age
 
-    static int getAge(){
-        return user.getAge()
-    }
+    private String bio
 
-    static String getBio(){
-        user.getBio()
-    }
-    static DbUser getUser(){
-        return user
-    }
-    static void setFirstName(String name){
-        user.setFirstName(name)
+    private ArrayList<Integer[]> answerList
+
+    private Map<ObjectId, ArrayList<Integer>> matchedId
+
+    User(String userId, String firstName, String lastName, String email, String sex, int classYear, int age, String bio, ArrayList<Integer[]> answerList, Map<ObjectId, ArrayList<Integer>> matchedId) {
+        this.userId = userId
+        this.firstName = firstName
+        this.lastName = lastName
+        this.email = email
+        this.sex = sex
+        this.classYear = classYear
+        this.age = age
+        this.bio = bio
+        this.answerList = answerList
+        this.matchedId = matchedId
     }
 
-    static void updateDatabase(){
-        DatabaseServices.updateUser(user)
+    User(String userId, String firstName, String lastName, String email, String sex, int classYear, int age, String bio) {
+        this.userId = userId
+        this.firstName = firstName
+        this.lastName = lastName
+        this.email = email
+        this.sex = sex
+        this.classYear = classYear
+        this.age = age
+        this.bio = bio
+    }
 
+    String getUserId() {
+        return userId
+    }
+
+    String getFirstName() {
+        return firstName
+    }
+
+    String getLastName() {
+        return lastName
+    }
+
+    String getEmail() {
+        return email
+    }
+
+    String getSex() {
+        return sex
+    }
+
+    int getClassYear() {
+        return classYear
+    }
+
+    int getAge() {
+        return age
+    }
+
+    String getBio() {
+        return bio
+    }
+
+    ArrayList<Integer[]> getAnswerList() {
+        return answerList
+    }
+
+    Map<ObjectId, ArrayList<Integer>> getMatchedId() {
+        return matchedId
+    }
+
+    void setUserId(String userId) {
+        this.userId = userId
+    }
+
+    void setFirstName(String firstName) {
+        this.firstName = firstName
+    }
+
+    void setLastName(String lastName) {
+        this.lastName = lastName
+    }
+
+    void setEmail(String email) {
+        this.email = email
+    }
+
+    void setSex(String sex) {
+        this.sex = sex
+    }
+
+    void setClassYear(int classYear) {
+        this.classYear = classYear
+    }
+
+    void setAge(int age) {
+        this.age = age
+    }
+
+    void setBio(String bio) {
+        this.bio = bio
+    }
+
+    void setAnswerList(ArrayList<Integer[]> answerList) {
+        this.answerList = answerList
+    }
+
+    void setMatchedId(Map<ObjectId, ArrayList<Integer>> matchedId) {
+        this.matchedId = matchedId
+    }
+
+
+    JSONObject returnUser(){
+        JSONObject returnPayload = new JSONObject()
+        returnPayload.put("first_name", getFirstName())
+        returnPayload.put("last_name", getLastName())
+        returnPayload.put("email", getEmail())
+        returnPayload.put("sex", getSex())
+        returnPayload.put("age", getAge() as String)
+        returnPayload.put("class_year", getClassYear() as String)
+        returnPayload.put("bio", getBio())
+        returnPayload.put("answer_list", getAnswerList())
+        returnPayload.put("matched_ids", getMatchedId())
+        return returnPayload
     }
 }

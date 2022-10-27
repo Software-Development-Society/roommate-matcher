@@ -2,10 +2,10 @@ package com.vsds.matcherapi.Controllers
 
 
 import com.vsds.matcherapi.User.User
-import com.vsds.matcherapi.database.DbUser
+import com.vsds.matcherapi.database.Users
 import com.vsds.matcherapi.services.DatabaseServices
-import com.vsds.matcherapi.services.UserServices
 import groovy.json.JsonSlurper
+import org.bson.types.ObjectId
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.RequestBody
@@ -13,42 +13,25 @@ import org.springframework.web.bind.annotation.RestController
 
 @RestController
 class MatcherLoginController {
-    @GetMapping
-    public String helloWorld(){
-        return "hello world"
-    }
-
-    @PostMapping("/login-handling")
-    public String loginHandling(String userId){
+    JsonSlurper slurper = new JsonSlurper()
 
 
-        return 'login success'
 
-
-    }
-    @GetMapping("/login-test")
-    public String test(){
-        User.loadCurrentUser("1000")
-        User.setFirstName("John")
-        User.updateDatabase()
-        String test = User.getLastName()
-        return test
-
-    }
+    /*
+    input - takes a JSON formatted as {user_id:@hfgsih2w413}
+    method parses the json and converts it into a map with the key value pairs.
+    it then goes to the db and returns a json containing the user information
+     */
     @PostMapping("/login")
-    void login(@RequestBody String login){
-        println "The user id is: " +login
-        JsonSlurper slurper = new JsonSlurper()
+    String login(@RequestBody String login){
+        println("Request body is: " +login)
         def inputString = slurper.parseText(login)
-        String userId = inputString["user_id"]
-        User.loadCurrentUser(userId)
-        String test = User.getLastName()
-//        return test
+        ObjectId userId = new ObjectId(inputString["user_id"])
+        println("User Id: " + userId)
+        User currentUser = DatabaseServices.getUser(userId)
+        println("New user logged in: " + currentUser.getFirstName())
+        return currentUser.returnUser() as String
     }
 
-    @GetMapping
-    String returnUser(){
-        return User.getFirstName() + User.getLastName()
-    }
 
 }
