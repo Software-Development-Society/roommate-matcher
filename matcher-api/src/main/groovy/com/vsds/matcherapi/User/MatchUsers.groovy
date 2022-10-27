@@ -18,7 +18,7 @@ class MatchUsers {
      */
     static Map<ObjectId, ArrayList<Integer>> matchAlgo(User currentUser){
         Map<ObjectId, ArrayList<Integer>> matchedIds = new HashMap<>()
-        for (Users userToMatch : MatcherApiApplication.visableRepo.findAll()){
+        for (Users userToMatch : MatcherApiApplication.visableUserRepo.findAll()){
             ArrayList<Integer> currentUserResp = currentUser.getAnswerList()
             ArrayList<Integer> userToMatchResp = userToMatch.getAnswerList()
 

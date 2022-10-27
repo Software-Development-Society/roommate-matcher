@@ -10,7 +10,7 @@ class User {
 
     private String lastName
 
-    private String email
+    private String userName
 
     private String sex
 
@@ -19,29 +19,11 @@ class User {
     private int age
 
     private String bio
-
-    private ArrayList<Integer[]> answerList
-
-    private Map<ObjectId, ArrayList<Integer>> matchedId
-
-    User(String userId, String firstName, String lastName, String email, String sex, int classYear, int age, String bio, ArrayList<Integer[]> answerList, Map<ObjectId, ArrayList<Integer>> matchedId) {
+    User(String userId, String firstName, String lastName, String userName, String sex, int classYear, int age, String bio) {
         this.userId = userId
         this.firstName = firstName
         this.lastName = lastName
-        this.email = email
-        this.sex = sex
-        this.classYear = classYear
-        this.age = age
-        this.bio = bio
-        this.answerList = answerList
-        this.matchedId = matchedId
-    }
-
-    User(String userId, String firstName, String lastName, String email, String sex, int classYear, int age, String bio) {
-        this.userId = userId
-        this.firstName = firstName
-        this.lastName = lastName
-        this.email = email
+        this.userName = userName
         this.sex = sex
         this.classYear = classYear
         this.age = age
@@ -61,7 +43,7 @@ class User {
     }
 
     String getEmail() {
-        return email
+        return userName
     }
 
     String getSex() {
@@ -80,13 +62,6 @@ class User {
         return bio
     }
 
-    ArrayList<Integer[]> getAnswerList() {
-        return answerList
-    }
-
-    Map<ObjectId, ArrayList<Integer>> getMatchedId() {
-        return matchedId
-    }
 
     void setUserId(String userId) {
         this.userId = userId
@@ -100,8 +75,8 @@ class User {
         this.lastName = lastName
     }
 
-    void setEmail(String email) {
-        this.email = email
+    void userName(String userName) {
+        this.userName = email
     }
 
     void setSex(String sex) {
@@ -120,13 +95,6 @@ class User {
         this.bio = bio
     }
 
-    void setAnswerList(ArrayList<Integer[]> answerList) {
-        this.answerList = answerList
-    }
-
-    void setMatchedId(Map<ObjectId, ArrayList<Integer>> matchedId) {
-        this.matchedId = matchedId
-    }
 
 
     JSONObject returnUser(){
@@ -138,8 +106,6 @@ class User {
         returnPayload.put("age", getAge() as String)
         returnPayload.put("class_year", getClassYear() as String)
         returnPayload.put("bio", getBio())
-        returnPayload.put("answer_list", getAnswerList())
-        returnPayload.put("matched_ids", getMatchedId())
         return returnPayload
     }
 }
