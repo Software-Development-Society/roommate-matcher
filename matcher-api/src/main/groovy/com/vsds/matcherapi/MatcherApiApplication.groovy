@@ -1,6 +1,9 @@
 package com.vsds.matcherapi
 
-
+import com.vsds.matcherapi.database.MatchList
+import com.vsds.matcherapi.database.MatchListRepository
+import com.vsds.matcherapi.database.Questions
+import com.vsds.matcherapi.database.QuestionsRepository
 import com.vsds.matcherapi.database.Users
 import com.vsds.matcherapi.database.UserRepository
 import org.springframework.beans.factory.annotation.Autowired
@@ -15,11 +18,17 @@ DO NOT MODIFY THIS CODE!!!!
 @SpringBootApplication
 class MatcherApiApplication implements CommandLineRunner {
     public UserRepository userRepository
-    public static UserRepository visableRepo
+    public static UserRepository visableUserRepo
+    public QuestionsRepository questionsRepository
+    public static visableQuestionRepo
+    public MatchListRepository matchListRepository
+    public static MatchListRepository visableMatchListRepo
 
     @Autowired
-    AppApplication(UserRepository userRepository){
+    AppApplication(UserRepository userRepository, QuestionsRepository questionsRepository, MatchListRepository matchListRepository){
         this.userRepository = userRepository
+        this.questionsRepository = questionsRepository
+        this.matchListRepository = matchListRepository
     }
 
     static void main(String[] args) {
@@ -28,11 +37,23 @@ class MatcherApiApplication implements CommandLineRunner {
 
     @Override
     void run(String... args) throws Exception {
-        visableRepo = userRepository
+        visableUserRepo = userRepository
+        visableQuestionRepo = questionsRepository
+        visableMatchListRepo = matchListRepository
+
+        for(Questions question : questionsRepository.findAll()){
+            print question
+        }
+        println()
 
         for (Users dbUser: userRepository.findAll()){
             print dbUser
         }
+        println()
 
+        for(MatchList matchList : matchListRepository.findAll()){
+            print matchList
+        }
+        println()
     }
 }

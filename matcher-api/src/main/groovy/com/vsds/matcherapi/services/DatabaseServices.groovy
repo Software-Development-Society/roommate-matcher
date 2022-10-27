@@ -8,7 +8,7 @@ import org.bson.types.ObjectId
 
 class DatabaseServices {
         static Users getUserFromId(ObjectId userId){
-                for (Users dbUser: MatcherApiApplication.visableRepo.findAll()){
+                for (Users dbUser: MatcherApiApplication.visableUserRepo.findAll()){
                         println("User gotten from repo :"+ dbUser.toString())
                         if (dbUser.getUserId() != null){
                                 if (dbUser.getUserId() == userId){
@@ -23,7 +23,7 @@ class DatabaseServices {
         }
 
         static void updateUser(Users user){
-                MatcherApiApplication.visableRepo.save(user)
+                MatcherApiApplication.visableUserRepo.save(user)
         }
 
 
@@ -32,12 +32,8 @@ class DatabaseServices {
                 Users currentUser = getUserFromId(userId)
                 println("Current user" + currentUser)
                 return new User(currentUser.getUserId() as String, currentUser.getFirstName() as String, currentUser.getLastName() as String,
-                        currentUser.getEmail() as String, currentUser.getSex() as String, currentUser.classYear as int, currentUser.age as int, currentUser.getBio() as String)
+                        currentUser.getUsername() as String, currentUser.getSex() as String, currentUser.classYear as int, currentUser.age as int, currentUser.getBio() as String)
         }
 
 
-        static void saveUserFormResponse(Users currentUser, ArrayList<Integer> formResponse){
-                currentUser.setAnswerList(formResponse)
-                updateUser(currentUser)
-        }
 }

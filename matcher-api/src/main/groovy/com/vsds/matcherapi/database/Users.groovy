@@ -28,16 +28,12 @@ class Users {
     private int age
     @Field
     private String bio
-    @Field
-    private ArrayList<Integer[]> answerList
-    @Field
-    private Map<ObjectId, ArrayList<Integer>> matchedIds
 
 
 
     public Users(){}
 
-    Users(String firstName, String lastName, String username, String sex, int classYear, int age, String bio, ArrayList<Integer[]> answerList, Map<ObjectId, ArrayList<Integer>> matchedIds) {
+    Users(String firstName, String lastName, String username, String sex, int classYear, int age, String bio) {
         this.firstName = firstName
         this.lastName = lastName
         this.username = username
@@ -45,48 +41,6 @@ class Users {
         this.classYear = classYear
         this.age = age
         this.bio = bio
-        this.answerList = answerList
-        this.matchedIds = matchedIds
-    }
-
-    void setUserId(ObjectId userId) {
-        this.userId = userId
-    }
-
-    void setFirstName(String firstName) {
-        this.firstName = firstName
-    }
-
-    void setLastName(String lastName) {
-        this.lastName = lastName
-    }
-
-    void setEmail(String email) {
-        this.username = email
-    }
-
-    void setSex(String sex) {
-        this.sex = sex
-    }
-
-    void setClassYear(int classYear) {
-        this.classYear = classYear
-    }
-
-    void setAge(int age) {
-        this.age = age
-    }
-
-    void setBio(String bio) {
-        this.bio = bio
-    }
-
-    void setAnswerList(ArrayList<Integer[]> answerList) {
-        this.answerList = answerList
-    }
-
-    void setMatchedIds(Map<ObjectId, ArrayList<Integer>> matchedIds) {
-        this.matchedIds = matchedIds
     }
 
     ObjectId getUserId() {
@@ -101,7 +55,7 @@ class Users {
         return lastName
     }
 
-    String getEmail() {
+    String getUsername() {
         return username
     }
 
@@ -121,12 +75,36 @@ class Users {
         return bio
     }
 
-    ArrayList<Integer[]> getAnswerList() {
-        return answerList
+    void setUserId(ObjectId userId) {
+        this.userId = userId
     }
 
-    Map<ObjectId, ArrayList<Integer>> getMatchedIds() {
-        return matchedIds
+    void setFirstName(String firstName) {
+        this.firstName = firstName
+    }
+
+    void setLastName(String lastName) {
+        this.lastName = lastName
+    }
+
+    void setUsername(String username) {
+        this.username = username
+    }
+
+    void setSex(String sex) {
+        this.sex = sex
+    }
+
+    void setClassYear(int classYear) {
+        this.classYear = classYear
+    }
+
+    void setAge(int age) {
+        this.age = age
+    }
+
+    void setBio(String bio) {
+        this.bio = bio
     }
 
     @Override
