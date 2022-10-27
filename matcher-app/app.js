@@ -55,7 +55,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 app.get("/", function (req, res) {
-    res.sendFile(__dirname + "/index.html");
+    res.sendFile(__dirname + "/public/homepage/homepage.html");
 });
 
 app.get("/secret", (req, res) => {
@@ -68,10 +68,6 @@ app.get("/secret", (req, res) => {
 
 app.get("/login", function (req, res) {
     res.sendFile(__dirname + "/public/login.html");
-});
-
-app.get("/home", function (req, res) {
-    res.sendFile(__dirname + "/public/homepage/homepage.html");
 });
 
 app.get("/register", function (req, res) {
