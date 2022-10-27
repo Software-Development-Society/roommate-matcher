@@ -70,7 +70,9 @@ app.get("/register", function (req, res) {
     res.sendFile(__dirname + "/public/register.html");
 });
 
-
+app.get("/changeanswer", function (req, res) {
+    res.sendFile(__dirname + "/public/changeans/change.html");
+});
 
 app.post("/login", function (req, res) {
     const user = new User({
