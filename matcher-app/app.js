@@ -26,8 +26,10 @@ app.use(session({
     //cookie: {secure: true}
 }));
 
+
 //MAKE SURE TO HIDE AND CHANGE THIS AS WELL
 mongoose.connect("mongodb+srv://vsds:lnBKl03NLjuCiieO@vsds.nio2wr0.mongodb.net/roommateMatcher?retryWrites=true&w=majority" /*, {useNewUrlParser:true}*/ );
+
 
 const userSchema = new Schema({
     firstName: String,
