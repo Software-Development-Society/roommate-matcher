@@ -7,6 +7,8 @@ import org.bson.types.ObjectId
 class UserServices {
 
     static void updateUserFullJson(Map<String, String> updateInformation, User user){
+        println(user.toString())
+        println()
         for(String key : updateInformation.keySet()){
             if (key == "first_name"){
                 user.setFirstName(updateInformation.get(key))
@@ -31,6 +33,8 @@ class UserServices {
             }
         }
         Users updatedUser = usersFromUser(user)
+        ObjectId user_id = new ObjectId(user.getUserId())
+        updatedUser.setUserId(user_id)
         DatabaseServices.updateUser(updatedUser)
     }
     static Users usersFromUser(User user){

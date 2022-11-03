@@ -97,6 +97,8 @@ class User {
 
 
 
+
+
     JSONObject returnUser(){
         JSONObject returnPayload = new JSONObject()
         returnPayload.put("first_name", getFirstName())
@@ -107,5 +109,19 @@ class User {
         returnPayload.put("class_year", getClassYear() as String)
         returnPayload.put("bio", getBio())
         return returnPayload
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "userId='" + userId + '\'' +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", userName='" + userName + '\'' +
+                ", sex='" + sex + '\'' +
+                ", classYear=" + classYear +
+                ", age=" + age +
+                ", bio='" + bio + '\'' +
+                '}';
     }
 }

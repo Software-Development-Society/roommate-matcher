@@ -2,9 +2,11 @@ package com.vsds.matcherapi.Controllers
 
 import com.vsds.matcherapi.User.User
 import com.vsds.matcherapi.services.DatabaseServices
+import com.vsds.matcherapi.services.UserServices
 import groovy.json.JsonSlurper
 import org.bson.types.ObjectId
 import org.json.JSONObject
+import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.RequestBody
 import org.springframework.web.bind.annotation.RestController
@@ -50,4 +52,16 @@ class UserController {
         returnPayload.put(returnValue, valueToReturn)
         return returnPayload as String
     }
+
+    @PostMapping("/update-user")
+    String updateUser(@RequestBody String input){
+        def updateInformation = slurper.parseText(input);
+        ObjectId user_id = new ObjectId(updateInformation["user_id"])
+        User currentUser = DatabaseServices.getUser(user_id)
+        UserServices.updateUserFullJson(updateInformation as Map<String, String>, currentUser)
+        JSONObject returnPayload = new JSONObject()
+        returnPayload.put("true", "user updated")
+        return returnPayload as String
+    }
+
 }
