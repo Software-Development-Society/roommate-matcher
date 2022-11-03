@@ -12,15 +12,20 @@ class Questions {
     @Id
     ObjectId user_id
     @Field
+    String sex
+    @Field
     ArrayList<ArrayList<Integer>> responses
 
-    Questions(ArrayList<ArrayList<Integer>> responses) {
+    Questions(String sex, ArrayList<ArrayList<Integer>> responses) {
+        this.sex = sex
         this.responses = responses
     }
+
     Questions(){}
 
-    Questions(ObjectId user_id, ArrayList<ArrayList<Integer>> responses) {
+    Questions(ObjectId user_id, String sex, ArrayList<ArrayList<Integer>> responses) {
         this.user_id = user_id
+        this.sex = sex
         this.responses = responses
     }
 
