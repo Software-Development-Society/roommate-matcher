@@ -42,7 +42,7 @@ class User {
         return lastName
     }
 
-    String getEmail() {
+    String getUserName() {
         return userName
     }
 
@@ -75,7 +75,7 @@ class User {
         this.lastName = lastName
     }
 
-    void userName(String userName) {
+    void setUserName(String userName) {
         this.userName = email
     }
 

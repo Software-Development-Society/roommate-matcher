@@ -67,7 +67,7 @@ app.get("/secret", (req, res) => {
 })
 
 app.get("/login", function (req, res) {
-    res.sendFile(__dirname + "/public/login.html");
+    res.sendFile(__dirname + "/public/login/login.html");
 });
 
 app.get("/register", function (req, res) {
