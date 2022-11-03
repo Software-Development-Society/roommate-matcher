@@ -20,7 +20,8 @@ class FormController {
     Returns -> {"true" : "Response succesfully saved"} or {"false" : "error message"}
 
      */
-    @PostMapping()
+
+    @PostMapping("/save-responses")
     String saveUserForm(@RequestBody String input){
         println("User to save response.")
 
