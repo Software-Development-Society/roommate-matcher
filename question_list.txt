@@ -31,10 +31,15 @@
  
  
  6. How often do you smoke
- 
+  Once a day
+  Once a week
+  Once a month
+  Once a year
+  Never
  
  7. Will you smoke in the room
- 
+  Yes
+  No
  
 8. How often do you plan to be in the room
 
@@ -73,16 +78,26 @@
 
 20. How often do you plan on going home
 
-21. 
+21. What major are you taking
 
+22. Do you live in the country, or are you studying abroad
 
+23. What is your Communitas program
 
+24. Do you have any serious allergies
+  Yes
+  No
 
+25. Do you have a part-time job
+  Yes
+  No
 
+26. What are your top 3 hobbies
 
+27.
 
+28.
 
+29.
 
-
-
-
+30.
