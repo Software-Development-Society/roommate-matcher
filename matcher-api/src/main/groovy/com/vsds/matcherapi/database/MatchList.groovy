@@ -42,19 +42,5 @@ class MatchList {
     void setMatchList(Map<ObjectId, ArrayList<Integer>> matchList) {
         this.matchList = matchList
     }
-    ObjectId getUserId() {
-        return userId
-    }
 
-    void setUserId(ObjectId userId) {
-        this.userId = userId
-    }
-
-    Map<ObjectId, ArrayList<Integer>> getMatchList() {
-        return matchList
-    }
-
-    void setMatchList(Map<ObjectId, ArrayList<Integer>> matchList) {
-        this.matchList = matchList
-    }
 }
