@@ -101,7 +101,7 @@ class User {
         JSONObject returnPayload = new JSONObject()
         returnPayload.put("first_name", getFirstName())
         returnPayload.put("last_name", getLastName())
-        returnPayload.put("email", getEmail())
+        returnPayload.put("email", getUserName())
         returnPayload.put("sex", getSex())
         returnPayload.put("age", getAge() as String)
         returnPayload.put("class_year", getClassYear() as String)
