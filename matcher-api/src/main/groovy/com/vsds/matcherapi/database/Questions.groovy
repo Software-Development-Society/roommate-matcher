@@ -17,7 +17,12 @@ class Questions {
     Questions(ArrayList<ArrayList<Integer>> responses) {
         this.responses = responses
     }
+    Questions(){}
 
+    Questions(ObjectId user_id, ArrayList<ArrayList<Integer>> responses) {
+        this.user_id = user_id
+        this.responses = responses
+    }
 
     @Override
     public String toString() {

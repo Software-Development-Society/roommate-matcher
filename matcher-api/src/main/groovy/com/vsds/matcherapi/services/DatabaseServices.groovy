@@ -3,8 +3,11 @@ package com.vsds.matcherapi.services
 
 import com.vsds.matcherapi.MatcherApiApplication
 import com.vsds.matcherapi.User.User
+import com.vsds.matcherapi.database.Questions
 import com.vsds.matcherapi.database.Users
 import org.bson.types.ObjectId
+
+import java.lang.reflect.Array
 
 class DatabaseServices {
         static Users getUserFromId(ObjectId userId){
@@ -33,6 +36,16 @@ class DatabaseServices {
                 println("Current user" + currentUser)
                 return new User(currentUser.getUserId() as String, currentUser.getFirstName() as String, currentUser.getLastName() as String,
                         currentUser.getUsername() as String, currentUser.getSex() as String, currentUser.classYear as int, currentUser.age as int, currentUser.getBio() as String)
+        }
+
+
+
+
+        static boolean saveFormResponses(ObjectId user_id, ArrayList<ArrayList<Integer>> formResponses) {
+                Questions questionList = new Questions(user_id, formResponses)
+                MatcherApiApplication.visableQuestionRepo.save(questionList)
+                return true
+
         }
 
 

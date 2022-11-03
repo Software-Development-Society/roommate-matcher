@@ -7,7 +7,9 @@ import org.bson.types.ObjectId
 import org.json.JSONObject
 import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.RequestBody
+import org.springframework.web.bind.annotation.RestController
 
+@RestController
 class UserController {
     JsonSlurper slurper = new JsonSlurper()
     /*
@@ -30,7 +32,7 @@ class UserController {
             valueToReturn = currentUser.getLastName()
         }
         else if(valueToReturn == "email") {
-            valueToReturn = currentUser.getEmail()
+            valueToReturn = currentUser.getUserName()
         }
         else if(valueToReturn == "sex") {
             valueToReturn = currentUser.getSex()
@@ -43,12 +45,6 @@ class UserController {
         }
         else if(valueToReturn == "bio") {
             valueToReturn = currentUser.getBio()
-        }
-        else if(valueToReturn == "answer_list") {
-            valueToReturn = currentUser.getAnswerList()
-        }
-        else if(valueToReturn == "matched_id") {
-            valueToReturn = currentUser.getMatchedId()
         }
         JSONObject returnPayload = new JSONObject()
         returnPayload.put(returnValue, valueToReturn)
