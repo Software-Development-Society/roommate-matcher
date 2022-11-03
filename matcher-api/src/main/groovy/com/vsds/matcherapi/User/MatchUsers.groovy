@@ -1,9 +1,13 @@
 package com.vsds.matcherapi.User
 
 import com.vsds.matcherapi.MatcherApiApplication
+import com.vsds.matcherapi.database.Questions
 import com.vsds.matcherapi.database.Users
+import com.vsds.matcherapi.services.DatabaseServices
 import com.vsds.matcherapi.services.UserServices
 import org.bson.types.ObjectId
+
+import java.util.regex.Matcher
 
 class MatchUsers {
     /*
@@ -17,35 +21,13 @@ class MatchUsers {
     the lowest score is the persons best match
      */
     static Map<ObjectId, ArrayList<Integer>> matchAlgo(User currentUser){
-        Map<ObjectId, ArrayList<Integer>> matchedIds = new HashMap<>()
-        for (Users userToMatch : MatcherApiApplication.visableUserRepo.findAll()){
-            ArrayList<Integer> currentUserResp = currentUser.getAnswerList()
-            ArrayList<Integer> userToMatchResp = userToMatch.getAnswerList()
+        ObjectId user_id = new ObjectId(currentUser.getUserId())
 
-            int personalityTotal = 0
-            int habitsTotal = 0
-            int miscTotal = 0
-            if (userToMatch.getUserId() != currentUser.getUserId() && UserServices.validateCorrectUser(userToMatch)){
-                for (int answerIndex = 0; answerIndex < currentUserResp.size()-1; answerIndex+=2){
-                    int currentUserAns = currentUserResp.get(answerIndex) * currentUserResp.get(answerIndex + 1)
-                    int matchUserAns = userToMatchResp.get(answerIndex) * userToMatchResp.get(answerIndex + 1)
-                    int ansScore = Math.abs(currentUserAns-matchUserAns)
-                    if (answerIndex < 10){
-                        personalityTotal += ansScore
-                    }
-                    else if (answerIndex < 20){
-                        habitsTotal+= ansScore
-                    }
-                    else{
-                        miscTotal+= ansScore
-                    }
-                }
-                ArrayList<Integer> respScore = new ArrayList<>()
-                respScore.addAll(personalityTotal, habitsTotal, miscTotal)
-                matchedIds.put(userToMatch.getUserId(), respScore)
-            }
+        ArrayList<ArrayList<Integer>> currentUserResponses = DatabaseServices.returnQuestions(user_id)
+
+        for(Questions matchResponses : MatcherApiApplication.visableQuestionRepo){
+
         }
-        return matchedIds
     }
 
 
