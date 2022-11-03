@@ -26,8 +26,8 @@
  I only want people in my room rarely or with approval
  I never want other people in my room
  
- 5. Do you mind people spending the night in your dorm
  
+ 5. Do you mind people spending the night in your dorm
  
  
  6. How often do you smoke
@@ -37,6 +37,7 @@
  
  
 8. How often do you plan to be in the room
+
 
 9. how often will you study in the room
 
@@ -73,16 +74,35 @@
 
 20. How often do you plan on going home
 
-21. 
+
+21. Do you like your room to be hot or cold
 
 
+22. If we have a disagreement, what approach do you feel is best for working through it?
 
 
+23. Do you plan on going abroad
 
 
+24. how often will you eat in the room
 
 
+25. How comfortable are you with alcohol in the room (Even if you dont drink)
 
+
+26. How comfortable are you with other intoxicating substances in the room (even if you do not consme them)
+
+
+27. How active are you
+
+
+28. Do you prefer noise level to be low or high during the day?
+
+
+29. How often do you do laundry?
+
+
+30. Do you use a drying racks?
 
 
 
