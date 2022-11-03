@@ -38,8 +38,6 @@ How often do you expect to drink
  
 How often do you plan to be in the room
 
-
-
 how often will you study in the room
 
 
@@ -63,6 +61,13 @@ Are you okay if your roommate snores
 Do you mind sharing possesions
 
 Do you want to be close to your roommate
+
+Do you plan on joining greek life
+
+How important is it that your room is clean
+
+
+
 
 
 
