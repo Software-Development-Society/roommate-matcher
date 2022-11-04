@@ -52,6 +52,13 @@ class UserController {
         returnPayload.put(returnValue, valueToReturn)
         return returnPayload as String
     }
+    
+    /*
+    input -> json containing a user id and anything the user wants to update about their profile
+    {"user_id" : "31rt2f13r", "first_name" : "John" .... }
+    method parses the json and updates any information inside of it in the db.
+    return -> {"true" : "user updated successfully"} or {"false" : "error message"}
+    */
 
     @PostMapping("/update-user")
     String updateUser(@RequestBody String input){
