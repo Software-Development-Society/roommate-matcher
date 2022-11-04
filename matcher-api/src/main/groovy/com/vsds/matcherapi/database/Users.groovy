@@ -107,9 +107,5 @@ class Users {
     void setBio(String bio) {
         this.bio = bio
     }
-
-    @Override
-    public String toString(){
-        return String.format("User[id='%s', firstName='%s', lastName='%s', email='%s']", userId, firstName, lastName, username)
-    }
+    
 }
