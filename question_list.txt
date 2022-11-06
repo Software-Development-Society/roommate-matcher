@@ -39,7 +39,8 @@
  
  
  7. Will you smoke in the room
- 
+ Yes
+ No
  
 8. How often do you plan to be in the room
 I only will be in the room to sleep
