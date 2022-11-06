@@ -79,13 +79,20 @@ No Preference
 No
 
 18. Do you plan on joining greek life
+Yes
+No sure
+No
 
 
 19. How important is it that your room is clean
 
 
 20. How often do you plan on going home
-
+Every day
+Mutliple times each week
+Once a week or every other week
+Rarely or every few months
+Only for breaks / never
 
 21. Do you like your room to be hot or cold
 
@@ -111,10 +118,6 @@ No
 28. Do you prefer noise level to be low or high during the day?
 
 
-29. How often do you do laundry?
-
-
-30. Do you use a drying racks?
 
 
 
