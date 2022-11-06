@@ -37,6 +37,7 @@
  
  
 8. How often do you plan to be in the room
+I only will be in the room to sleep
 
 
 9. how often will you study in the room
@@ -63,8 +64,10 @@
 16. Do you mind sharing possesions
 
 
-17. Do you want to be close to your roommate
-
+17. Do you want to be close to your roommate HOW DO WE CALCULATE WITH THIS RESPONSE
+Yes
+No Preference
+No
 
 18. Do you plan on joining greek life
 
