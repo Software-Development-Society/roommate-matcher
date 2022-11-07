@@ -115,14 +115,21 @@ Once a week or every other week
 Rarely or every few months
 Only for breaks / never
 
-21. Do you like your room to be hot or cold
+21. What temperature do you want the room to be
+80+
+75-80
+70-75
+65-70
+65-
+
 
 
 22. If we have a disagreement, what approach do you feel is best for working through it?
 
 
-23. Do you plan on going abroad
-
+23. Do you plan on going abroad -> WHY DOES THIS MATTER???
+Yes 
+No
 
 24. how often will you eat in the room
 
