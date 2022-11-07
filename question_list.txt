@@ -71,7 +71,11 @@ Will leave for the weekend once or twice a semester
 Will never leave during the weekend
 
 12. how often will you do household chores (cleaning, buying mutually used items)
-
+Every day
+More than once a week
+Once a week
+Once a month
+Never
 
 
 13. How many people are allowed to be in the room at once
