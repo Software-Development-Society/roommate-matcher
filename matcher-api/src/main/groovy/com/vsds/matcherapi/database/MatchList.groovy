@@ -4,7 +4,11 @@ import org.bson.types.ObjectId
 import org.springframework.data.annotation.Id
 import org.springframework.data.mongodb.core.mapping.Document
 import org.springframework.data.mongodb.core.mapping.Field
-
+/*
+This object is used for the users matches in the database
+user_id -> the current user
+matchList -> user_id of matched user and an array of their respective match scores
+*/
 @Document(collection = "matchlist")
 class MatchList {
     @Id
