@@ -27,7 +27,7 @@ class MatchUsers {
 
         ArrayList<ArrayList<Integer>> currentUserResponses = DatabaseServices.returnQuestions(user_id)
 
-        for(Questions matchResponses : MatcherApiApplication.visableQuestionRepo){
+        for(Questions matchResponses : MatcherApiApplication.visableQuestionRepo.findAll()){
             if(matchResponses.getSex() != currentUser.getSex()) {
                 continue;
             }
@@ -40,5 +40,32 @@ class MatchUsers {
             }
         }
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 }

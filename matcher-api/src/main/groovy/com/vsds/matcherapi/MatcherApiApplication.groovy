@@ -20,7 +20,7 @@ class MatcherApiApplication implements CommandLineRunner {
     public UserRepository userRepository
     public static UserRepository visableUserRepo
     public QuestionsRepository questionsRepository
-    public static visableQuestionRepo
+    public static QuestionsRepository visableQuestionRepo
     public MatchListRepository matchListRepository
     public static MatchListRepository visableMatchListRepo
 

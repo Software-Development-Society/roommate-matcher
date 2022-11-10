@@ -41,8 +41,8 @@ class DatabaseServices {
 
 
 
-        static boolean saveFormResponses(ObjectId user_id, ArrayList<ArrayList<Integer>> formResponses) {
-                Questions questionList = new Questions(user_id, formResponses)
+        static boolean saveFormResponses(ObjectId user_id, String sex, ArrayList<ArrayList<Integer>> formResponses) {
+                Questions questionList = new Questions(user_id, sex,formResponses)
                 MatcherApiApplication.visableQuestionRepo.save(questionList)
                 return true
 
@@ -50,7 +50,7 @@ class DatabaseServices {
 
 
         static ArrayList<ArrayList<Integer>> returnQuestions(ObjectId user_id){
-                for(Questions question : MatcherApiApplication.visableQuestionRepo){
+                for(Questions question : MatcherApiApplication.visableQuestionRepo.findAll()){
                         if(question.getUser_id() == user_id){
                                 return question.getResponses()
                         }
