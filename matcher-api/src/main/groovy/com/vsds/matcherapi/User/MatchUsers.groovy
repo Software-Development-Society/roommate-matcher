@@ -6,7 +6,9 @@ import com.vsds.matcherapi.database.Users
 import com.vsds.matcherapi.services.DatabaseServices
 import com.vsds.matcherapi.services.UserServices
 import org.bson.types.ObjectId
+import org.springframework.data.mongodb.core.aggregation.ArrayOperators
 
+import java.lang.reflect.Array
 import java.util.regex.Matcher
 
 class MatchUsers {
@@ -20,17 +22,23 @@ class MatchUsers {
     each question is compared to every other question and the total value is the sum of the difference of every question
     the lowest score is the persons best match
      */
-    static Map<ObjectId, ArrayList<Integer>> matchAlgo(User currentUser){
+    static Map<ObjectId, Integer> matchAlgo(User currentUser){
         ObjectId user_id = new ObjectId(currentUser.getUserId())
 
         ArrayList<ArrayList<Integer>> currentUserResponses = DatabaseServices.returnQuestions(user_id)
 
         for(Questions matchResponses : MatcherApiApplication.visableQuestionRepo){
+            if(matchResponses.getSex() != currentUser.getSex()) {
+                continue;
+            }
+            ArrayList<ArrayList<Integer>> comparingUserResponse = matchResponses.getResponses();
+            int sum = 0;
+            for(int i = 0; i < currentUserResponses.size(); i++) {
+                int answerDifference = (int) Math.abs(comparingUserResponse.get(i).get(0) - (currentUserResponses.get(i).get(0)));
+                int answerSum = comparingUserResponse.get(i).get(1) + currentUserResponses.get(i).get(1);
 
-
+            }
         }
     }
-
-
 
 }
