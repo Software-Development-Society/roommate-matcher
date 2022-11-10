@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Starting Template</title>
+    <!-- Unlike the login and register page, we're using bootstrap 5 for everything else -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="start-template.css">
+</head>
+
+<body>
+    <form action="/login" method="POST">
+        <div style="display: grid;">
+            <div class="form-group" style="display: inline-flex;">
+                <h4>How often do you expect to drink?</h1>
+                <select class="form-select" aria-label="Default select example">
+                    <option selected>Options</option>
+                    <option value="1">Never</option>
+                    <option value="3">Once a Month</option>
+                    <option value="6">1 time a week</option>
+                    <option value="9">3 times a week</option>
+                    <option value="11">5 time a week</option>
+                </select>
+            </div>
+            <div class="form-group" style="display: inline-flex;">
+                <h4>How much do you care that your roommate answers this question the same?</h1>
+                <select class="form-select" aria-label="Default select example">
+                    <option selected>Options</option>
+                    <option value="1">Not Important At All</option>
+                    <option value="2">Mildly Important</option>
+                    <option value="4">Very Important</option>
+                    <option value="5">Of Upmost Importance</option>
+                </select>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-dark">Submit</button>
+      </form>
+</body>
+
+</html>
