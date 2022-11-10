@@ -3,9 +3,11 @@ package com.vsds.matcherapi.services
 
 import com.vsds.matcherapi.MatcherApiApplication
 import com.vsds.matcherapi.User.User
+import com.vsds.matcherapi.database.MatchList
 import com.vsds.matcherapi.database.Questions
 import com.vsds.matcherapi.database.Users
 import org.bson.types.ObjectId
+import org.springframework.data.mongodb.core.aggregation.ArrayOperators.In
 
 import java.lang.reflect.Array
 
@@ -55,6 +57,13 @@ class DatabaseServices {
                                 return question.getResponses()
                         }
                 }
+        }
+
+
+        static boolean saveUserMatches(ObjectId user_id, HashMap<ObjectId, Integer> matchList){
+                MatchList matchListToSave = new MatchList(user_id, matchList)
+                MatcherApiApplication.visableMatchListRepo.save(matchListToSave)
+                return true;
         }
 
 

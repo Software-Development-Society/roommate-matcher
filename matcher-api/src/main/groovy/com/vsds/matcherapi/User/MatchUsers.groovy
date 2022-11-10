@@ -1,5 +1,6 @@
 package com.vsds.matcherapi.User
 
+import com.fasterxml.jackson.databind.deser.DataFormatReaders
 import com.vsds.matcherapi.MatcherApiApplication
 import com.vsds.matcherapi.database.Questions
 import com.vsds.matcherapi.database.Users
@@ -8,6 +9,7 @@ import com.vsds.matcherapi.services.UserServices
 import org.bson.types.ObjectId
 import org.springframework.data.mongodb.core.aggregation.ArrayOperators
 
+import javax.xml.crypto.Data
 import java.lang.reflect.Array
 import java.util.regex.Matcher
 
@@ -22,7 +24,7 @@ class MatchUsers {
     each question is compared to every other question and the total value is the sum of the difference of every question
     the lowest score is the persons best match
      */
-    static Map<ObjectId, Integer> matchAlgo(User currentUser){
+    static HashMap<ObjectId, Integer> matchAlgo(User currentUser){
         ObjectId user_id = new ObjectId(currentUser.getUserId())
 
         ArrayList<ArrayList<Integer>> currentUserResponses = DatabaseServices.returnQuestions(user_id)
@@ -49,7 +51,15 @@ class MatchUsers {
 
 
 
+    static void matchAllUsers(){
+        for(Questions currentUser : MatcherApiApplication.visableQuestionRepo.findAll()){
+            User findCurrentUser = DatabaseServices.getUser(currentUser.getUser_id())
+            HashMap<ObjectId, Integer> matchList = matchAlgo(findCurrentUser)
+            DatabaseServices.saveUserMatches(currentUser.user_id, matchList)
 
+
+        }
+    }
 
 
 
