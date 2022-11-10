@@ -61,7 +61,8 @@ I will spend most of my time studying in the room
 I will only study in the room
 
 10. Do you mind sharing condiments/paper products/cleaning materials
-
+Yes
+No
 
 11. Do you plan to be around on the weekends
 Will never be around on weekends
@@ -86,12 +87,12 @@ A few people every now and then
 Would rather no other people be inside the room
 
 14. Do you listen to music out loud in the room
-
+Yes
+No
 
 15. Do you snore 
 Yes
 No
-
 
 16. Do you mind sharing possesions
 Yes whats mine is theirs
@@ -108,12 +109,14 @@ No
 
 18. Do you plan on joining greek life
 Yes
-No sure
+Not sure
 No
 
-
 19. How important is it that your room is clean
-
+Very important
+Moderately important
+Slightly important
+Not important
 
 20. How often do you plan on going home
 Every day
@@ -129,29 +132,41 @@ Only for breaks / never
 65-70
 65-
 
-
-
 22. If we have a disagreement, what approach do you feel is best for working through it?
 Talk to each other about it
 Talk to the RA about it
 Do not deal with it
-
 
 23. Do you plan on going abroad -> WHY DOES THIS MATTER???
 Yes 
 No
 
 24. how often will you eat in the room
-
+Every day
+A few times in a week
+A few times in a month
+A few times in the semester
+Never
 
 25. How comfortable are you with alcohol in the room (Even if you dont drink)
-
+Very comfortable
+Slightly comfortable
+Neutral
+Slightly uncomfortable
+Very uncomfortable
 
 26. How comfortable are you with other intoxicating substances in the room (even if you do not consme them)
-
+Very comfortable
+Slightly comfortable
+Neutral
+Slightly uncomfortable
+Very uncomfortable
 
 27. How active are you
-
+Every day
+Once a week
+Once a month
+Sedentary
 
 28. Do you prefer noise level to be low or high during the day?
 I do not care about the noise level during the day 
@@ -160,5 +175,12 @@ I would like the noise levels to be moderate
 I would prefere low noise
 I want the room to be noiseless at all times
 
-
+29. Do you prefer to have a roomate with similar hobbies?
+ I would prefer someone with similar hobbies
+ I would prefer somenone with different hobbies
+ 
+ 30. Do you prefer an introverted or exroverted roomate?
+  I would prefer an introverted roomate
+  I would prefer an extroverted roomate
+  No preference
 
