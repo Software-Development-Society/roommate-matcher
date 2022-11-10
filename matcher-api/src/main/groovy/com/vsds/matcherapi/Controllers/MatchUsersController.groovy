@@ -3,6 +3,7 @@ package com.vsds.matcherapi.Controllers
 import com.vsds.matcherapi.User.MatchUsers
 import org.json.JSONObject
 import org.springframework.web.bind.annotation.GetMapping
+import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.RestController
 
 

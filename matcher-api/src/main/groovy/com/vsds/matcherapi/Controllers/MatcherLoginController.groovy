@@ -34,25 +34,4 @@ class MatcherLoginController {
         println("New user logged in: " + currentUser.getFirstName())
         return currentUser.returnUser() as String
     }
-
-
-    @GetMapping("/test")
-    String addUser(){
-        ArrayList<ArrayList<Integer>> questions = new ArrayList<>()
-        ArrayList<Integer> question1 = new ArrayList<>()
-        question1.add(5)
-        question1.add(3)
-
-        ArrayList<Integer> question2 = new ArrayList<>()
-        question2.add(2)
-        question2.add(3)
-
-        questions.addAll(question1, question2)
-
-
-        Questions addQuestions = new Questions(questions)
-        MatcherApiApplication.visableQuestionRepo.save(addQuestions)
-    }
-
-
 }
