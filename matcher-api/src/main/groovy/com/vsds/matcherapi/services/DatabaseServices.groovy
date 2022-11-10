@@ -10,6 +10,7 @@ import org.bson.types.ObjectId
 import org.springframework.data.mongodb.core.aggregation.ArrayOperators.In
 
 import java.lang.reflect.Array
+import java.util.regex.Matcher
 
 class DatabaseServices {
         static Users getUserFromId(ObjectId userId){
@@ -64,6 +65,14 @@ class DatabaseServices {
                 MatchList matchListToSave = new MatchList(user_id, matchList)
                 MatcherApiApplication.visableMatchListRepo.save(matchListToSave)
                 return true;
+        }
+
+        static HashMap<ObjectId, Integer> getMatchListFromUserId(ObjectId user_id){
+                for(MatchList currentMatch : MatcherApiApplication.visableMatchListRepo.findAll()){
+                        if(currentMatch.getUserId() == user_id) {
+                                return currentMatch.getMatchList();
+                        }
+                }
         }
 
 
