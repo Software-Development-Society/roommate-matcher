@@ -130,6 +130,7 @@ async function loginRequest(userID){
 app.post("/register", function (req, res) {
     console.log(req.body);
     if (!validateEmail(req.body.username)) {
+        res.send("Bad Email");
         return;
     }
     User.register({
