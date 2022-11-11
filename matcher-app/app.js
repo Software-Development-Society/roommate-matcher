@@ -5,6 +5,8 @@ const bodyParser = require('body-parser');
 const passport = require("passport");
 const passportLocalMongoose = require("passport-local-mongoose");
 const mongoose = require("mongoose");
+const validateEmail = require('./validateEmail');
+
 const {
     response
 } = require("express");
@@ -71,7 +73,7 @@ app.get("/login", function (req, res) {
 });
 
 app.get("/register", function (req, res) {
-    res.sendFile(__dirname + "/public/register.html");
+    res.sendFile(__dirname + "/public/register/register.html");
 });
 
 
@@ -124,8 +126,13 @@ async function loginRequest(userID){
  * Register function takes a post request on the /register endpoint
  * It takes all the data within the form and enters it into the database along with the salt and hash
  */
+
 app.post("/register", function (req, res) {
     console.log(req.body);
+    if (!validateEmail(req.body.username)) {
+        res.send("Bad Email");
+        return;
+    }
     User.register({
         username: req.body.username,
         firstName: req.body.firstName,
