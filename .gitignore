@@ -1,3 +1,7 @@
 /.idea
 node_modules
 .env
+
+### other ###
+DatabaseServices.groovy
+/matcher-api/src/main/resources/
