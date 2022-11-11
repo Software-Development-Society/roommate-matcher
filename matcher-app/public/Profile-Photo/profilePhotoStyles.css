@@ -17,9 +17,14 @@
     -ms-border-radius: 50%;
     -o-border-radius: 50%;
     border-radius: 50%;
+    background-color: #fff;
 }
 
 #profile-container img {
     width: 150px;
     height: 150px;
+}
+
+body {
+    background-color: #000;
 }

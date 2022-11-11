@@ -4,9 +4,30 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Enter Your Profile Photo</title>
-        
+        <link rel="stylesheet" href="profilePhotoStyles.css"> 
     </head>
     <body>
-        
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+        <div id="profile-container">
+           <image id="profileImage" src="http://lorempixel.com/100/100" alt="your image here"/>
+        </div>
+        <input id="imageUpload" type="file" 
+               name="profile_photo" placeholder="Photo" required="" capture>
+        <script>
+             $("#profileImage").click(function(e) {
+                 $("#imageUpload").click();
+             });
+             
+             function fasterPreview( uploader ) {
+                 if ( uploader.files && uploader.files[0] ){
+                       $('#profileImage').attr('src', 
+                          window.URL.createObjectURL(uploader.files[0]) );
+                 }
+             }
+             
+             $("#imageUpload").change(function(){
+                 fasterPreview( this );
+             });
+         </script>
     </body>
 </html>
