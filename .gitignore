@@ -37,4 +37,4 @@ out/
 .vscode/
 ### other ###
 DatabaseServices.groovy
-matcher-api/src/main/resources/
+/matcher-api/src/main/resources/
