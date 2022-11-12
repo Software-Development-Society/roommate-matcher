@@ -1,33 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Enter Your Profile Photo</title>
-        <link rel="stylesheet" href="profilePhotoStyles.css"> 
-    </head>
-    <body>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-        <div id="profile-container">
-           <image id="profileImage" src="http://lorempixel.com/100/100" alt="your image here"/>
-        </div>
-        <input id="imageUpload" type="file" 
-               name="profile_photo" placeholder="Photo" required="" capture>
-        <script>
-             $("#profileImage").click(function(e) {
-                 $("#imageUpload").click();
-             });
-             
-             function fasterPreview( uploader ) {
-                 if ( uploader.files && uploader.files[0] ){
-                       $('#profileImage').attr('src', 
-                          window.URL.createObjectURL(uploader.files[0]) );
-                 }
-             }
-             
-             $("#imageUpload").change(function(){
-                 fasterPreview( this );
-             });
-         </script>
-    </body>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Upload Profile Photo</title>
+  <link rel="stylesheet" href="profilePhotoStyle.css">
+</head>
+<body>
+
+<h1>Upload Photo Like Facebook Profile DP</h1>
+
+<div class="profile-pic-div">
+  <img src="image.jpg" id="photo" alt="profile Pic">
+  <input type="file" id="file" accept="image/png, image/jpg, image/jpeg">
+  <label for="file" id="uploadBtn">Choose Photo</label>
+</div>
+
+<script src="profilePhotoScript.js"></script>
+
+</body>
 </html>
