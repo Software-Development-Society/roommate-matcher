@@ -18,8 +18,13 @@ class User {
 
     private int age
 
+    private String instagram
+
+    private String snapChat
+
     private String bio
-    User(String userId, String firstName, String lastName, String userName, String sex, int classYear, int age, String bio) {
+
+    User(String userId, String firstName, String lastName, String userName, String sex, int classYear, int age, String instagram, String snapChat, String bio) {
         this.userId = userId
         this.firstName = firstName
         this.lastName = lastName
@@ -27,6 +32,8 @@ class User {
         this.sex = sex
         this.classYear = classYear
         this.age = age
+        this.instagram = instagram
+        this.snapChat = snapChat
         this.bio = bio
     }
 
@@ -95,9 +102,21 @@ class User {
         this.bio = bio
     }
 
+    String getInstagram() {
+        return instagram
+    }
 
+    String getSnapChat() {
+        return snapChat
+    }
 
+    void setInstagram(String instagram) {
+        this.instagram = instagram
+    }
 
+    void setSnapChat(String snapChat) {
+        this.snapChat = snapChat
+    }
 
     JSONObject returnUser(){
         JSONObject returnPayload = new JSONObject()
@@ -108,8 +127,11 @@ class User {
         returnPayload.put("age", getAge() as String)
         returnPayload.put("class_year", getClassYear() as String)
         returnPayload.put("bio", getBio())
+        returnPayload.put("instagram", getInstagram())
+        returnPayload.put("snap_chat", getSnapChat())
         return returnPayload
     }
+
 
     @Override
     public String toString() {
@@ -121,6 +143,8 @@ class User {
                 ", sex='" + sex + '\'' +
                 ", classYear=" + classYear +
                 ", age=" + age +
+                ", instagram='" + instagram + '\'' +
+                ", snapChat='" + snapChat + '\'' +
                 ", bio='" + bio + '\'' +
                 '}';
     }
