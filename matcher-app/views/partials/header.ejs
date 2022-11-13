@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -28,30 +27,27 @@
                     <li class="nav-item">
                         <a class="nav-link active homebut" aria-current="page" href="/">Home</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link homebut" href="/dashboard">Dashboard</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="ph-only nav-link homebut" href="">Your Profile</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="ph-only nav-link homebut" href="">Change an Answer</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="ph-only nav-link homebut" href="">Report a Problem</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="ph-only nav-link homebut" href="">Signout</a>
-                    </li>
+                    <% if(isLoggedIn){ %>
+                        <li class="nav-item"><a class="nav-link homebut" href="/dashboard">Dashboard</a></li>
+                        <li class="nav-item"><a class="ph-only nav-link homebut" href="">Your Profile</a></li>
+                        <li class="nav-item"><a class="ph-only nav-link homebut" href="">Change an Answer</a></li>
+                        <li class="nav-item"><a class="ph-only nav-link homebut" href="">Report a Problem</a></li>
+                        <li class="nav-item"><a class="ph-only nav-link homebut" href="">Signout</a></li>
+                    <% } else { %>
+                        <li class="nav-item"><a class="nav-link homebut" href="/login">Login</a></li>
+                        <li class="nav-item"><a class="nav-link homebut" href="/signup">Sign up</a></li>
+                    <% } %>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle comp-only" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="true">
-                            <img class="img" src="https://cdn.discordapp.com/attachments/1007427354685087784/1035254854802743307/UserIcon.png" width="30" height="24">
-                        </a>
+                        <% if(isLoggedIn){ %>
+                            <a class="nav-link dropdown-toggle comp-only" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="true">
+                                <img class="img" src="https://cdn.discordapp.com/attachments/1007427354685087784/1035254854802743307/UserIcon.png" width="30" height="24">
+                            </a>
+                        <% } %>
                         <ul class="dropdown-menu dropdown-menu-center" aria-labelledby="navbarDropdown">
                             <li><a class="dropdown-item" href="">Your Profile</a></li>
                             <li><a class="dropdown-item" href="">Change an Answer</a></li>
                             <li><a class="dropdown-item" href="">Report a Problem</a></li>
-                            <li><a class="dropdown-item" href="">Signout</a></li>
+                            <li><a class="dropdown-item" href="/signout">Signout</a></li>
                         </ul>
                     </li>
                 </ul>

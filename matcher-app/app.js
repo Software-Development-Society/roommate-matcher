@@ -14,6 +14,8 @@ app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
 
+var isLoggedIn;
+
 //ABSOLUTELY MAKE SURE TO CHANGE AND HIDE SECRET KEY BEFORE PRODUCTION
 app.use(session({
     secret: 'keyboard cat',
@@ -30,25 +32,33 @@ app.use(usePassport.session());
 app.use('/', authRouter);
 
 app.get("/", function (req, res) {
-    res.render('homepage/homepage', {styleInput: "homepage"});
+    res.render('homepage/homepage', {styleInput: "homepage", isLoggedIn: req.isAuthenticated()});
 });
 
-app.get("/register", function (req, res) {
-    res.render('register/register', {styleInput: "homepage"});
+app.get("/signup", function (req, res) {
+    res.render('signup/signup', {styleInput: "homepage", isLoggedIn: req.isAuthenticated()});
 });
 
 app.get("/login", function (req, res) {
-    res.render('login/login', {styleInput: "homepage"});
+    res.render('login/login', {styleInput: "homepage", isLoggedIn: req.isAuthenticated()});
 });
 
 app.get("/dashboard", function (req, res) {
-    res.render('dashboard/dashboard', {styleInput: "dashboard"});
+    res.render('dashboard/dashboard', {styleInput: "dashboard", isLoggedIn: req.isAuthenticated()});
 });
 app.get("/problem", function (req, res) {
-    res.render('problem/problem', {styleInput: "problem"});
+    res.render('problem/problem', {styleInput: "problem", isLoggedIn: req.isAuthenticated()});
 });
 app.get("/form", function (req, res) {
-    res.render('form/form', {styleInput: "homepage"});
+    res.render('form/form', {styleInput: "homepage", isLoggedIn: req.isAuthenticated()});
+});
+app.get("/signout", function (req, res) {
+    req.logout(function(err) {
+        if (err){ 
+            res.send("There was an error signing you out");
+        }
+        res.redirect('/');
+    });
 });
 
 //These last 2 routes are just for API testing purposes.
@@ -81,8 +91,8 @@ app.get("/test", async (req, res) => {
 
 //404 Route
 app.get('*', function(req, res){
-    res.render('404/404', {styleInput: "404styles"})
-  });
+    res.render('404/404', {styleInput: "404styles", isLoggedIn: req.isAuthenticated()})
+});
 
 app.listen(3000, function () {
     console.log("Server started on port 3000");

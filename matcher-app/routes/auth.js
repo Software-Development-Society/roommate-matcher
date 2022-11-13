@@ -36,7 +36,7 @@ router.post("/login", function (req, res) {
     })
 });
 
-router.post("/register", function (req, res) {
+router.post("/signup", function (req, res) {
     console.log(req.body);
     // if (!validateEmail(req.body.username)) {
     //     res.send("Bad Email");
@@ -53,7 +53,7 @@ router.post("/register", function (req, res) {
         req.body.password, (err, user) => {
         if (err) {
             console.log(err);
-            res.redirect("/register");
+            res.redirect("/signup");
         } else {
             passport.authenticate("local")(req, res, () => {
                 console.log(req.user.id);
