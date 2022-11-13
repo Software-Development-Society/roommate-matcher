@@ -3,7 +3,7 @@ const session = require("express-session");
 const bodyParser = require('body-parser');
 const axios = require('axios').default;
 
-const validateEmail = require('./validateEmail');
+const validateEmail = require('./functions/validateEmail');
 const { loginRequest } = require("./requests/login");
 const { usePassport, authRouter } = require("./routes/auth");
 const { User } = require("./db/schema");
