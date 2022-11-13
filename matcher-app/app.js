@@ -71,7 +71,7 @@ app.get("/login", function (req, res) {
 });
 
 app.get("/register", function (req, res) {
-    res.sendFile(__dirname + "/public/register.html");
+    res.sendFile(__dirname + "/public/register/register.html");
 });
 
 
