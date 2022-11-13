@@ -49,7 +49,9 @@ router.post("/signup", function (req, res) {
         age: Number(req.body.age),
         sex: req.body.sex,
         classYear: Number(req.body.classYear),
-        bio: req.body.bio},  
+        bio: req.body.bio,
+        instagram: req.body.instagram,
+        snapchat: req.body.snapchat},  
         req.body.password, (err, user) => {
         if (err) {
             console.log(err);

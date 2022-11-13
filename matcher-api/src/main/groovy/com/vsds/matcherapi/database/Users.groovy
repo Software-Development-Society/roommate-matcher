@@ -28,12 +28,16 @@ class Users {
     private int age
     @Field
     private String bio
+    @Field
+    private String instagram
+    @Field
+    private String snapChat
 
 
 
     public Users(){}
 
-    Users(String firstName, String lastName, String username, String sex, int classYear, int age, String bio) {
+    Users(String firstName, String lastName, String username, String sex, int classYear, int age, String bio, String instagram, String snapChat) {
         this.firstName = firstName
         this.lastName = lastName
         this.username = username
@@ -41,8 +45,9 @@ class Users {
         this.classYear = classYear
         this.age = age
         this.bio = bio
+        this.instagram = instagram
+        this.snapChat = snapChat
     }
-
 
     ObjectId getUserId() {
         return userId
@@ -107,5 +112,30 @@ class Users {
     void setBio(String bio) {
         this.bio = bio
     }
-    
+
+    String getInstagram() {
+        return instagram
+    }
+
+    String getSnapChat() {
+        return snapChat
+    }
+
+    void setInstagram(String instagram) {
+        this.instagram = instagram
+    }
+
+    void setSnapChat(String snapChat) {
+        this.snapChat = snapChat
+    }
+
+    @Override
+    public String toString() {
+        return "Users{" +
+                "userId=" + userId +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", username='" + username + '\'' +
+                '}';
+    }
 }

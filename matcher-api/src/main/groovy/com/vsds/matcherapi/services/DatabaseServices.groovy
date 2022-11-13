@@ -47,15 +47,15 @@ class DatabaseServices {
                 Users currentUser = getUserFromId(userId)
                 println("Current user" + currentUser)
                 return new User(currentUser.getUserId() as String, currentUser.getFirstName() as String, currentUser.getLastName() as String,
-                        currentUser.getUsername() as String, currentUser.getSex() as String, currentUser.classYear as int, currentUser.age as int, currentUser.getBio() as String)
+                        currentUser.getUsername() as String, currentUser.getSex() as String, currentUser.classYear as int, currentUser.age as int, currentUser.getBio() as String, currentUser.getInstagram() as String, currentUser.getSnapChat() as String)
         }
         
         
         
 
         
-        static boolean saveFormResponses(ObjectId user_id, ArrayList<ArrayList<Integer>> formResponses) {
-                Questions questionList = new Questions(user_id, formResponses)
+        static boolean saveFormResponses(ObjectId user_id, String sex, ArrayList<ArrayList<Integer>> formResponses) {
+                Questions questionList = new Questions(user_id,sex, formResponses)
                 MatcherApiApplication.visableQuestionRepo.save(questionList)
                 return true
 

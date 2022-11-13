@@ -28,9 +28,10 @@ class FormController {
         def response = slurper.parseText(input)
 
         ObjectId user_id = new ObjectId(response["user_id"])
+        String sex = response["sex"]
         ArrayList<ArrayList<Integer>> userResponses = response["responses"] as ArrayList<ArrayList<Integer>>
         // NEED TO UPDATE THIS
-        DatabaseServices.saveFormResponses(user_id, userResponses)
+        DatabaseServices.saveFormResponses(user_id,sex, userResponses)
 
         JSONObject returnPayload = new JSONObject()
         returnPayload.put("true", "Form response saved!")

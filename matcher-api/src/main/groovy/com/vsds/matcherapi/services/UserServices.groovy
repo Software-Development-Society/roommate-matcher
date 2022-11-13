@@ -31,6 +31,12 @@ class UserServices {
             else if (key == "age"){
                 user.setAge(updateInformation.get(key) as int)
             }
+            else if(key == "instagram") {
+                user.setInstagram(updateInformation.get(key))
+            }
+            else if(key == "snap_chat"){
+                user.setSnapChat(updateInformation.get(key))
+            }
         }
         Users updatedUser = usersFromUser(user)
         ObjectId user_id = new ObjectId(user.getUserId())
@@ -38,7 +44,7 @@ class UserServices {
         DatabaseServices.updateUser(updatedUser)
     }
     static Users usersFromUser(User user){
-        return new Users(user.getFirstName(), user.getLastName(), user.getUserName(), user.getSex(), user.getClassYear(), user.getAge(), user.getBio())
+        return new Users(user.getFirstName(), user.getLastName(), user.getUserName(), user.getSex(), user.getClassYear(), user.getAge(), user.getBio(), user.getInstagram(), user.getSnapChat())
     }
 
 
