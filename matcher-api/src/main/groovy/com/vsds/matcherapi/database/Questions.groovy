@@ -6,7 +6,10 @@ import org.springframework.data.mongodb.core.mapping.Document
 import org.springframework.data.mongodb.core.mapping.Field
 
 import java.lang.reflect.Array
-
+/*
+This file contains the object for the questions responses.
+Contains the user_id, the sex and the users responses.
+*/
 @Document(collection = "questions")
 class Questions {
     @Id

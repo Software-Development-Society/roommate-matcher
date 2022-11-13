@@ -1,0 +1,30 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-image: url(../images/deadEnd.jpg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+    color: #fff;
+    font-family:Arial, Helvetica, sans-serif
+}
+
+.content{
+    margin: 15vh;
+}
+
+button{
+    width: auto;
+    height: 2rem;
+    border: 0px solid transparent;
+}
+
+button:hover{
+    box-shadow: 0 0 15px #fff;
+}
+
+button:active {
+    background-color: #000;
+    color: #fff;
+}

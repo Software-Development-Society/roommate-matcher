@@ -23,6 +23,7 @@ class MatcherLoginController {
     input - takes a JSON formatted as {user_id:@hfgsih2w413}
     method parses the json and converts it into a map with the key value pairs.
     it then goes to the db and returns a json containing the user information
+    return -> {"user_id" : "ewfw23r23", "first_name" : "John", "last_name" : "doe" ... }
      */
     @PostMapping("/login")
     String login(@RequestBody String login){
