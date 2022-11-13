@@ -7,16 +7,20 @@
   <link rel="stylesheet" href="profilePhotoStyle.css">
 </head>
 <body>
-
-<h1>Upload Photo Like Facebook Profile DP</h1>
-
-<div class="profile-pic-div">
-  <img src="image.jpg" id="photo" alt="profile Pic">
-  <input type="file" id="file" accept="image/png, image/jpg, image/jpeg">
-  <label for="file" id="uploadBtn">Choose Photo</label>
-</div>
-
-<script src="profilePhotoScript.js"></script>
-
+  <div id="textDiv">
+    <h1>Upload A Profile Photo</h1>
+    <h3>This is required</h3>
+  </div>  
+  
+  <div class="profile-pic-div">
+    <img src="userIcon.png" id="photo" alt="profile Pic">
+    <input type="file" id="file" accept="image/png, image/jpg, image/jpeg" required>
+    <label for="file" id="uploadBtn">Choose Photo</label>
+    
+  </div>
+  <button id="submitButton">SUBMIT</button>
+  
+  <script src="profilePhotoScript.js"></script>
+  
 </body>
 </html>
