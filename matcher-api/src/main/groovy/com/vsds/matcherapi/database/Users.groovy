@@ -128,4 +128,14 @@ class Users {
     void setSnapChat(String snapChat) {
         this.snapChat = snapChat
     }
+
+    @Override
+    public String toString() {
+        return "Users{" +
+                "userId=" + userId +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", username='" + username + '\'' +
+                '}';
+    }
 }
