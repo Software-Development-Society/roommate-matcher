@@ -21,13 +21,15 @@ body{
     margin: 50px 0 150px 0;
 }
 
-h1, h3{
+h1, h4{
     font-family: sans-serif;
     text-align: center;
     color: #fff;
 }
 
-
+h4 {
+    color: #808080;
+}
 
 .profile-pic-div{
     height: 200px;
@@ -100,7 +102,18 @@ h1, h3{
         margin: 50px 0 180px 0;
     }
 
-    h1, h3 {
+    h1, h4 {
         font-size: large;
+    }
+}
+
+@media only screen and (max-width: 300px){
+    /*This is the screen width that the text wraps again. not an arbitrary number*/
+    #textDiv {
+        margin: 50px 0 180px 0;
+    }
+
+    h4 {
+        font-size: medium;
     }
 }
