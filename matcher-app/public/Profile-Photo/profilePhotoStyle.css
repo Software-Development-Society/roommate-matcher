@@ -86,3 +86,21 @@ h1, h3{
 #submitButton:active {
     box-shadow: none;
 }
+
+@media only screen and (max-width: 506px){
+    /*This is the screen width that the text wraps. not an arbitrary number*/
+    #textDiv {
+        margin: 30px 0 200px 0;
+    }
+}
+
+@media only screen and (max-width: 359px){
+    /*This is the screen width that the text wraps again. not an arbitrary number*/
+    #textDiv {
+        margin: 50px 0 180px 0;
+    }
+
+    h1, h3 {
+        font-size: large;
+    }
+}
