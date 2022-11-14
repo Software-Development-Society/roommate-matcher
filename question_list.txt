@@ -113,6 +113,12 @@ No
 
 
 19. How important is it that your room is clean
+The most important, my room is spotless
+Very important, I cannot stand mess
+Important, I would prefer my room be clean
+Not very important, I dont mind small amounts of mess
+Not important, Do not care about the cleanliness of my room
+
 
 
 20. How often do you plan on going home
