@@ -148,7 +148,11 @@ Yes
 No
 
 24. how often will you eat in the room
-
+Every meal every day
+once a day
+once or twice every few days
+couple times a week
+never
 
 25. How comfortable are you with alcohol in the room (Even if you dont drink)
 
