@@ -5,8 +5,10 @@
             <div class="matchBox">
                 <div class="div2">
                     <div class="contentBox">
+
+                        
                         <div class="card-group" id="modal" style="justify-content: center;">
-                            <button  onclick="roundedCorners()" id="userCardBttn" class="usercard-button roundedCorners" data-bs-toggle="collapse" href="#userInfoCard" type="button" aria-expanded="false" aria-controls="userInfoCard">
+                            <button  onclick="roundedCorners('Jack')" id="userCardBttn" class="usercard-button roundedCorners" data-bs-toggle="collapse" href="#userInfoCard" type="button" aria-expanded="false" aria-controls="userInfoCard">
                                 <div class="card roundedCorners text-white bg-primary subcard " id="userCard">
                                     <img id = "userImage" src="../images/Oreo Snowy Pic.jpeg" class=" userImg card-img-top imgRoundedTopCorners" alt="card-img-top">
                                     <div class="card-body">
@@ -63,6 +65,69 @@
                                 </div>
                             </div>
                         </div>
+
+
+
+                        <div class="card-group" id="modal" style="justify-content: center;">
+                            <button  onclick="roundedCorners('Danny')" id="userCardBttn" class="usercard-button roundedCorners" data-bs-toggle="collapse" href="#userInfoCard" type="button" aria-expanded="false" aria-controls="userInfoCard">
+                                <div class="card roundedCorners text-white bg-primary subcard " id="userCard">
+                                    <img id = "userImage" src="../images/Oreo Snowy Pic.jpeg" class=" userImg card-img-top imgRoundedTopCorners" alt="card-img-top">
+                                    <div class="card-body">
+                                        <h2 class="card-title" id="name">Jack</h2>
+                                        <h2 class="card-title" id="compatibility-percentage">87%</h2>
+                                    </div>
+                                </div>
+                            </button>
+                        
+                            <div class="collapse collapse-horizontal" id="userInfoCard">
+                                <div class="card nonRoundedLeftCorners card-body subcard" style="width: 30rem;">
+                                    <div id="bio">
+                                        <h5>Bio</h5>
+                                        <p>Hi my name is jack. I am a junior at Villanova studying Computer science1 I like to watch football, write
+                                        code, and watch movies.</p>
+                                    </div>
+                                    
+                                    <div id="compatibility">
+                                        <h5>Compatibility</h5>
+                
+                                        <div class="progress-div">
+                                            <h6>Social</h6>
+                                            <div class="progress">
+                                                <div class="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">25%</div>
+                                            </div>
+                                        </div>
+                
+                                        <div class="progress-div">
+                                            <h6>Academic</h6>
+                                            <div class="progress">
+                                                <div class="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">25%</div>
+                                            </div>
+                                        </div>
+                    
+                                        <div class="progress-div">
+                                            <h6>Personality</h6>
+                                            <div class="progress">
+                                                <div class="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">25%</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                
+                                    <div id="contact">
+                
+                                        <h5>Contact</h5>
+                                        
+                                        <div class="btn-group" id="contact-links" role="group" aria-label="Basic button group">
+                                            <a href="#" id="Instagram" class="btn btn-primary active btn-block contact-link" aria-current="page">Instagram</a>
+                                            <a href="#" id="Snapchat" class="btn btn-primary active btn-block contact-link" aria-current="page">Snapchat</a>
+                                            <a href="#" id="Email" class="btn btn-primary active btn-block contact-link" aria-current="page">Email</a>
+                                          </div>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                        </div>
+
+
                     </div>
                 </div>  
             </div>

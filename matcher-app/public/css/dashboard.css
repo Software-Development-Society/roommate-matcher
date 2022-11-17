@@ -21,7 +21,7 @@ h2 {
 .matchBox {
     background-color: #c9cbfa;
     width: 100%;
-    height: 80vh;
+    height: 65vh;
     max-height: 630px;
     border-radius: 30px;
     margin-bottom: 13%;
@@ -54,4 +54,5 @@ h2 {
 
 .contentBox {
     margin: 20px;
+    display: flex;
 }
