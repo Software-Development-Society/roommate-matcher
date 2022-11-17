@@ -48,5 +48,45 @@ class UserServices {
     }
 
 
+    static String returnUserInfo(Users user, String value){
+        String result = "";
+        if(value == "first_name"){
+            result = user.getFirstName()
+        }
+        else if (value == "last_name"){
+            result = user.getLastName()
+        }
+        else if (value == "username"){
+            result = user.getUsername()
+
+        }
+        else if (value == "sex"){
+            result = user.getSex()
+
+        }
+        else if (value == "class_year"){
+            result = user.getClassYear()
+
+        }
+        else if (value == "age"){
+            result = user.getAge()
+
+        }
+        else if (value == "bio"){
+            result = user.getBio()
+
+        }
+        else if (value == "instagram"){
+            result = user.getInstagram()
+
+        }
+        else if (value == "snapchat"){
+            result = user.getSnapChat()
+
+        }
+        return result
+    }
+
+
 
 }
