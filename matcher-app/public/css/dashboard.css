@@ -4,14 +4,16 @@ body {
     text-align: justify;
 }
 
+/* 
+Don't know why this was here because before I added the usercard it was unused
 h2 {
     font-family: Tahoma;
     margin-top: 16%;
     padding-left: 4%
-}
+}*/
 
 .div1 {
-    width: 60%;
+    width: 80%;
     max-width: 1400px;
     margin: 0 auto;
 }
@@ -19,7 +21,7 @@ h2 {
 .matchBox {
     background-color: #c9cbfa;
     width: 100%;
-    height: 45vh;
+    height: 80vh;
     max-height: 630px;
     border-radius: 30px;
     margin-bottom: 13%;

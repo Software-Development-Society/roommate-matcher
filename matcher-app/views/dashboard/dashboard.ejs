@@ -5,33 +5,64 @@
             <div class="matchBox">
                 <div class="div2">
                     <div class="contentBox">
-                        <p>Lorem ipsum dolor sit amet, tation iisque accusam at his. 
-                            Doming meliore recteque eos et. Dicam impedit expetendis ea his, 
-                            quod menandri cotidieque usu at. Mel ponderum dignissim at, 
-                            esse tation eos at, mea agam commodo liberavisse eu.</p>
-
-                        <p>Sed ut viderer dignissim rationibus, vel aeque delicata te. 
-                            Aperiam epicuri percipit ei est, eos maluisset dissentias cotidieque ei. 
-                            Sit maiorum ponderum ocurreret et. Ut eam sale fuisset, est ex accumsan 
-                            temporibus. Choro constituto vix ea, ex utinam hendrerit quaerendum mei. 
-                            Eu has fierent indoctum.</p>
-                            
-                        <p>Ea nam lucilius tacimates mediocrem, mea te agam utinam, amet oporteat 
-                            eu vim. Cu latine utroque vis, tractatos petentium ei quo. Ne eum 
-                            impedit comprehensam, zril semper sea id. Duo partem electram et, 
-                            per ea nihil phaedrum iudicabit. Dolor convenire mediocritatem in cum, 
-                            ad pri agam ancillae atomorum.</p>
-                            
-                        <p>Qui et equidem praesent. Maluisset persequeris definitiones sit te. 
-                            Verterem mandamus per ex, congue eligendi ius et, case constituam in vis. 
-                            Eum erant definitionem vituperatoribus no, nec et error invenire appellantur. 
-                            Torquatos moderatius sed an, vis ea agam homero.</p>
-                            
-                        <p>Clita possit ne eos, semper vivendo erroribus an nec, utinam ancillae tacimates
-                            est at. Te electram sapientem his, et augue placerat qui, est ex tota solum debet.
-                            Cu sea prompta convenire, qui te iusto delenit. Ignota placerat pri eu. 
-                            Nam ut facer vivendo adversarium.
-                        </p>
+                        <div class="card-group" id="modal" style="justify-content: center;">
+                            <button  onclick="roundedCorners()" id="userCardBttn" class="usercard-button roundedCorners" data-bs-toggle="collapse" href="#userInfoCard" type="button" aria-expanded="false" aria-controls="userInfoCard">
+                                <div class="card roundedCorners text-white bg-primary subcard " id="userCard">
+                                    <img id = "userImage" src="../images/Oreo Snowy Pic.jpeg" class=" userImg card-img-top imgRoundedTopCorners" alt="card-img-top">
+                                    <div class="card-body">
+                                        <h2 class="card-title" id="name">Jack</h2>
+                                        <h2 class="card-title" id="compatibility-percentage">87%</h2>
+                                    </div>
+                                </div>
+                            </button>
+                        
+                            <div class="collapse collapse-horizontal" id="userInfoCard">
+                                <div class="card nonRoundedLeftCorners card-body subcard" style="width: 30rem;">
+                                    <div id="bio">
+                                        <h5>Bio</h5>
+                                        <p>Hi my name is jack. I am a junior at Villanova studying Computer science1 I like to watch football, write
+                                        code, and watch movies.</p>
+                                    </div>
+                                    
+                                    <div id="compatibility">
+                                        <h5>Compatibility</h5>
+                
+                                        <div class="progress-div">
+                                            <h6>Social</h6>
+                                            <div class="progress">
+                                                <div class="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">25%</div>
+                                            </div>
+                                        </div>
+                
+                                        <div class="progress-div">
+                                            <h6>Academic</h6>
+                                            <div class="progress">
+                                                <div class="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">25%</div>
+                                            </div>
+                                        </div>
+                    
+                                        <div class="progress-div">
+                                            <h6>Personality</h6>
+                                            <div class="progress">
+                                                <div class="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">25%</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                
+                                    <div id="contact">
+                
+                                        <h5>Contact</h5>
+                                        
+                                        <div class="btn-group" id="contact-links" role="group" aria-label="Basic button group">
+                                            <a href="#" id="Instagram" class="btn btn-primary active btn-block contact-link" aria-current="page">Instagram</a>
+                                            <a href="#" id="Snapchat" class="btn btn-primary active btn-block contact-link" aria-current="page">Snapchat</a>
+                                            <a href="#" id="Email" class="btn btn-primary active btn-block contact-link" aria-current="page">Email</a>
+                                          </div>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>  
             </div>

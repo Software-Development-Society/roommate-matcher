@@ -8,7 +8,7 @@ function roundedCorners(){
         btn.classList.add("roundedCorners")
     }else{
         btn.classList.remove("roundedCorners")
-        btn.classList.add("nonRoundedRightorners")
+        btn.classList.add("nonRoundedRightCorners")
     }
 
     if (img.classList.contains("imgNonRoundedTopRightCorner")){

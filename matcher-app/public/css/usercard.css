@@ -1,12 +1,11 @@
 
-.card{
+.subcard{
     margin: 0 auto;
     height: 30rem !important;
     width: 100%;
     display: inline-block;
     /* left: 45%; 
     Inline comment to make center*/
-
 }
 
 .roundedCorners{
@@ -34,11 +33,11 @@
     text-align: center;
 }
 
-img{
+.userImg{
     height: 70%;
 }
 
-button{
+.usercard-button{
     width: 20rem;
     border: none;
     padding: 0;
@@ -71,6 +70,8 @@ button{
   padding: 10px;
   position: relative;
 }
+
+
 
 .contact-link{
     width: 9rem !important;
