@@ -1,60 +1,82 @@
 <!--Author: Preston Button https://github.com/prestonButton -->
 <%- include('../partials/header'); %>
-        <div class="div1">
-            <h2>Your Matches!</h2>
-            <div class="matchBox">
-                <div class="div2">
-                    <div class="contentBox">
+    <div class="div1">
+        <h2>Your Matches!</h2>
+        <div class="matchBox">
+            <div class="div2">
+                <div class="contentBox">
 
-                        
-                        <div class="card-group" id="modal" style="justify-content: center;">
-                            <button  onclick="roundedCorners('Jack')" id="userCardBttn" class="usercard-button roundedCorners" data-bs-toggle="collapse" href="#userInfoCard" type="button" aria-expanded="false" aria-controls="userInfoCard">
-                                <div class="card roundedCorners text-white bg-primary subcard " id="userCard">
-                                    <img id = "userImage" src="../images/Oreo Snowy Pic.jpeg" class=" userImg card-img-top imgRoundedTopCorners" alt="card-img-top">
-                                    <div class="card-body">
-                                        <h2 class="card-title" id="name">Jack</h2>
-                                    </div>
-                                </div>
-                            </button>
-                        
-                            <div class="collapse collapse-horizontal" id="userInfoCard">
-                                <div class="card nonRoundedLeftCorners card-body subcard hidden-card">
-                                    <div id="bio">
-                                        <h5>Bio</h5>
-                                        <p>Hi my name is jack. I am a junior at Villanova studying Computer science1 I like to watch football, write
-                                        code, and watch movies.</p>
-                                    </div>
-                                    
-                                    <div id="compatibility">
-                                        <h5>Compatibility</h5>
-                
-                                        <div class="progress-div">
-                                            <div class="progress">
-                                                <div class="progress-bar" role="progressbar" style="width: 30vw;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">25%</div>
-                                            </div>
-                                        </div>
-                
-                                    </div>
-                
-                                    <div id="contact">
-                
-                                        <h5>Contact</h5>
-                                        <div class="btn-group" id="contact-links" role="group" aria-label="Basic button group">
-                                            <a href="https://www.instagram.com/jhj_iv/" class="btn active btn-block contact-link" aria-current="page"><img  class="contact-imgs" src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram"></a>
-                                            <a href="https://feelinsonice.appspot.com/web/deeplink/snapcode?username=jackh_johnston&size=400&type=PNG" class="btn active btn-block contact-link" aria-current="page"><img class="contact-imgs" src="https://cdn-icons-png.flaticon.com/512/1409/1409941.png" alt="Snapchat"></a>
-                                            <a href="mailto: jjohns49@villanova.edu" class="btn active btn-block contact-link" aria-current="page"><img class="contact-imgs" src="https://cdn-icons-png.flaticon.com/512/5968/5968534.png" alt="Email"></a>
-                                          </div>
-                                    </div>
-                                    
+
+                    <div class="card-group" id="modal" style="justify-content: center;">
+                        <button onclick="roundedCorners('Jack')" id="userCardBttn"
+                            class="usercard-button roundedCorners" data-bs-toggle="collapse" href="#userInfoCard"
+                            type="button" aria-expanded="false" aria-controls="userInfoCard">
+                            <div class="card roundedCorners text-white bg-primary subcard " id="userCard">
+                                <img id="userImage" src="../images/Oreo Snowy Pic.jpeg"
+                                    class=" userImg card-img-top imgRoundedTopCorners" alt="card-img-top">
+                                <div class="card-body">
+                                    <h2 class="card-title" id="name">Jack</h2>
                                 </div>
                             </div>
+                        </button>
+
+                        <div class="collapse collapse-horizontal" id="userInfoCard">
+                            <div class="card nonRoundedLeftCorners card-body subcard hidden-card">
+                                <div id="usercard-content">
+                                    <div id="bio">
+                                        <h5>Bio</h5>
+                                        <p>Hi my name is jack. I am a junior at Villanova studying Computer science1 I
+                                            like to watch football, write
+                                            code, and watch movies.</p>
+                                    </div>
+
+                                    <div id="compatibility">
+                                        <h5>Compatibility</h5>
+
+                                        <div class="progress-div">
+                                            <div class="progress">
+                                                <div class="progress-bar" role="progressbar" style="width: 30vw;"
+                                                    aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">25%</div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                    <div id="contact">
+
+                                        <h5>Contact</h5>
+                                        <div class="btn-group" id="contact-links" role="group"
+                                            aria-label="Basic button group">
+                                            <a href="https://www.instagram.com/jhj_iv/"
+                                                class="btn active btn-block contact-link" aria-current="page"><img
+                                                    class="contact-imgs"
+                                                    src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png"
+                                                    alt="Instagram"></a>
+                                            <a href="https://feelinsonice.appspot.com/web/deeplink/snapcode?username=jackh_johnston&size=400&type=PNG"
+                                                class="btn active btn-block contact-link" aria-current="page"><img
+                                                    class="contact-imgs"
+                                                    src="https://cdn-icons-png.flaticon.com/512/1409/1409941.png"
+                                                    alt="Snapchat"></a>
+                                            <a href="mailto: jjohns49@villanova.edu"
+                                                class="btn active btn-block contact-link" aria-current="page"><img
+                                                    class="contact-imgs"
+                                                    src="https://cdn-icons-png.flaticon.com/512/5968/5968534.png"
+                                                    alt="Email"></a>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                            </div>
                         </div>
-
-
-
                     </div>
-                </div>  
+
+
+
+                </div>
             </div>
         </div>
+    </div>
     </body>
-</html>
+
+    </html>

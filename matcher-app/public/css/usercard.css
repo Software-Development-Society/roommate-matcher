@@ -28,6 +28,7 @@
 .hidden-card{
     width: 30vw;
     height: 50vh;
+    overflow-y: auto;
 }
 
 #name{
@@ -37,6 +38,8 @@
 #compatibility-percentage{
     text-align: center;
 }
+
+
 
 .userImg{
     height: 35vh;
