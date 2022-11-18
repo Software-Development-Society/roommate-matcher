@@ -2,7 +2,7 @@
 .subcard{
     margin: 0 auto;
     height: 50vh !important;
-    width: 100%;
+    width: 20vw;
     display: inline-block;
     /* left: 45%; 
     Inline comment to make center*/
@@ -25,6 +25,11 @@
 
 }
 
+.hidden-card{
+    width: 30vw;
+    height: 50vh;
+}
+
 #name{
     text-align: center;
 }
@@ -38,7 +43,8 @@
 }
 
 .usercard-button{
-    width: 20rem;
+    width: 20vw;
+    height: 50vh;
     border: none;
     padding: 0;
     /* background-color: white; */
@@ -74,7 +80,7 @@
 
 
 .contact-link{
-    width: 9rem !important;
+    width: 8vw !important;
     border: none !important;
 }
 
