@@ -1,6 +1,7 @@
 package com.vsds.matcherapi.Controllers
 
 import com.vsds.matcherapi.User.User
+import com.vsds.matcherapi.database.Users
 import com.vsds.matcherapi.services.DatabaseServices
 import com.vsds.matcherapi.services.UserServices
 import groovy.json.JsonSlurper
@@ -19,9 +20,22 @@ class UserController {
     takes the initial json and returns a json containing the information requested
     return json -> {"first_name":"John"}
      */
-    @PostMapping("/getInfo")
+    @PostMapping("/get-info")
     String getUserInfo(@RequestBody String info){
+        print(info)
+        def inputString = slurper.parseText(info)
+        ObjectId userId = new ObjectId(inputString["user_id"])
+        Users currentUser = DatabaseServices.getUserFromId(userId)
+        ArrayList<String> values = new ArrayList<String>(inputString["values"])
+        JSONObject returnPayload = new JSONObject()
+        returnPayload.put("user_id", userId)
 
+        for(int i=0; i< values.size(); i++){
+            String value = values.get(i)
+            returnPayload.put(value, UserServices.returnUserInfo(currentUser, value))
+
+        }
+        return returnPayload as String
     }
     
     /*
