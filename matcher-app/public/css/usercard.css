@@ -101,6 +101,25 @@
     height: 5vh;
 }
 
+.snapCodePopup {
+    display: inline-block;
+}
+.snapCodePopup .snapCode {
+    visibility: hidden !important;
+    width: 160px;
+    text-align: center;
+    border-radius: 6px;
+    padding: 20px;
+    position:relative;
+    top:50px;
+    right:150px;
+}
+.snapCodePopup .show {
+    visibility: visible;
+    -webkit-animation: fadeIn 1s;
+    animation: fadeIn 1s;
+}
+
 
 
 

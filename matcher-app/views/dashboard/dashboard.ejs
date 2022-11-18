@@ -2,6 +2,11 @@
 <%- include('../partials/header'); %>
     <div class="div1">
         <h2>Your Matches!</h2>
+        <div  class="snapCodePopup">
+            <span id = "popup" class="snapCode">
+                <p>Snapcode</p>
+            </span>
+        </div>
         <div class="matchBox">
             <div class="div2">
                 <div class="contentBox">
@@ -52,11 +57,10 @@
                                                     class="contact-imgs"
                                                     src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png"
                                                     alt="Instagram"></a>
-                                            <a href="https://feelinsonice.appspot.com/web/deeplink/snapcode?username=jackh_johnston&size=400&type=PNG"
-                                                class="btn active btn-block contact-link" aria-current="page"><img
-                                                    class="contact-imgs"
-                                                    src="https://cdn-icons-png.flaticon.com/512/1409/1409941.png"
-                                                    alt="Snapchat"></a>
+                                            <button onclick="showSnapCode()" class="btn active btn-block contact-link"><img
+                                                class="contact-imgs"
+                                                src="https://cdn-icons-png.flaticon.com/512/1409/1409941.png"
+                                                alt="Snapchat"></button>
                                             <a href="mailto: jjohns49@villanova.edu"
                                                 class="btn active btn-block contact-link" aria-current="page"><img
                                                     class="contact-imgs"
