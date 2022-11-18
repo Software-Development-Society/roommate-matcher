@@ -1,7 +1,7 @@
 
 .subcard{
     margin: 0 auto;
-    height: 30rem !important;
+    height: 50vh !important;
     width: 100%;
     display: inline-block;
     /* left: 45%; 
@@ -34,7 +34,7 @@
 }
 
 .userImg{
-    height: 70%;
+    height: 35vh;
 }
 
 .usercard-button{
@@ -75,6 +75,7 @@
 
 .contact-link{
     width: 9rem !important;
+    border: none !important;
 }
 
 #Instagram{
@@ -85,6 +86,10 @@
 #Snapchat{
     background-color: 	#fffb00b2;
     
+}
+
+.contact-imgs{
+    height: 5vh;
 }
 
 
