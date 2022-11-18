@@ -62,7 +62,6 @@ app.get("/signout", function (req, res) {
 });
 
 
-
 //These last 2 routes are just for API testing purposes.
 app.get("/secret", (req, res) => {
     if (req.isAuthenticated()) {

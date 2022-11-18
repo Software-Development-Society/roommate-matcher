@@ -3,8 +3,6 @@ function roundedCorners(name){
     const img = document.getElementById("userImage");
     const card = document.getElementById("userCard")
 
-    alert(name)
-
     if(btn.classList.contains("nonRoundedRightCorners")){
         btn.classList.remove("nonRoundedRightCorners")
         btn.classList.add("roundedCorners")
