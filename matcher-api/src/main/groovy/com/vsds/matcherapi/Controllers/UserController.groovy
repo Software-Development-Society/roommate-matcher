@@ -1,6 +1,7 @@
 package com.vsds.matcherapi.Controllers
 
 import com.vsds.matcherapi.User.User
+import com.vsds.matcherapi.database.Users
 import com.vsds.matcherapi.services.DatabaseServices
 import com.vsds.matcherapi.services.UserServices
 import groovy.json.JsonSlurper
@@ -19,37 +20,21 @@ class UserController {
     takes the initial json and returns a json containing the information requested
     return json -> {"first_name":"John"}
      */
-    @PostMapping("/getInfo")
+    @PostMapping("/get-info")
     String getUserInfo(@RequestBody String info){
-        println("The request for getting user info is: " +info)
-        Map<String, String> inputString = slurper.parseText(info) as Map<String, String>
+        print(info)
+        def inputString = slurper.parseText(info)
         ObjectId userId = new ObjectId(inputString["user_id"])
-        User currentUser = DatabaseServices.getUser(userId)
-        String valueToReturn = inputString["value"]
-        String returnValue = valueToReturn
-        if(valueToReturn == "first_name"){
-            valueToReturn = currentUser.getFirstName()
-        }
-        else if(valueToReturn == "last_name") {
-            valueToReturn = currentUser.getLastName()
-        }
-        else if(valueToReturn == "email") {
-            valueToReturn = currentUser.getUserName()
-        }
-        else if(valueToReturn == "sex") {
-            valueToReturn = currentUser.getSex()
-        }
-        else if(valueToReturn == "class_year") {
-            valueToReturn = currentUser.getClassYear()
-        }
-        else if(valueToReturn == "age") {
-            valueToReturn = currentUser.getAge()
-        }
-        else if(valueToReturn == "bio") {
-            valueToReturn = currentUser.getBio()
-        }
+        Users currentUser = DatabaseServices.getUserFromId(userId)
+        ArrayList<String> values = new ArrayList<String>(inputString["values"])
         JSONObject returnPayload = new JSONObject()
-        returnPayload.put(returnValue, valueToReturn)
+        returnPayload.put("user_id", userId)
+
+        for(int i=0; i< values.size(); i++){
+            String value = values.get(i)
+            returnPayload.put(value, UserServices.returnUserInfo(currentUser, value))
+
+        }
         return returnPayload as String
     }
     
