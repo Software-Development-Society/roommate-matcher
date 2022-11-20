@@ -8,7 +8,7 @@ const uploadBtn = document.querySelector('#uploadBtn');
 //if user hovers on img div 
 
 imgDiv.addEventListener('mouseenter', function(){3+
-    uploadBtn.style.display = "block";
+    uploadBtn.style.display == "block";
 });
 
 //if we hover out from img div
