@@ -5,9 +5,9 @@ const img = document.querySelector('#photo');
 const file = document.querySelector('#file');
 const uploadBtn = document.querySelector('#uploadBtn');
 
-//if user hover on img div 
+//if user hovers on img div 
 
-imgDiv.addEventListener('mouseenter', function(){
+imgDiv.addEventListener('mouseenter', function(){3+
     uploadBtn.style.display = "block";
 });
 
