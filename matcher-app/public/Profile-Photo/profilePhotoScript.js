@@ -1,4 +1,4 @@
-//declearing html elements
+//declaring html elements 
 
 const imgDiv = document.querySelector('.profile-pic-div');
 const img = document.querySelector('#photo');
