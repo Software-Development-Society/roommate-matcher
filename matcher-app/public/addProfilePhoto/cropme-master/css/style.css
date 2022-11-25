@@ -1,0 +1,19 @@
+.navbar {
+ box-shadow: 0 .125rem .25rem rgba(0,0,0,.075)!important;
+ /* background-color:#5bc0de; */
+}
+#cropme-result {
+    width: 400px;
+}
+h2.display-4 {
+    font-size: 25px;
+}
+.title {
+
+}
+.options {
+    margin-bottom: 10px;
+}
+.output {
+    background-color: #eee;
+}

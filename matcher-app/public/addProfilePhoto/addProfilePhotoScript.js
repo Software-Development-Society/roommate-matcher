@@ -21,7 +21,7 @@ imgDiv.addEventListener('mouseleave', function(){
 
 //when we choose a photo to upload
 
-file.addEventListener('change', function(){
+/*file.addEventListener('change', function(){
     //this refers to file
     const choosedFile = this.files[0];
 
@@ -35,4 +35,4 @@ file.addEventListener('change', function(){
 
         reader.readAsDataURL(choosedFile);
     }
-});
+});*/

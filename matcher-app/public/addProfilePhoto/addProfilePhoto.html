@@ -6,21 +6,26 @@
   <title>Upload Profile Photo</title>
   <link rel="stylesheet" href="addProfilePhotoStyle.css">
   <link rel="stylesheet" href="modalStyles.css">
+  <link rel="stylesheet" href="./cropme-master/dist/cropme.min.css">
+
+  <script src="./cropme-master/dist/cropme.min.js"></script>
 </head>
 <body>
-  <div id="textDiv">
-    <h1>Upload A Profile Photo</h1>
-    <h4>This is required</h4>
-  </div>  
+    <div class="contentDiv">
+        <div id="textDiv">
+            <h1>Upload A Profile Photo</h1>
+            <h4>This is required</h4>
+        </div>  
   
-  <div class="profile-pic-div">
-    <img src="userIcon.png" id="photo" alt="profile Pic">
-    <label for="file" class="uploadBtn btn-open">
-        CHOOSE FILE
-    </label>    
-    <input type="file" id="file" accept="image/png, image/jpg, image/jpeg" required>  
-  </div>
-  <button type="submit" id="submitButton">SUBMIT</button>
+        <div class="profile-pic-div">
+            <img src="userIcon.png" id="photo" alt="profile Pic">
+            <label for="file" class="uploadBtn btn-open">
+                CHOOSE FILE
+            </label>    
+            <input type="file" id="file" accept="image/png, image/jpg, image/jpeg" required>  
+        </div>
+        <button type="submit" id="submitButton">SUBMIT</button>
+    </div>
 
   <!--Start Modal Here-->
   <section class="modal hidden">
@@ -28,7 +33,15 @@
       <button class="btn-close">⨉</button>
     </div>
     <div>
-        <P>Modal Content Here</P>
+        <!--Start Cropme here-->
+        <div class="content">
+            <img src="./lio.png" id="myImage" alt="image"/>
+
+            <script>   
+                var element = document.getElementById('myImage');
+                new Cropme(element);
+            </script>
+        </div>
     </div>
   </section>
   
@@ -36,6 +49,7 @@
   
   <script src="addProfilePhotoScript.js"></script>
   <script src="modalScripts.js"></script>
+  <script src="cropmeScript.js"></script>
   
 </body>
 </html>

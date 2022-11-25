@@ -17,8 +17,17 @@ body{
     margin: 0;
 }
 
+.contentDiv{
+    width: 100%;
+    min-width: 450px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center; 
+}
+
 #textDiv {
-    margin: 50px 0 150px 0;
+   margin: 50px 0 80px 0;
 }
 
 h1, h4{
@@ -79,7 +88,7 @@ h4 {
     width: fit-content;
     background-color: #fff;
     padding: 1em;
-    margin: 50px 0 0 0;
+    margin:  180px 0 0 0;
     border-radius: 50px;
     font-weight:bold
 }
@@ -95,14 +104,14 @@ h4 {
 @media only screen and (max-width: 506px){
     /*This is the screen width that the text wraps. not an arbitrary number*/
     #textDiv {
-        margin: 30px 0 200px 0;
+        margin: 30px 0 100px 0;
     }
 }
 
 @media only screen and (max-width: 359px){
     /*This is the screen width that the text wraps again. not an arbitrary number*/
     #textDiv {
-        margin: 50px 0 180px 0;
+        margin: 50px 0 100px 0;
     }
 
     h1, h4 {
@@ -113,7 +122,7 @@ h4 {
 @media only screen and (max-width: 300px){
     /*This is the screen width that the text wraps again. not an arbitrary number*/
     #textDiv {
-        margin: 50px 0 180px 0;
+        margin: 50px 0 100px 0;
     }
 
     h4 {
