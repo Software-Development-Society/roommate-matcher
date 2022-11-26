@@ -1,0 +1,14 @@
+.subcard-mobile{
+    margin: 0 auto;
+    height: 50vh !important;
+    width: 60vw;
+    position:fixed;
+}
+
+.btn-group-vertical{
+    justify-content: center;
+}
+
+#contact-links-mobile{
+    justify-content: center;
+  }

@@ -3,59 +3,59 @@
     <div class="div1">
         <h2>Your Matches!</h2>
 
-        
-        
+
+
         <div class="matchBox">
             <div class="div2">
                 <div class="contentBox">
 
+                    <div id="carouselWithIndicators" class="carousel slide carousel-fade" data-bs-ride="carousel"
+                        data-bs-interval="10000000000000">
+                        <ol class="carousel-indicators">
+                            <li data-bs-target="#carouselWithIndicators" data-bs-slide-to="0" class="active"
+                                area-current="true"></li>
+                            <li data-bs-target="#carouselWithIndicators" data-bs-slide-to="1"></li>
+                            <li data-bs-target="#carouselWithIndicators" data-bs-slide-to="2"></li>
+                        </ol>
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <div class="card roundedCorners text-white bg-primary subcard-mobile" id="userCard">
+                                    <img id="userImage" src="../images/Oreo Snowy Pic.jpeg"
+                                        class=" userImg card-img-top imgRoundedTopCorners" alt="card-img-top">
+                                    <div class="card-body">
+                                        <h2 class="card-title" id="name">Jack</h2>
 
-                    <div class="card-group" id="modal" style="justify-content: center;">
-                        <button onclick="roundedCorners('Jack')" id="userCardBttn"
-                            class="usercard-button roundedCorners" data-bs-toggle="collapse" href="#userInfoCard"
-                            type="button" aria-expanded="false" aria-controls="userInfoCard">
-                            <div class="card roundedCorners text-white bg-primary subcard " id="userCard">
-                                <img id="userImage" src="../images/Oreo Snowy Pic.jpeg"
-                                    class=" userImg card-img-top imgRoundedTopCorners" alt="card-img-top">
-                                <div class="card-body">
-                                    <h2 class="card-title" id="name">Jack</h2>
+                                    </div>
                                 </div>
                             </div>
-                        </button>
 
-                        <div class="collapse collapse-horizontal" id="userInfoCard">
-                            <div class="card nonRoundedLeftCorners card-body subcard hidden-card">
-                                <div id="usercard-content">
-                                    <div id="bio">
-                                        <h5>Bio</h5>
+                            <div class="carousel-item">
+                                <div class="card roundedCorners text-white bg-primary subcard-mobile" id="userCard">
+                                    <div class="card-body">
+                                        <h2 class="card-title">Bio</h2>
                                         <p>Hi my name is jack. I am a junior at Villanova studying Computer science1 I
                                             like to watch football, write
                                             code, and watch movies.</p>
                                     </div>
+                                </div>
+                            </div>
 
-                                    <div id="compatibility">
-                                        <h5>Compatibility</h5>
-
-                                        <div class="progress-div">
-                                            <div class="progress">
-                                                <div class="progress-bar" role="progressbar" style="width: 30vw;"
-                                                    aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">25%</div>
-                                            </div>
-                                        </div>
-
-                                    </div>
-
-                                    <div id="contact">
-
-                                        <h5>Contact</h5>
-                                        <div class="btn-group" id="contact-links" role="group"
+                            <div class="carousel-item">
+                                <div class="card roundedCorners text-white bg-primary subcard-mobile" id="userCard">
+                                    <div class="card-body">
+                                        <h2 class="card-title">Contact</h2>
+                                        <div class="btn-group-vertical" id="contact-links-mobile" role="group"
                                             aria-label="Basic button group">
                                             <a href="https://www.instagram.com/jhj_iv/"
                                                 class="btn active btn-block contact-link" aria-current="page"><img
                                                     class="contact-imgs"
                                                     src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png"
                                                     alt="Instagram"></a>
-                                            <a href="https://feelinsonice.appspot.com/web/deeplink/snapcode?username=jackh_johnston&size=400&type=PNG"><iframe class="contact-imgs" src="https://feelinsonice.appspot.com/web/deeplink/snapcode?username=jackh_johnston&size=400&type=PNG"></iframe></a>
+                                            <a
+                                                href="https://feelinsonice.appspot.com/web/deeplink/snapcode?username=jackh_johnston&size=400&type=PNG"><img
+                                                    class="contact-imgs"
+                                                    src="https://feelinsonice.appspot.com/web/deeplink/snapcode?username=jackh_johnston&size=400&type=PNG"
+                                                    alt="Snapchat"></a>
                                             <a href="mailto: jjohns49@villanova.edu"
                                                 class="btn active btn-block contact-link" aria-current="page"><img
                                                     class="contact-imgs"
@@ -63,13 +63,26 @@
                                                     alt="Email"></a>
                                         </div>
                                     </div>
-
                                 </div>
-
                             </div>
-                        </div>
-                    </div>
 
+
+
+                        </div>
+
+                        <a class="carousel-control-prev" href="#carouselWithIndicators" role="button"
+                            data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </a>
+                        <a class="carousel-control-next" href="#carouselWithIndicators" role="button"
+                            data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </a>
+
+
+                    </div>
 
 
                 </div>
