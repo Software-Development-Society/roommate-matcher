@@ -7,7 +7,6 @@
   <link rel="stylesheet" href="addProfilePhotoStyle.css">
   <link rel="stylesheet" href="modalStyles.css">
   <link rel="stylesheet" href="./cropme-master/dist/cropme.min.css">
-  
 
   <script src="./cropme-master/dist/cropme.min.js"></script>
 </head>
@@ -23,7 +22,7 @@
             <label for="file" class="uploadBtn btn-open">
                 CHOOSE FILE
             </label>    
-            <input type="file" id="file" accept="image/png, image/jpg, image/jpeg" required>  
+            <input type="file" id="file" onchange="onFileSelected(event)" accept="image/png, image/jpg, image/jpeg" required>  
         </div>
         <button type="submit" id="submitButton">SUBMIT</button>
     </div>
@@ -36,12 +35,16 @@
     <div>
         <!--Start Cropme here-->
         <div class="content">
-            <img src="./userIcon.png" id="myImage" alt="image" />
+            <img src="./userIcon.png" id="chosenImage" alt="image" height="200"/>
 
             <script>   
                 var element = document.getElementById('myImage');
                 new Cropme(element);
             </script>
+        </div>
+        <div class="cropmeControl">
+          <button id="usePic">USE PICTURE</button>
+          <button id="cancel">CANCEL</button>
         </div>
     </div>
   </section>

@@ -2,6 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: "Inter", sans-serif;
 }
 
 body{
@@ -98,6 +99,28 @@ h4 {
 }
 
 #submitButton:active {
+    box-shadow: none;
+}
+
+.cropmeControl {
+    display:flex;
+    justify-content: space-evenly;
+    margin: 10px auto
+}
+
+#usePic, #cancel {
+    width:fit-content;
+    background-color: #000;
+    color: #fff;
+    padding: 1rem;
+    border-radius: 50px;   
+}
+
+#usePic:hover, #cancel:hover {
+    box-shadow: 0 0 15px #000;
+}
+
+#usePic:active, #cancel:active {
     box-shadow: none;
 }
 

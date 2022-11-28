@@ -2,7 +2,7 @@
 
 const imgDiv = document.querySelector('.profile-pic-div');
 const img = document.querySelector('#photo');
-const file = document.querySelector('#file');
+const file = document.querySelector('#chosenImage');
 const uploadBtn = document.querySelector('#uploadBtn');
 
 //if user hovers on img div 
@@ -19,20 +19,18 @@ imgDiv.addEventListener('mouseleave', function(){
 
 //lets work for image showing functionality when we choose an image to upload
 
-//when we choose a photo to upload
+//when we choose a photo to upload, display that image in the modal cropme
 
-/*file.addEventListener('change', function(){
-    //this refers to file
-    const choosedFile = this.files[0];
-
-    if (choosedFile) {
-
-        const reader = new FileReader();
-
-        reader.addEventListener('load', function(){
-            img.setAttribute('src', reader.result);
-        });
-
-        reader.readAsDataURL(choosedFile);
-    }
-});*/
+function onFileSelected(event) {
+    var selectedFile = event.target.files[0];
+    var reader = new FileReader();
+  
+    var imgtag = document.getElementById("chosenImage");
+    imgtag.title = selectedFile.name;
+  
+    reader.onload = function(event) {
+      imgtag.src = event.target.result;
+    };
+  
+    reader.readAsDataURL(selectedFile);
+  }
