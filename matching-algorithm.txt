@@ -16,3 +16,15 @@ The importance is rated as follows:
 For each question:
 	take both users multiple choice option and |x2-x1| => xScore
 	take both users importance and y2+y2 => yScore
+	Then:
+	Match the (xscore, yscore) to the correct match score for that question
+	{range from 1 -> 64 with a unique number for each possible score}
+	Then:
+	weight the current question with the appropriate question wait and add the score to the running total
+	Finally,
+	Add the id and associated score to the result map
+After the map has been created:
+	sort the map in accending order to get the correct match ranking
+Finally:
+	store the map in the DB
+
