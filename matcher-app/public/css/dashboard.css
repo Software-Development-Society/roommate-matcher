@@ -29,9 +29,10 @@ h2 {
     padding: 20px;
 }
 
-@media screen and (max-width:400px) {
+@media screen and (max-width:600px) {
     .matchBox{
-        min-width: 325px;
+        min-width: 350px;
+        
     }
 }
 
@@ -62,4 +63,7 @@ h2 {
 .contentBox {
     margin: 20px;
     display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
 }
