@@ -1,7 +1,34 @@
+@media screen and (max-width:600px){
+    .subcard-mobile{
+        margin: 0 auto;
+        height: 50vh !important;
+        width: 60vw;
+        
+    }
+    .userImg{
+        min-height: none;
+    }
+}
+
+.middle{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+
 .subcard-mobile{
-    margin: 0 auto;
-    height: 50vh !important;
-    width: 60vw;
+    margin: 0 auto;     
+    height: 53vh !important;
+    width: 20vw;
+    min-height: 400px;
+    min-width: 250px;
+} 
+
+.userImg{
+    height: 35vh;
+    min-height: 250px;
 }
 
 
