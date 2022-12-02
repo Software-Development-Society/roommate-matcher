@@ -3,6 +3,7 @@ package com.vsds.matcherapi.services
 
 import com.vsds.matcherapi.MatcherApiApplication
 import com.vsds.matcherapi.User.User
+import com.vsds.matcherapi.database.MatchList
 import com.vsds.matcherapi.database.Questions
 import com.vsds.matcherapi.database.Users
 import org.bson.types.ObjectId
@@ -63,12 +64,21 @@ class DatabaseServices {
 
 
         static ArrayList<ArrayList<Integer>> returnQuestions(ObjectId user_id){
-                for(Questions question : MatcherApiApplication.visableQuestionRepo){
+                for(Questions question : MatcherApiApplication.visableQuestionRepo.findAll()){
                         if(question.getUser_id() == user_id){
                                 return question.getResponses()
                         }
                 }
         }
+
+        static Map<ObjectId, ArrayList<Integer>> returnMatchList(ObjectId user_id){
+                for(MatchList matches : MatcherApiApplication.visableMatchListRepo.findAll()) {
+                        if(matches.getUserId() == user_id){
+                                return matches.getMatchList()
+                        }
+                }
+        }
+
 
 
 }

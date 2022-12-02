@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RestController
 class UserController {
     JsonSlurper slurper = new JsonSlurper()
     /*
-    input -> {"user_id":"@e3245y35, "value","first_name"}
+    input -> {"user_id":"@e3245y35, "value": "first_name"}
     takes the initial json and returns a json containing the information requested
     return json -> {"first_name":"John"}
      */
@@ -55,5 +55,15 @@ class UserController {
         returnPayload.put("true", "user updated")
         return returnPayload as String
     }
+    @PostMapping("/get-matches")
+    public String getMatches(@RequestBody String info) {
+        print(info)
+        def inputString = slurper.parseText(info)
+        ObjectId user_id = new ObjectId(inputString["user_id"])
+        Map<ObjectId, ArrayList<Integer>> matches = DatabaseServices.returnMatchList(user_id)
+
+
+    }
+
 
 }
