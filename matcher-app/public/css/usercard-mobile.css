@@ -10,6 +10,39 @@
     }
 }
 
+.card-title-mobile{
+    text-align: center;
+}
+
+#contact-links{
+    width: auto;
+    height: auto;
+    margin: 0 auto;
+    padding: 10px;
+    position: relative;
+  }
+  
+  
+  
+  .contact-link{
+      width: 8vw !important;
+      border: none !important;
+  }
+  
+  #Instagram{
+      background-image: linear-gradient(to top right, #feda75, #fa7e1e, #d62976, 	#962fbf, #4f5bd5);
+      
+  }
+  
+  #Snapchat{
+      background-color: 	#fffb00b2;
+      
+  }
+  
+  .contact-imgs{
+      height: 10vh;
+  }
+
 .middle{
     display: flex;
     justify-content: center;
