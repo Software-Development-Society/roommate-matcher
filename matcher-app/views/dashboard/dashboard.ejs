@@ -1,40 +1,297 @@
 <!--Author: Preston Button https://github.com/prestonButton -->
 <%- include('../partials/header'); %>
-        <div class="div1">
-            <h2>Your Matches!</h2>
+    <div class="div1">
+        <h2>Your Matches!</h2>
+
+        <div class="middle">
+
             <div class="matchBox">
                 <div class="div2">
                     <div class="contentBox">
-                        <p>Lorem ipsum dolor sit amet, tation iisque accusam at his. 
-                            Doming meliore recteque eos et. Dicam impedit expetendis ea his, 
-                            quod menandri cotidieque usu at. Mel ponderum dignissim at, 
-                            esse tation eos at, mea agam commodo liberavisse eu.</p>
 
-                        <p>Sed ut viderer dignissim rationibus, vel aeque delicata te. 
-                            Aperiam epicuri percipit ei est, eos maluisset dissentias cotidieque ei. 
-                            Sit maiorum ponderum ocurreret et. Ut eam sale fuisset, est ex accumsan 
-                            temporibus. Choro constituto vix ea, ex utinam hendrerit quaerendum mei. 
-                            Eu has fierent indoctum.</p>
-                            
-                        <p>Ea nam lucilius tacimates mediocrem, mea te agam utinam, amet oporteat 
-                            eu vim. Cu latine utroque vis, tractatos petentium ei quo. Ne eum 
-                            impedit comprehensam, zril semper sea id. Duo partem electram et, 
-                            per ea nihil phaedrum iudicabit. Dolor convenire mediocritatem in cum, 
-                            ad pri agam ancillae atomorum.</p>
-                            
-                        <p>Qui et equidem praesent. Maluisset persequeris definitiones sit te. 
-                            Verterem mandamus per ex, congue eligendi ius et, case constituam in vis. 
-                            Eum erant definitionem vituperatoribus no, nec et error invenire appellantur. 
-                            Torquatos moderatius sed an, vis ea agam homero.</p>
-                            
-                        <p>Clita possit ne eos, semper vivendo erroribus an nec, utinam ancillae tacimates
-                            est at. Te electram sapientem his, et augue placerat qui, est ex tota solum debet.
-                            Cu sea prompta convenire, qui te iusto delenit. Ignota placerat pri eu. 
-                            Nam ut facer vivendo adversarium.
-                        </p>
+                        <div class="row g-5">
+                            <div class="col">
+                                <div class="subcard-mobile" id="userCard">
+                                    <% //To make them independent you have to have different ids %>
+                                        <div id="carousel1" class="carousel slide carousel-fade" data-bs-ride="carousel"
+                                            data-bs-interval="10000000000000">
+                                            <ol class="carousel-indicators">
+                                                <% //make sure the data-bs-target is the id of the %>
+                                                    <li data-bs-target="#carousel1" data-bs-slide-to="0" class="active"
+                                                        area-current="true"></li>
+                                                    <li data-bs-target="#carousel1" data-bs-slide-to="1"></li>
+                                                    <li data-bs-target="#carousel1" data-bs-slide-to="2"></li>
+                                            </ol>
+                                            <div class="carousel-inner">
+                                                <div class="carousel-item active">
+                                                    <div class="card roundedCorners text-white bg-primary subcard-mobile"
+                                                        id="userCard">
+                                                        <img id="userImage" src="../images/Oreo Snowy Pic.jpeg"
+                                                            class=" userImg card-img-top imgRoundedTopCorners"
+                                                            alt="card-img-top">
+                                                        <div class="card-body">
+                                                            <h2 class="card-title card-title-mobile" >Jack</h2>
+                                                            <h2 class="card-title card-title-mobile" >99%</h2>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="carousel-item">
+                                                    <div class="card roundedCorners text-white bg-primary subcard-mobile"
+                                                        id="userCard">
+                                                        <div class="card-body">
+                                                            <h2 class="card-title">Bio</h2>
+                                                            <% //need to add a character limit here %> 
+                                                            <p>Hi my name is jack. I am a junior at Villanova studying
+                                                                Computer
+                                                                science1 I
+                                                                like to watch football, write
+                                                                code, and watch movies.</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="carousel-item">
+                                                    <div class="card roundedCorners text-white bg-primary subcard-mobile"
+                                                        id="userCard">
+                                                        <div class="card-body">
+                                                            <h2 class="card-title">Contact</h2>
+                                                            <div class="d-flex justify-content-center">
+                                                                <div class="btn-group-vertical align-items--center"
+                                                                    id="contact-links-mobile" role="group"
+                                                                    aria-label="Basic button group">
+                                                                    <a href="https://www.instagram.com/jhj_iv/"
+                                                                        aria-current="page"><img
+                                                                            class="my-1 contact-imgs"
+                                                                            src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png"
+                                                                            alt="Instagram"></a>
+                                                                    <a
+                                                                        href="https://feelinsonice.appspot.com/web/deeplink/snapcode?username=jackh_johnston&size=400&type=PNG"><img
+                                                                            class="my-4 contact-imgs"
+                                                                            src="https://feelinsonice.appspot.com/web/deeplink/snapcode?username=jackh_johnston&size=400&type=PNG"
+                                                                            alt="Snapchat"></a>
+                                                                    <a href="mailto: jjohns49@villanova.edu"
+                                                                        aria-current="page"><img
+                                                                            class="my-8 contact-imgs"
+                                                                            src="https://cdn-icons-png.flaticon.com/512/5968/5968534.png"
+                                                                            alt="Email"></a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+
+
+                                            </div>
+
+                                            <% //make sure the href corresponds to the id of the carousel %>
+                                                <a class="carousel-control-prev" href="#carousel1" role="button"
+                                                    data-bs-slide="prev">
+                                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                                    <span class="visually-hidden">Previous</span>
+                                                </a>
+                                                <a class="carousel-control-next" href="#carousel1" role="button"
+                                                    data-bs-slide="next">
+                                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                                    <span class="visually-hidden">Next</span>
+                                                </a>
+
+
+                                        </div>
+                                </div>
+                            </div>
+
+                            <div class="col">
+
+                                <div class="subcard-mobile" id="userCard">
+
+                                    <div id="carousel2" class="carousel slide carousel-fade" data-bs-ride="carousel"
+                                        data-bs-interval="10000000000000">
+                                        <ol class="carousel-indicators">
+                                            <li data-bs-target="#carousel2" data-bs-slide-to="0" class="active"
+                                                area-current="true"></li>
+                                            <li data-bs-target="#carousel2" data-bs-slide-to="1"></li>
+                                            <li data-bs-target="#carousel2" data-bs-slide-to="2"></li>
+                                        </ol>
+                                        <div class="carousel-inner">
+                                            <div class="carousel-item active">
+                                                <div class="card roundedCorners text-white bg-primary subcard-mobile"
+                                                    id="userCard">
+                                                    <img id="userImage" src="../images/Oreo Snowy Pic.jpeg"
+                                                        class=" userImg card-img-top imgRoundedTopCorners"
+                                                        alt="card-img-top">
+                                                    <div class="card-body">
+                                                        <h2 class="card-title" id="name">Jack</h2>
+                                                        <h2 class="card-title" id="name">99%</h2>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="carousel-item">
+                                                <div class="card roundedCorners text-white bg-primary subcard-mobile"
+                                                    id="userCard">
+                                                    <div class="card-body">
+                                                        <h2 class="card-title">Bio</h2>
+                                                        <p>Hi my name is jack. I am a junior at Villanova studying
+                                                            Computer
+                                                            science1 I
+                                                            like to watch football, write
+                                                            code, and watch movies. </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="carousel-item">
+                                                <div class="card roundedCorners text-white bg-primary subcard-mobile"
+                                                    id="diffCard">
+                                                    <div class="card-body">
+                                                        <h2 class="card-title">Contact</h2>
+                                                        <div class="d-flex justify-content-center">
+                                                            <div class="btn-group-vertical align-items--center"
+                                                                id="contact-links-mobile" role="group"
+                                                                aria-label="Basic button group">
+                                                                <a href="https://www.instagram.com/jhj_iv/"
+                                                                    aria-current="page"><img class="my-1 contact-imgs"
+                                                                        src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png"
+                                                                        alt="Instagram"></a>
+                                                                <a
+                                                                    href="https://feelinsonice.appspot.com/web/deeplink/snapcode?username=jackh_johnston&size=400&type=PNG"><img
+                                                                        class="my-4 contact-imgs"
+                                                                        src="https://feelinsonice.appspot.com/web/deeplink/snapcode?username=jackh_johnston&size=400&type=PNG"
+                                                                        alt="Snapchat"></a>
+                                                                <a href="mailto: jjohns49@villanova.edu"
+                                                                    aria-current="page"><img class="my-8 contact-imgs"
+                                                                        src="https://cdn-icons-png.flaticon.com/512/5968/5968534.png"
+                                                                        alt="Email"></a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+
+
+                                        </div>
+
+                                        <a class="carousel-control-prev" href="#carousel2" role="button"
+                                            data-bs-slide="prev">
+                                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                            <span class="visually-hidden">Previous</span>
+                                        </a>
+                                        <a class="carousel-control-next" href="#carousel2" role="button"
+                                            data-bs-slide="next">
+                                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                            <span class="visually-hidden">Next</span>
+                                        </a>
+
+
+                                    </div>
+
+
+
+                                </div>
+                            </div>
+
+                            <div class="col">
+
+                                <div class="subcard-mobile" id="userCard">
+
+                                    <div id="carousel3" class="carousel slide carousel-fade" data-bs-ride="carousel"
+                                        data-bs-interval="10000000000000">
+                                        <ol class="carousel-indicators">
+                                            <li data-bs-target="#carousel3" data-bs-slide-to="0" class="active"
+                                                area-current="true"></li>
+                                            <li data-bs-target="#carousel3" data-bs-slide-to="1"></li>
+                                            <li data-bs-target="#carousel3" data-bs-slide-to="2"></li>
+                                        </ol>
+                                        <div class="carousel-inner">
+                                            <div class="carousel-item active">
+                                                <div class="card roundedCorners text-white bg-primary subcard-mobile"
+                                                    id="userCard">
+                                                    <img id="userImage" src="../images/Oreo Snowy Pic.jpeg"
+                                                        class=" userImg card-img-top imgRoundedTopCorners"
+                                                        alt="card-img-top">
+                                                    <div class="card-body">
+                                                        <h2 class="card-title" id="name">Jack</h2>
+                                                        <h2 class="card-title" id="name">99%</h2>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="carousel-item">
+                                                <div class="card roundedCorners text-white bg-primary subcard-mobile"
+                                                    id="userCard">
+                                                    <div class="card-body">
+                                                        <h2 class="card-title">Bio</h2>
+                                                        <p>Hi my name is jack. I am a junior at Villanova studying
+                                                            Computer
+                                                            science1 I
+                                                            like to watch football, write
+                                                            code, and watch movies.</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="carousel-item">
+                                                <div class="card roundedCorners text-white bg-primary subcard-mobile"
+                                                    id="diffCard">
+                                                    <div class="card-body">
+                                                        <h2 class="card-title">Contact</h2>
+                                                        <div class="d-flex justify-content-center">
+                                                            <div class="btn-group-vertical align-items--center"
+                                                                id="contact-links-mobile" role="group"
+                                                                aria-label="Basic button group">
+                                                                <a href="https://www.instagram.com/jhj_iv/"
+                                                                    aria-current="page"><img class="my-1 contact-imgs"
+                                                                        src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png"
+                                                                        alt="Instagram"></a>
+                                                                <a
+                                                                    href="https://feelinsonice.appspot.com/web/deeplink/snapcode?username=jackh_johnston&size=400&type=PNG"><img
+                                                                        class="my-4 contact-imgs"
+                                                                        src="https://feelinsonice.appspot.com/web/deeplink/snapcode?username=jackh_johnston&size=400&type=PNG"
+                                                                        alt="Snapchat"></a>
+                                                                <a href="mailto: jjohns49@villanova.edu"
+                                                                    aria-current="page"><img class="my-8 contact-imgs"
+                                                                        src="https://cdn-icons-png.flaticon.com/512/5968/5968534.png"
+                                                                        alt="Email"></a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+
+
+                                        </div>
+
+                                        <a class="carousel-control-prev" href="#carousel3" role="button"
+                                            data-bs-slide="prev">
+                                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                            <span class="visually-hidden">Previous</span>
+                                        </a>
+                                        <a class="carousel-control-next" href="#carousel3" role="button"
+                                            data-bs-slide="next">
+                                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                            <span class="visually-hidden">Next</span>
+                                        </a>
+
+
+                                    </div>
+
+
+
+                                </div>
+                            </div>
+
+
+
+                        </div>
                     </div>
-                </div>  
+                </div>
             </div>
         </div>
+    </div>
     </body>
-</html>
+
+    </html>

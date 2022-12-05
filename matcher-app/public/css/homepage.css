@@ -1,6 +1,6 @@
 html{
     height: 100vh;
-    overflow-y: hidden;
+    overflow: hidden;
     
 }
 body {
@@ -85,7 +85,7 @@ h1{
 }
 
 
-.card-title{
+.homepage-card-title{
     color: white;
     font-weight: bold;
     text-align-last: left;
