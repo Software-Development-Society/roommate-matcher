@@ -70,4 +70,9 @@ class DatabaseServices {
         }
 
 
+        static ArrayList<Integer> weights(){
+                return MatcherApiApplication.visableWeightsRepo.findAll()
+        }
+
+
 }
