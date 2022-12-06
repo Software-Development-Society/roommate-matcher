@@ -6,6 +6,7 @@ import com.vsds.matcherapi.database.Questions
 import com.vsds.matcherapi.database.QuestionsRepository
 import com.vsds.matcherapi.database.Users
 import com.vsds.matcherapi.database.UserRepository
+import com.vsds.matcherapi.database.WeightsRepository
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.CommandLineRunner
 import org.springframework.boot.SpringApplication
@@ -23,12 +24,15 @@ class MatcherApiApplication implements CommandLineRunner {
     public static visableQuestionRepo
     public MatchListRepository matchListRepository
     public static MatchListRepository visableMatchListRepo
+    public static WeightsRepository visableWeightsRepo
+    public WeightsRepository weightsRepository
 
     @Autowired
-    AppApplication(UserRepository userRepository, QuestionsRepository questionsRepository, MatchListRepository matchListRepository){
+    AppApplication(UserRepository userRepository, QuestionsRepository questionsRepository, MatchListRepository matchListRepository,WeightsRepository weightsRepository){
         this.userRepository = userRepository
         this.questionsRepository = questionsRepository
         this.matchListRepository = matchListRepository
+        this.weightsRepository = weightsRepository
     }
 
     static void main(String[] args) {
@@ -40,6 +44,7 @@ class MatcherApiApplication implements CommandLineRunner {
         visableUserRepo = userRepository
         visableQuestionRepo = questionsRepository
         visableMatchListRepo = matchListRepository
+        visableWeightsRepo = weightsRepository
 
         for(Questions question : questionsRepository.findAll()){
             print question
