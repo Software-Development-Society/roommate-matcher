@@ -5,9 +5,11 @@ import com.vsds.matcherapi.MatcherApiApplication
 import com.vsds.matcherapi.User.User
 import com.vsds.matcherapi.database.Questions
 import com.vsds.matcherapi.database.Users
+import com.vsds.matcherapi.database.Weights
 import org.bson.types.ObjectId
 
 import java.lang.reflect.Array
+import java.nio.file.WatchEvent
 
 class DatabaseServices {
         /*
@@ -67,6 +69,16 @@ class DatabaseServices {
                                 return question.getResponses()
                         }
                 }
+        }
+
+
+        static ArrayList<Integer> weights(){
+                return MatcherApiApplication.visableWeightsRepo.findAll()
+        }
+
+        static void saveWeights(ArrayList<Integer> weights){
+                Weights weight = new Weights(weights)
+                MatcherApiApplication.visableWeightsRepo.save(weight)
         }
 
 
