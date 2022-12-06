@@ -14,13 +14,13 @@ class MatchList {
     @Id
     ObjectId userId
     @Field
-    Map<ObjectId, ArrayList<Integer>> matchList
+    Map<ObjectId, Integer> matchList
 
-    MatchList(Map<ObjectId, ArrayList<Integer>> matchList) {
+    MatchList(Map<ObjectId, Integer> matchList) {
         this.matchList = matchList
     }
 
-    MatchList(ObjectId userId, Map<ObjectId, ArrayList<Integer>> matchList) {
+    MatchList(ObjectId userId, Map<ObjectId, Integer> matchList) {
         this.userId = userId
         this.matchList = matchList
     }
