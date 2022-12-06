@@ -54,10 +54,9 @@ class DatabaseServices {
         
 
         
-        static boolean saveFormResponses(ObjectId user_id, String sex, ArrayList<ArrayList<Integer>> formResponses) {
+        static void saveFormResponses(ObjectId user_id, String sex, ArrayList<ArrayList<Integer>> formResponses) {
                 Questions questionList = new Questions(user_id,sex, formResponses)
                 MatcherApiApplication.visableQuestionRepo.save(questionList)
-                return true
 
         }
 
