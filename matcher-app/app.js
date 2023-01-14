@@ -3,6 +3,8 @@ const session = require("express-session");
 const bodyParser = require('body-parser');
 const axios = require('axios').default;
 
+const Question  = require('./Question')
+
 const validateEmail = require('./functions/validateEmail');
 const { loginRequest } = require("./requests/login");
 const { usePassport, authRouter } = require("./routes/auth");
@@ -49,8 +51,11 @@ app.get("/dashboard", function (req, res) {
 app.get("/problem", function (req, res) {
     res.render('problem/problem', {styleInput: "problem", isLoggedIn: req.isAuthenticated()});
 });
-app.get("/form", function (req, res) {
-    res.render('form/form', {styleInput: "homepage", isLoggedIn: req.isAuthenticated()});
+
+app.get("/form", async function (req, res) {
+    const questions = new Question();
+    let allQuestions = await questions.getQuestions()
+    res.render('form/form', {styleInput: "homepage", isLoggedIn: req.isAuthenticated(), questions: allQuestions});
 });
 app.get("/signout", function (req, res) {
     req.logout(function(err) {
