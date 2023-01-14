@@ -77,7 +77,11 @@ class DatabaseServices {
         }
 
         static void saveWeights(ArrayList<Integer> weights){
-                Weights weight = new Weights(weights)
+                ArrayList<Integer> updateWeights = getWeights()
+                for(int index = 0; index < updateWeights.size(); index++){
+                        updateWeights.set(index, updateWeights.get(index) + weights.get(index))
+                }
+                Weights weight = new Weights(updateWeights)
                 MatcherApiApplication.visableWeightsRepo.save(weight)
         }
 
