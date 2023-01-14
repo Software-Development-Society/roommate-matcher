@@ -1,5 +1,6 @@
 package com.vsds.matcherapi.database
 
+import com.vsds.matcherapi.User.MatchUsers
 import org.bson.types.ObjectId
 import org.springframework.data.annotation.Id
 import org.springframework.data.mongodb.core.mapping.Document
@@ -16,6 +17,9 @@ class MatchList {
     @Field
     Map<ObjectId, Integer> matchList
 
+    MatchList() {
+    }
+
     MatchList(Map<ObjectId, Integer> matchList) {
         this.matchList = matchList
     }
@@ -26,10 +30,6 @@ class MatchList {
     }
 
 
-    @Override
-    String toString(){
-        return ""
-    }
 
     ObjectId getUserId() {
         return userId
@@ -39,12 +39,20 @@ class MatchList {
         this.userId = userId
     }
 
-    Map<ObjectId, ArrayList<Integer>> getMatchList() {
+    Map<ObjectId, Integer> getMatchList() {
         return matchList
     }
 
-    void setMatchList(Map<ObjectId, ArrayList<Integer>> matchList) {
+    void setMatchList(Map<ObjectId, Integer> matchList) {
         this.matchList = matchList
     }
 
+
+    @Override
+    public String toString() {
+        return "MatchList{" +
+                "userId=" + userId +
+                ", matchList=" + matchList +
+                '}';
+    }
 }

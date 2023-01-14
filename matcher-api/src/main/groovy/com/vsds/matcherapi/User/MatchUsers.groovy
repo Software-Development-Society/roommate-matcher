@@ -1,11 +1,14 @@
 package com.vsds.matcherapi.User
 
 import com.vsds.matcherapi.MatcherApiApplication
+import com.vsds.matcherapi.database.MatchList
 import com.vsds.matcherapi.database.Questions
 import com.vsds.matcherapi.database.Users
 import com.vsds.matcherapi.services.DatabaseServices
 import com.vsds.matcherapi.services.UserServices
 import org.bson.types.ObjectId
+import org.springframework.boot.autoconfigure.integration.IntegrationAutoConfiguration
+import org.springframework.data.mongodb.core.aggregation.ArrayOperators
 
 import javax.swing.text.MutableAttributeSet
 import javax.xml.crypto.Data
@@ -23,7 +26,19 @@ class MatchUsers {
     each question is compared to every other question and the total value is the sum of the difference of every question
     the lowest score is the persons best match
      */
-    static Map<String, Integer> scoresMap = new HashMap<>()
+
+
+    static void matchUsers(){
+        ArrayList<Questions> users = DatabaseServices.getUsersResponses()
+        for (Questions currentUser : users){
+            ObjectId user_id = currentUser.getUser_id()
+            HashMap<ObjectId, Integer> matches = createMatches(user_id)
+            MatchList userMatches = new MatchList(user_id, matches)
+            DatabaseServices.saveMatches(userMatches)
+        }
+
+    }
+
 
 
 
@@ -32,7 +47,7 @@ class MatchUsers {
         Questions userToMatchResponse = DatabaseServices.returnQuestions(user_id)
         HashMap<ObjectId, Integer> matches = new HashMap<>()
 
-        for(Questions currentResponse : MatcherApiApplication.visableQuestionRepo){
+        for(Questions currentResponse : MatcherApiApplication.visableQuestionRepo.findAll()){
             // each user total score
             if(user_id == currentResponse.getUser_id() || userToMatch.getSex() != currentResponse.getSex()){
                 continue
@@ -46,20 +61,22 @@ class MatchUsers {
                 int matchQuestion1 = userToMatchResponse.getResponses().get(questionNum).get(0)
                 int matchQuestion2 = currentResponse.getResponses().get(questionNum).get(1)
 
-                int xscore = Math.abs(userQuestion1-matchQuestion1)
-                int yscore = userQuestion2 + matchQuestion2
+                String xscore = Math.abs(userQuestion1-matchQuestion1) as String
+                String yscore = (userQuestion2 + matchQuestion2) as String
 
-                populatingScores()
+               HashMap<String, Integer> scoresMap = populatingScores()
+
                 String key = xscore + yscore
                 int score = scoresMap.get(key)
 
 
                 //weighting
-                ArrayList<Integer> weights = DatabaseServices.getWeights()
+                ArrayList<Integer> weights = getWeights()
                 int matchScoreForThisQuestion = weights.get(questionNum) * score
                 scoresSum = matchScoreForThisQuestion
             }
             matches.put(currentResponse.getUser_id(), scoresSum)
+            println(scoresSum)
         }
 
         // could have issues here
@@ -67,7 +84,9 @@ class MatchUsers {
         return result
     }
 
-    static void populatingScores(){
+    static HashMap<String, Integer> populatingScores(){
+         Map<String, Integer> scoresMap = new HashMap<>()
+
         // populating scores map
         scoresMap.put("010", 1)
         scoresMap.put("09", 2)
@@ -139,6 +158,48 @@ class MatchUsers {
         scoresMap.put("104", 46)
         scoresMap.put("103", 43)
         scoresMap.put("102", 41)
+
+        return scoresMap
+    }
+
+    static ArrayList<Integer> getWeights(){
+        ArrayList<Integer> weights = new ArrayList<>()
+        weights.add(1)
+        weights.add(1)
+        weights.add(1)
+        weights.add(1)
+        weights.add(1)
+        weights.add(1)
+        weights.add(1)
+        weights.add(1)
+        weights.add(1)
+        weights.add(1)
+
+        weights.add(1)
+        weights.add(1)
+        weights.add(1)
+        weights.add(1)
+        weights.add(1)
+        weights.add(1)
+        weights.add(1)
+        weights.add(1)
+        weights.add(1)
+        weights.add(1)
+
+        weights.add(1)
+        weights.add(1)
+        weights.add(1)
+        weights.add(1)
+        weights.add(1)
+        weights.add(1)
+        weights.add(1)
+        weights.add(1)
+        weights.add(1)
+        weights.add(1)
+
+        return weights
+
+
     }
 
 

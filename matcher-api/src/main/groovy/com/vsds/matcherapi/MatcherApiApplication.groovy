@@ -6,7 +6,7 @@ import com.vsds.matcherapi.database.Questions
 import com.vsds.matcherapi.database.QuestionsRepository
 import com.vsds.matcherapi.database.Users
 import com.vsds.matcherapi.database.UserRepository
-import com.vsds.matcherapi.database.WeightsRepository
+
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.CommandLineRunner
 import org.springframework.boot.SpringApplication
@@ -21,18 +21,17 @@ class MatcherApiApplication implements CommandLineRunner {
     public UserRepository userRepository
     public static UserRepository visableUserRepo
     public QuestionsRepository questionsRepository
-    public static visableQuestionRepo
+    public static QuestionsRepository visableQuestionRepo
     public MatchListRepository matchListRepository
     public static MatchListRepository visableMatchListRepo
-    public static WeightsRepository visableWeightsRepo
-    public WeightsRepository weightsRepository
+
+
 
     @Autowired
-    AppApplication(UserRepository userRepository, QuestionsRepository questionsRepository, MatchListRepository matchListRepository,WeightsRepository weightsRepository){
+    AppApplication(UserRepository userRepository, QuestionsRepository questionsRepository, MatchListRepository matchListRepository){
         this.userRepository = userRepository
         this.questionsRepository = questionsRepository
         this.matchListRepository = matchListRepository
-        this.weightsRepository = weightsRepository
     }
 
     static void main(String[] args) {
@@ -44,18 +43,20 @@ class MatcherApiApplication implements CommandLineRunner {
         visableUserRepo = userRepository
         visableQuestionRepo = questionsRepository
         visableMatchListRepo = matchListRepository
-        visableWeightsRepo = weightsRepository
 
+        println("SAVED QUESTIONS")
         for(Questions question : questionsRepository.findAll()){
             print question
         }
         println()
 
+        println("SAVED USERS")
         for (Users dbUser: userRepository.findAll()){
             print dbUser
         }
         println()
 
+        println("SAVED MATCHES")
         for(MatchList matchList : matchListRepository.findAll()){
             print matchList
         }

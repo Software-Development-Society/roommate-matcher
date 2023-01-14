@@ -3,13 +3,11 @@ package com.vsds.matcherapi.services
 
 import com.vsds.matcherapi.MatcherApiApplication
 import com.vsds.matcherapi.User.User
+import com.vsds.matcherapi.database.MatchList
 import com.vsds.matcherapi.database.Questions
 import com.vsds.matcherapi.database.Users
-import com.vsds.matcherapi.database.Weights
-import org.bson.types.ObjectId
 
-import java.lang.reflect.Array
-import java.nio.file.WatchEvent
+import org.bson.types.ObjectId
 
 class DatabaseServices {
         /*
@@ -57,14 +55,14 @@ class DatabaseServices {
 
         
         static void saveFormResponses(ObjectId user_id, String sex, ArrayList<ArrayList<Integer>> formResponses) {
-                Questions questionList = new Questions(user_id,sex, formResponses)
+                Questions questionList = new Questions(user_id, sex, formResponses)
                 MatcherApiApplication.visableQuestionRepo.save(questionList)
 
         }
 
 
         static Questions returnQuestions(ObjectId user_id){
-                for(Questions question : MatcherApiApplication.visableQuestionRepo){
+                for(Questions question : MatcherApiApplication.visableQuestionRepo.findAll()){
                         if(question.getUser_id() == user_id){
                                 return question
                         }
@@ -72,18 +70,20 @@ class DatabaseServices {
         }
 
 
-        static ArrayList<Integer> getWeights(){
-                return MatcherApiApplication.visableWeightsRepo.findAll()
+        static ArrayList<Questions> getUsersResponses(){
+                ArrayList<Questions> result = MatcherApiApplication.visableQuestionRepo.findAll()
+                return result
         }
 
-        static void saveWeights(ArrayList<Integer> weights){
-                ArrayList<Integer> updateWeights = getWeights()
-                for(int index = 0; index < updateWeights.size(); index++){
-                        updateWeights.set(index, updateWeights.get(index) + weights.get(index))
+
+        static void saveMatches(MatchList matches){
+                MatcherApiApplication.visableMatchListRepo.save(matches)
+        }
+        static MatchList getMatches(ObjectId user_id){
+                for(MatchList currentMatchList : MatcherApiApplication.visableMatchListRepo.findAll()){
+                        if(currentMatchList.getUserId() == user_id){
+                                return currentMatchList
+                        }
                 }
-                Weights weight = new Weights(updateWeights)
-                MatcherApiApplication.visableWeightsRepo.save(weight)
         }
-
-
 }
