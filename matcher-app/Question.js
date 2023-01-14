@@ -33,7 +33,7 @@ class Question{
             }else if (line == ""){
                 if(question.answers.length != 0){
                     questions.push(question)
-                    console.log(question)
+                    //console.log(question)
                 }
                 question = new Question("",[]);
             }else if(line != ""){
