@@ -18,11 +18,6 @@
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary navhome">
         <div class="container-fluid">
             <a class="navbar-brand roomtitle" href="/">Roommate <br> Matcher</a>
-            <div class="rounded mx-auto d-block brand">
-                <a class="navbar-brand" href="">
-                    <img src="https://cdn.discordapp.com/attachments/1007427354685087784/1027709210533826691/unknown.png" width="60" height="48">
-                </a>
-            </div>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -38,8 +33,8 @@
                         <li class="nav-item"><a class="ph-only nav-link homebut" href="">Report a Problem</a></li>
                         <li class="nav-item"><a class="ph-only nav-link homebut" href="/signout">Signout</a></li>
                     <% } else { %>
-                        <li class="nav-item"><a class="nav-link homebut" href="/login">Login</a></li>
-                        <li class="nav-item"><a class="nav-link homebut" href="/signup">Sign up</a></li>
+                        <li class="nav-item"><a class="nav-link homebut" href="/get-started">Login</a></li>
+                        <!-- <li class="nav-item"><a class="nav-link homebut" href="/signup">Sign up</a></li> -->
                     <% } %>
                     <li class="nav-item dropdown">
                         <% if(isLoggedIn){ %>

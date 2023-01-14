@@ -2,11 +2,7 @@ const express = require("express");
 const session = require("express-session");
 const bodyParser = require('body-parser');
 const axios = require('axios').default;
-
-const validateEmail = require('./functions/validateEmail');
-const { loginRequest } = require("./requests/login");
-const { usePassport, authRouter } = require("./routes/auth");
-const { User } = require("./db/schema");
+const router = require("./routes/ms-auth");
 
 const app = express();
 
@@ -26,10 +22,8 @@ app.use(session({
 
 
 
-app.use(usePassport.initialize());
-app.use(usePassport.session());
 
-app.use('/', authRouter);
+app.use('/', router);
 
 app.get("/", function (req, res) {
     res.render('homepage/homepage', {styleInput: "homepage", isLoggedIn: req.isAuthenticated()});
@@ -39,7 +33,7 @@ app.get("/signup", function (req, res) {
     res.render('signup/signup', {styleInput: "homepage", isLoggedIn: req.isAuthenticated()});
 });
 
-app.get("/login", function (req, res) {
+app.get("/get-started", function (req, res) {
     res.render('login/login', {styleInput: "homepage", isLoggedIn: req.isAuthenticated()});
 });
 
