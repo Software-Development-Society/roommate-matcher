@@ -73,7 +73,7 @@ class MatchUsers {
                 //weighting
                 ArrayList<Integer> weights = getWeights()
                 int matchScoreForThisQuestion = weights.get(questionNum) * score
-                scoresSum = matchScoreForThisQuestion
+                scoresSum += matchScoreForThisQuestion
             }
             matches.put(currentResponse.getUser_id(), scoresSum)
             println(scoresSum)
