@@ -63,10 +63,10 @@ class DatabaseServices {
         }
 
 
-        static ArrayList<ArrayList<Integer>> returnQuestions(ObjectId user_id){
+        static Questions returnQuestions(ObjectId user_id){
                 for(Questions question : MatcherApiApplication.visableQuestionRepo){
                         if(question.getUser_id() == user_id){
-                                return question.getResponses()
+                                return question
                         }
                 }
         }

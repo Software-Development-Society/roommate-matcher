@@ -7,6 +7,9 @@ import com.vsds.matcherapi.services.DatabaseServices
 import com.vsds.matcherapi.services.UserServices
 import org.bson.types.ObjectId
 
+import javax.swing.text.MutableAttributeSet
+import javax.xml.crypto.Data
+import java.lang.reflect.Array
 import java.util.regex.Matcher
 
 class MatchUsers {
@@ -20,15 +23,32 @@ class MatchUsers {
     each question is compared to every other question and the total value is the sum of the difference of every question
     the lowest score is the persons best match
      */
-    static Map<ObjectId, ArrayList<Integer>> matchAlgo(User currentUser){
-        ObjectId user_id = new ObjectId(currentUser.getUserId())
 
-        ArrayList<ArrayList<Integer>> currentUserResponses = DatabaseServices.returnQuestions(user_id)
+    static HashMap<ObjectId, Integer> createMatches(ObjectId user_id){
+        Users userToMatch = DatabaseServices.getUserFromId(user_id)
+        Questions userToMatchResponse = DatabaseServices.returnQuestions(user_id)
+        HashMap<ObjectId, Integer> matches = new HashMap<>()
 
-        for(Questions matchResponses : MatcherApiApplication.visableQuestionRepo){
+        for(Questions currentResponse : MatcherApiApplication.visableQuestionRepo){
+            if(user_id == currentResponse.getUser_id() || userToMatch.getSex() != currentResponse.getSex()){
+                continue
+            }
+            for(int questionNum = 0; questionNum < 30; questionNum++){
+                int userQuestion1 = userToMatchResponse.getResponses().get(questionNum).get(0)
+                int userQuestion2 = userToMatchResponse.getResponses().get(questionNum).get(1)
+
+                int matchQuestion1 = userToMatchResponse.getResponses().get(questionNum).get(0)
+                int matchQuestion2 = userToMatchResponse.getResponses().get(questionNum).get(1)
+
+                int xscore = Math.abs(userQuestion1-matchQuestion1)
+                int yscore = userQuestion2 + matchQuestion2
 
 
+
+            }
         }
+
+
     }
 
 
