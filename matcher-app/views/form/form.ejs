@@ -2,20 +2,22 @@
 <form action="/login" method="POST">
 <%  for(let x = 0; x < questions.length; x++) { %>
         <div style="display: grid;">
-            
+
             <h4><%= questions[x].question %></h1>
 
-            <div class="form-group" style="display: inline-flex;">
                 
-                    <% for(let y = 0; y < questions[x].answers.length; y++) { %>
+                    <div class="form-group" style="display: inline-flex;">
+                        <% for(let y = 0; y < questions[x].answers.length; y++) { %>
                          <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="radioInline" id="inlineRadioDefault">
-                            <label class="form-check-label" for="inlineRadioDefault">1 (Not at All)</label>
+                            <input class="form-check-input" type="radio" name="radioInline<%= x %>" id="inlineRadioDefault<%= y %>">
+                            <label class="form-check-label" for="inlineRadioDefault<%= y %>">1 (Not at All)</label>
                         </div>
-                    <%} %>
+                        <% } %>
+                    </div>
+                
                    
 
-            </div>
+            
         </div>
 <% }; %>
     <button type="submit" class="btn btn-dark">Submit</button>
