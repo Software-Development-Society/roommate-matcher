@@ -3,21 +3,16 @@
 <%  for(let x = 0; x < questions.length; x++) { %>
         <div style="display: grid;">
 
-            <h4><%= questions[x].question %></h1>
+            <h4><%= questions[x].question.substring(1) %></h1>
 
-                
                     <div class="form-group" style="display: inline-flex;">
                         <% for(let y = 0; y < questions[x].answers.length; y++) { %>
                          <div class="form-check form-check-inline">
                             <input class="form-check-input" type="radio" name="radioInline<%= x %>" id="inlineRadioDefault<%= y %>">
-                            <label class="form-check-label" for="inlineRadioDefault<%= y %>">1 (Not at All)</label>
+                            <label class="form-check-label" for="inlineRadioDefault<%= y %>"><%= questions[x].answers[y] %></label>
                         </div>
                         <% } %>
-                    </div>
-                
-                   
-
-            
+                    </div> 
         </div>
 <% }; %>
     <button type="submit" class="btn btn-dark">Submit</button>
