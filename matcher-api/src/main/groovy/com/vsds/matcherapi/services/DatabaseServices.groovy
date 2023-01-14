@@ -72,7 +72,7 @@ class DatabaseServices {
         }
 
 
-        static ArrayList<Integer> weights(){
+        static ArrayList<Integer> getWeights(){
                 return MatcherApiApplication.visableWeightsRepo.findAll()
         }
 
