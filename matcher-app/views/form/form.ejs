@@ -8,13 +8,46 @@
                     <div class="row g-5">
                         <% for(let y = 0; y < questions[x].answers.length; y++) { %>
                         <div class="col">
-                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="radioInline<%= x %>" id="inlineRadioDefault<%= y %>">
-                            <label class="form-check-label" for="inlineRadioDefault<%= y %>"><%= questions[x].answers[y] %></label>
-                        </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="radioInline<%= x %>" id="inlineRadioDefault<%= y %>">
+                                <label class="form-check-label" for="inlineRadioDefault<%= y %>"><%= questions[x].answers[y] %></label>
+                            </div>
                         </div>
                         <% } %>
-                    </div> 
+                    </div>
+            
+            <h4>How Important is it for your roommate to share the same answer?</h4>
+
+            <div class="row g-5">
+                <div class="col">
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="radioInline" id="inlineRadioDefault">
+                        <label class="form-check-label" for="inlineRadioDefault">Not at All</label>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="radioInline" id="inlineRadioDefault">
+                        <label class="form-check-label" for="inlineRadioDefault">not really</label>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="radioInline" id="inlineRadioDefault">
+                        <label class="form-check-label" for="inlineRadioDefault">a little bit</label>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="radioInline" id="inlineRadioDefault">
+                        <label class="form-check-label" for="inlineRadioDefault">Yeah, it matters</label>
+                    </div>
+                </div>
+            </div>
+                    
         </div>
 <% }; %>
     <button type="submit" class="btn btn-dark">Submit</button>
