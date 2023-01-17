@@ -1,0 +1,26 @@
+.importanceSlider{
+    display: flex; 
+    justify-content: center;
+}
+
+.form-range{
+    width: 80%;
+}
+
+.question{
+    width: 95%;
+    padding-left: 5%;
+    padding-right: 5%;
+    justify-content: center;
+}
+
+.question-title{
+    padding-top: 3%;
+    padding-bottom: 3%;
+    text-align: center;
+}
+
+.answer-row{
+    display: flex;
+    justify-content: center;
+}

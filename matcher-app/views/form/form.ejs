@@ -3,50 +3,41 @@
 <%  for(let x = 0; x < questions.length; x++) { %>
         <div class="question">
 
-            <h4><%= questions[x].question.substring(1) %></h1>
+            <h4 class="question-title"><%= questions[x].question.substring(1) %></h1>
 
-                    <div class="row g-5">
-                        <% for(let y = 0; y < questions[x].answers.length; y++) { %>
-                        <div class="col">
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="radioInline<%= x %>" id="inlineRadioDefault<%= y %>">
-                                <label class="form-check-label" for="inlineRadioDefault<%= y %>"><%= questions[x].answers[y] %></label>
-                            </div>
+            <div class="row g-5 answer-row">
+                <% for(let y = 0; y < questions[x].answers.length; y++) { %>
+                    <div class="col">
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="radioInline<%= x %>" id="inlineRadioDefault<%= y %>" value="<%= y%>">
+                            <label class="form-check-label" for="inlineRadioDefault<%= y %>"><%= questions[x].answers[y] %></label>
                         </div>
-                        <% } %>
                     </div>
+                <% } %>
+            </div>
             
-            <h4>How Important is it for your roommate to share the same answer?</h4>
+            <h4 class="question-title">How Important is it for your roommate to share the same answer?</h4>
 
-            <div class="row g-5">
+            <div class="importanceSlider">
+                <input type="range" class="form-range" min="1" max="4" step="1" id="formRange">
+            </div>
+            
+            <div class="row g-5" style="text-align: center;">
                 <div class="col">
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="radioInline" id="inlineRadioDefault">
-                        <label class="form-check-label" for="inlineRadioDefault">Not at All</label>
-                    </div>
+                    <p>Not at all</p>
                 </div>
-
                 <div class="col">
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="radioInline" id="inlineRadioDefault">
-                        <label class="form-check-label" for="inlineRadioDefault">not really</label>
-                    </div>
+                    <p>Not Really</p>
                 </div>
-
                 <div class="col">
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="radioInline" id="inlineRadioDefault">
-                        <label class="form-check-label" for="inlineRadioDefault">a little bit</label>
-                    </div>
+                    <p>A little</p>
                 </div>
-
                 <div class="col">
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="radioInline" id="inlineRadioDefault">
-                        <label class="form-check-label" for="inlineRadioDefault">Yeah, it matters</label>
-                    </div>
+                    <p>Yeah, it matters</p>
                 </div>
             </div>
+
+            
                     
         </div>
 <% }; %>
