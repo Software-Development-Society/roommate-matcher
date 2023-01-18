@@ -1,15 +1,19 @@
 <%- include('../partials/header'); %>
 <form action="/login" method="POST">
+<% var valuesForAnswers = [] %>
 <%  for(let x = 0; x < questions.length; x++) { %>
+
+        <% //IN ORDER TO MODIFY THE QUESTIONS PLEASE GO TO QUESTIONS.TXT!!! %>
+
         <div class="question">
 
-            <h4 class="question-title"><%= questions[x].question.substring(1) %></h1>
+            <h4 class="question-title"><%= (x+1) + '. ' + questions[x].question.substring(1) %></h1>
 
-            <div class="row g-5 answer-row">
+            <div class="row g-5 answer-row text-center">
                 <% for(let y = 0; y < questions[x].answers.length; y++) { %>
                     <div class="col">
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="radioInline<%= x %>" id="inlineRadioDefault<%= y %>" value="<%= y%>">
+                            <input class="form-check-input" type="radio" name="question<%= x + 1 %>" id="inlineRadioDefault<%= y %>" value="<%= y+1%>">
                             <label class="form-check-label" for="inlineRadioDefault<%= y %>"><%= questions[x].answers[y] %></label>
                         </div>
                     </div>
@@ -18,11 +22,13 @@
             
             <h4 class="question-title">How Important is it for your roommate to share the same answer?</h4>
 
+            <input type="hidden" id="" name="numOfQuestionAnswersForQuestion<%=x+1%>" value="<%= questions[x].answers.length%>">
+
             <div class="importanceSlider">
-                <input type="range" class="form-range" min="1" max="4" step="1" id="formRange">
+                <input type="range" name= "roommateQuestion<%= x + 1 %>" class="form-range" min="1" max="4" step="1" id="formRange" value="3">
             </div>
             
-            <div class="row g-5" style="text-align: center;">
+            <div class="row g-5 importance-slider-labels">
                 <div class="col">
                     <p>Not at all</p>
                 </div>
@@ -41,6 +47,8 @@
                     
         </div>
 <% }; %>
-    <button type="submit" class="btn btn-dark">Submit</button>
+        <div class="center-submit-button">
+            <input id="userinfo-submit-button" type="submit" class="btn btn-dark"></input>
+        </div>
 </form>
 </html>

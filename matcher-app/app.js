@@ -3,6 +3,8 @@ const session = require("express-session");
 const bodyParser = require('body-parser');
 const axios = require('axios').default;
 
+
+
 const Question  = require('./Question')
 
 const validateEmail = require('./functions/validateEmail');
@@ -14,7 +16,11 @@ const app = express();
 
 app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 app.use(express.static("public"));
+
+
+
 
 var isLoggedIn;
 
@@ -57,6 +63,7 @@ app.get("/form", async function (req, res) {
     let allQuestions = await questions.getQuestions()
     res.render('form/form', {styleInput: "homepage", isLoggedIn: req.isAuthenticated(), questions: allQuestions});
 });
+
 app.get("/signout", function (req, res) {
     req.logout(function(err) {
         if (err){ 

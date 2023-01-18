@@ -12,6 +12,7 @@
     padding-left: 5%;
     padding-right: 5%;
     justify-content: center;
+    color: white;
 }
 
 .question-title{
@@ -20,7 +21,16 @@
     text-align: center;
 }
 
-.answer-row{
-    display: flex;
+#userinfo-submit-button{
+    width: 80%;
+}
+
+.center-submit-button{
+    text-align: center;
     justify-content: center;
+    padding: 3rem;
+}
+
+.importance-slider-labels{
+    text-align: center;
 }
