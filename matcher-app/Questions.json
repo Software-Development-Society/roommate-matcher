@@ -1,23 +1,37 @@
--How often do you expect to drink?
-5 times a week
-3 times a week
-1 time a week
-once a month
-never
+{
+    "questions": [
+        {
+            "question" : "How often do you expect to drink?",
+            "answers" : [
+                "5 times a week" ,
+                "3 times a week" ,
+                "1 time a week",
+                "once a month",
+                "never"
+            ]
+        },
+        {
+            "question" : "What time do you wake up?",
+            "answers" : [
+                "After 3 am",
+                "1:30 am",
+                "12:00 am",
+                "10:30 pm",
+                "Before 6am"
+            ]
+        },
+        {
+            "question" : "What time do you wake up?",
+            "answers" : [
+                "After 12 pm",
+                "10:30 am",
+                "9:00 am",
+                "7:30 pm",
+                "Before 9pm"
+            ]
+        },
+        
 
--When do you go to sleep?
-After 3 am
-1:30 am
-12:00 am
-10:30 pm
-Before 9pm
-
--When do you wake up?
-After 12pm
-10:30am
-9:00am
-7:30am
-Before 6am
 
 -Do you mind other people in your room?
 I want people in my room all day every day
@@ -151,3 +165,5 @@ I am okay with noise most of the time
 I would like the noise levels to be moderate
 I would prefere low noise
 I want the room to be noiseless at all times
+    ]
+}

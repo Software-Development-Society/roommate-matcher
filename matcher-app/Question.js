@@ -10,7 +10,7 @@ class Question{
         var questionsUnparced = ""
         
         try{
-            questionsUnparced = await fs.readFile('Questions.txt', {encoding: 'utf-8'});
+            questionsUnparced = await fs.readFile('./Questions.txt', {encoding: 'utf-8'});
         } catch (err) {
             console.log(err)
         }
@@ -22,9 +22,9 @@ class Question{
 
 
     parseData(questionsUnparced){
-        let parsedQuestion = questionsUnparced.split("\n")
+        let parsedQuestion = questionsUnparced.split("\n");
         var question = new Question("",[]);
-        var questions = []
+        var questions = [];
 
         
         parsedQuestion.forEach( (line) =>{
