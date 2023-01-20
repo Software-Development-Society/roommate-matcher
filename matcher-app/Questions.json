@@ -1,7 +1,7 @@
 
 
-{
-"questions" : [
+
+[
     {
       "question": "How often do you expect to drink?",
       "answers": [
@@ -224,4 +224,3 @@
       "answers": []
     }
   ]
-}
