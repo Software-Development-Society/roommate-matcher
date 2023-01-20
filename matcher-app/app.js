@@ -56,7 +56,7 @@ app.get("/problem", function (req, res) {
 
 app.get("/form", function (req, res) {
     const questions = require('./Questions.json');
-    console.log(questions)
+    //console.log(questions)
     res.render('form/form', {styleInput: "homepage", isLoggedIn: req.isAuthenticated(), questions: questions});
 });
 
