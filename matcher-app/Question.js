@@ -16,6 +16,8 @@ class Question{
         }
         
         let questionArray = this.parseData(questionsUnparced)
+
+        console.log(questionArray)
         
         return questionArray
     }
