@@ -1,16 +1,20 @@
 <%- include('../partials/header'); %>
-<form action="/login" method="POST">
+
+<form class="scroll-view" action="/login" method="POST">
+
 <%  for(let x = 0; x < questions.length; x++) { %>
 
-        <% //IN ORDER TO MODIFY THE QUESTIONS PLEASE GO TO QUESTIONS.TXT!!! %>
+        <% //IN ORDER TO MODIFY THE QUESTIONS PLEASE GO TO QUESTIONS.JSON!!! %>
 
+        <% if(questions[x].answers.length > 0) { %>
         <div class="question">
 
             <h4 class="question-title"><%= (x+1) + '. ' + questions[x].question%></h1>
 
-            <div class="row g-5 answer-row text-center">
+            
+            <div class="row g-5 answer-row "> 
                 <% for(let y = 0; y < questions[x].answers.length; y++) { %>
-                    <div class="col">
+                    <div class="col" >
                         <div class="form-check form-check-inline">
                             <input class="form-check-input" type="radio" name="question<%= x + 1 %>" id="inlineRadioDefault<%= y %>" value="<%= y+1%>">
                             <label class="form-check-label" for="inlineRadioDefault<%= y %>"><%= questions[x].answers[y] %></label>
@@ -45,6 +49,8 @@
             
                     
         </div>
+
+        <% } %>
 <% }; %>
         <div class="center-submit-button">
             <input id="userinfo-submit-button" type="submit" class="btn btn-dark"></input>

@@ -34,3 +34,20 @@
 .importance-slider-labels{
     text-align: center;
 }
+
+.answer-row{
+    text-align: center;
+}
+
+@media screen and (max-width:800px){
+    .answer-row{
+        display: block;
+        text-align: left;
+        padding-left: 5%;
+    }
+}
+
+.scroll-view{
+    height: 88.5%;
+    overflow-y: scroll;
+}
