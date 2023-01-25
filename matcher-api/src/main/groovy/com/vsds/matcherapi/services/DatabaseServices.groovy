@@ -12,7 +12,7 @@ import org.bson.types.ObjectId
 class DatabaseServices {
         /*
         input -> user_id
-        method gets a user from the database by matching the current user_id to one present within the database
+        method gets a user from the database by matching the  current user_id to one present within the database
         return -> the user associated with that user_id
         */
         static Users getUserFromId(ObjectId userId){
