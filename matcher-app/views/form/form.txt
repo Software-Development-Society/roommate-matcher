@@ -1,0 +1,61 @@
+<%- include('../partials/header'); %>
+    <form action="/login" method="POST">
+        <div style="display: grid;">
+            <div class="form-group" style="display: inline-flex;">
+                <h4>How often do you expect to drink?</h1>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="radioInline" id="inlineRadioDefault">
+                        <label class="form-check-label" for="inlineRadioDefault">1 (Not at All)</label>
+                      </div>
+                      <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="radioInline" id="inlineRadioChecked" checked="">
+                        <label class="form-check-label" for="inlineRadioChecked">3 (Ra</label>
+                      </div>
+            </div>
+            <div class="form-group" style="display: inline-flex;">
+                <h4>How much do you care that your roommate answers this question the same?</h1>
+                <select class="form-select" aria-label="Default select example">
+                    <option selected>Options</option>
+                    <option value="1">Not Important At All</option>
+                    <option value="2">Mildly Important</option>
+                    <option value="4">Very Important</option>
+                    <option value="5">Of Upmost Importance</option>
+                </select>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-dark">Submit</button>
+      </form>
+</body>
+
+<body>
+    <form action="/login" method="POST">
+        <div style="display: grid;">
+            <div class="form-group" style="display: inline-flex;">
+                <h4>When do you go to sleep?</h1>
+                <select class="form-select" aria-label="Default select example">
+                    <option selected>Options</option>
+                    <option value="1">After 3 am</option>
+                    <option value="3">1:30 am</option>
+                    <option value="6">12:00 am</option>
+                    <option value="9">10:30 pm</option>
+                    <option value="11">Before 9 pm</option>
+                </select>
+            </div>
+            <div class="form-group" style="display: inline-flex;">
+                <h4>How much do you care that your roommate answers this question the same?</h1>
+                <select class="form-select" aria-label="Default select example">
+                    <option selected>Options</option>
+                    <option value="1">Not Important At All</option>
+                    <option value="2">Mildly Important</option>
+                    <option value="4">Very Important</option>
+                    <option value="5">Of Upmost Importance</option>
+                </select>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-dark">Submit</button>
+      </form>
+</body>
+
+</body>
+
+</html>

@@ -1,0 +1,223 @@
+[
+    {
+      "question": "How often do you expect to drink?",
+      "answers": [
+        "5 times a week",
+        "3 times a week",
+        "1 time a week",
+        "once a month",
+        "never"
+      ]
+    },
+    {
+      "question": "When do you go to sleep?",
+      "answers": [
+        "After 3 am",
+        "1:30 am",
+        "12:00 am",
+        "10:30 pm",
+        "Before 9pm"
+      ]
+    },
+    {
+      "question": "When do you wake up?",
+      "answers": [
+        "After 12pm",
+        "10:30am",
+        "9:00am",
+        "7:30am",
+        "Before 6am"
+      ]
+    },
+    {
+      "question": "Do you mind other people in your room?",
+      "answers": [
+        "I want people in my room all day every day",
+        "I want people in my room frequently",
+        "I dont care if people are in my room",
+        "I only want people in my room rarely or with approval",
+        "I never want other people in my room"
+      ]
+    },
+    {
+      "question": "Do you mind people spending the night in your dorm?",
+      "answers": [
+        "People can spend every night in my room without notice",
+        "People can spend the night every now and then without notice",
+        "People can spend the night but need notice",
+        "I dont want people spending the night but they can with notice",
+        "Other people cannot spend the night"
+      ]
+    },
+    {
+      "question": "How often do you smoke?",
+      "answers": [
+        "Multiple times each day",
+        "5-7 days a week",
+        "Once or twice a week",
+        "Once or twice a month",
+        "Never"
+      ]
+    },
+    {
+      "question": "Will you smoke in the room?",
+      "answers": [
+           "yes",
+           "No"
+        ]
+    },
+    {
+      "question": "How often do you plan to be in the room?",
+      "answers": [
+        "I only will be in the room to sleep",
+        "I will only be in the room occasionally",
+        "I will often be in the room during my free time",
+        "I prefere to spend most of my time in my room",
+        "I will only leave the room for class"
+      ]
+    },
+    {
+      "question": "How often will you study in the room?",
+      "answers": [
+        "I will never study in the room",
+        "I will rarely study in the room",
+        "I will split my studying equally between the room and outside the room",
+        "I will spend most of my time studying in the room",
+        "I will only study in the room"
+      ]
+    },
+    {
+      "question": "Do you mind sharing condiments/paper products/cleaning materials?",
+      "answers": []
+    },
+    {
+      "question": "Do you plan to be around on the weekends?",
+      "answers": [
+        "Will never be around on weekends",
+        "Will leave every other weekend or so",
+        "Will leave during the weekend once a month",
+        "Will leave for the weekend once or twice a semester",
+        "Will never leave during the weekend"
+      ]
+    },
+    {
+      "question": "How often will you do household chores (cleaning, buying mutually used items)?",
+      "answers": [
+        "Every day",
+        "More than once a week",
+        "Once a week",
+        "Once a month",
+        "Never"
+      ]
+    },
+    {
+      "question": "How many people are allowed to be in the room at once?",
+      "answers": [
+        "As many as possible all the time",
+        "I do not care how many but would prefere if it was not every day",
+        "A few people whenever",
+        "A few people every now and then",
+        "Would rather no other people be inside the room"
+      ]
+    },
+    {
+      "question": "Do you listen to music out loud in the room?",
+      "answers": []
+    },
+    {
+      "question": "Do you snore?",
+      "answers": [
+        "Yes", 
+        "No" 
+        ]
+    },
+    {
+      "question": "Do you mind sharing possesions?",
+      "answers": [
+        "Yes whats mine is theirs",
+        "Im okay with sharing everything, but they have to ask first",
+        "Im okay with sharing some things, but they have to ask first",
+        "Im okay with sharing very few things, but they have to ask first",
+        "Im not okay with sharing anything"
+      ]
+    },
+    {
+      "question": "Do you want to be close to your roommate? HOW DO WE CALCULATE WITH THIS RESPONSE",
+      "answers": [
+        "Yes",
+        "No Preference",
+        "No"
+      ]
+    },
+    {
+      "question": "Do you plan on joining greek life?",
+      "answers": [
+        "Yes",
+        "No sure",
+        "No"
+      ]
+    },
+    {
+      "question":"How important is it that your room is clean?",
+      "answers": [
+        "The most important, my room is spotless",
+        "Very important, I cannot stand mess",
+        "Important, I would prefer my room be clean",
+        "Not very important, I dont mind small amounts of mess",
+        "Not important, Do not care about the cleanliness of my room"
+      ]
+    },
+    {
+      "question": "How often do you plan on going home?",
+      "answers": [
+        "Every day",
+        "Mutliple times each week",
+        "Once a week or every other week",
+        "Rarely or every few months",
+        "Only for breaks / never"
+      ]
+    },
+    {
+      "question": "What temperature do you want the room to be?",
+      "answers": [
+        "80+",
+        "75-80",
+        "70-75",
+        "65-70",
+        "65-"
+      ]
+    },
+    {
+      "question": "If we have a disagreement, what approach do you feel is best for working through it?",
+      "answers": [
+        "Talk to each other about it",
+        "Talk to the RA about it",
+        "Do not deal with it"
+      ]
+    },
+    {
+      "question": "Do you plan on going abroad -> WHY DOES THIS MATTER???",
+      "answers": [
+        "Yes",
+        "No"
+      ]
+    },
+    {
+      "question": "how often will you eat in the room?",
+      "answers": [
+        "Every meal every day",
+        "once a day",
+        "once or twice every few days",
+        "couple times a week",
+        "never"
+      ]
+    },
+    {
+      "question": "How comfortable are you with alcohol in the room (Even if you dont drink)?",
+      "answers": []
+    },
+    {
+      "question": "How comfortable are you with other intoxicating substances in the room (even if you do not consme them)",
+      "answers": []
+    }
+  ]
