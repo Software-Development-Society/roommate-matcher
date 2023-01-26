@@ -11,15 +11,6 @@ passport.deserializeUser(User.deserializeUser());
 const router = express.Router();
 
 router.post("/login", function (req, res) {
-    //req body will include 3 values per question
-    //1. the number of answers in the questions answers (usually 5)
-    //2. the value of the question's answer 
-    //3. the value of the roommate question's answer
-        //Values for roommate question's answers = 1,2,3,4 and correspond with 1,2,4,5 rating 
-    //Ask Jack Johnston (me) if you have any questions
-    
-    
-    //console.log(req.body) --------DEBUGGING CODE--------------
 
     const user = new User({
         username: req.body.username,
