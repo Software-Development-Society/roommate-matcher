@@ -41,6 +41,7 @@
   
   .contact-imgs{
       height: 10vh;
+      min-height: 5rem;
   }
 
 .middle{
