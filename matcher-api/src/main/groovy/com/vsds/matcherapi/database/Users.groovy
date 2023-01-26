@@ -129,13 +129,18 @@ class Users {
         this.snapChat = snapChat
     }
 
+
     @Override
     public String toString() {
-        return "Users{" +
-                "userId=" + userId +
+        return "{userId=" + userId +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", username='" + username + '\'' +
-                '}';
+                ", sex='" + sex + '\'' +
+                ", classYear=" + classYear +
+                ", age=" + age +
+                ", bio='" + bio + '\'' +
+                ", instagram='" + instagram + '\'' +
+                ", snapChat='" + snapChat + '}\''
     }
 }
