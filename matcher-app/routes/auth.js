@@ -37,6 +37,26 @@ router.post("/login", function (req, res) {
     })
 });
 
+router.post("/upload-form", (req, res) =>{
+
+    console.log("upload form was accessed!")
+    //req body will include 3 values per question
+    //1. the number of answers in the questions answers (usually 5)
+    //2. the value of the question's answer 
+    //3. the value of the roommate question's answer
+        //Values for roommate question's answers = 1,2,3,4 and correspond with 1,2,4,5 rating 
+    //Ask Jack Johnston (me) if you have any questions
+    
+    
+    //console.log(req.body) --------DEBUGGING CODE--------------
+
+
+    //THINGS THAT NEED TO BE DONE IN THIS METHOD
+    //1. api call to the Java backend to send the answers
+    //2. send data to the db
+
+})
+
 router.post("/signup", function (req, res) {
     console.log(req.body);
     // if (!validateEmail(req.body.username)) {
