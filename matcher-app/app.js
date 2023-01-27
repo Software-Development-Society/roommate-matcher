@@ -3,6 +3,7 @@ const session = require("express-session");
 const bodyParser = require('body-parser');
 const axios = require('axios').default;
 const router = require("./routes/ms-auth");
+const signUpRouter = require('./routes/signup');
 
 const app = express();
 
@@ -24,13 +25,10 @@ app.use(session({
 
 
 app.use('/', router);
+app.use("/", signUpRouter);
 
 app.get("/", function (req, res) {
     res.render('homepage/homepage', {styleInput: "homepage", isLoggedIn: req.isAuthenticated()});
-});
-
-app.get("/signup", function (req, res) {
-    res.render('signup/signup', {styleInput: "homepage", isLoggedIn: req.isAuthenticated()});
 });
 
 app.get("/get-started", function (req, res) {

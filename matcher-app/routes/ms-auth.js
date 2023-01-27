@@ -22,11 +22,11 @@ passport.deserializeUser(function(id, done) {
   User.findById(id, function(err, user) {
     done(err, user);
   });
+  
 });
 
 passport.use(new MicrosoftStrategy({
-    clientID: "",
-    clientSecret: "",
+
     callbackURL: "http://localhost:3000/auth/ms",
     scope: ['user.read'],
   },
@@ -52,16 +52,30 @@ passport.use(new MicrosoftStrategy({
       });
       console.log("first time", firstTime);
       if(firstTime){
-        await User.findOrCreate({ msId: profile.id, email: profile.emails[0].value, userCompletedSignup: false}, function (err, user) {
-          console.log("44", user);
-          if(!err){
-          }
-          return cb(err, user);
+        await User.findOrCreate({ 
+          msId: profile.id, 
+          email: profile.emails[0].value, 
+          registrationComplete: false, 
+          picture: null, 
+          questionsFormComplete:false, 
+          firstName:null, 
+          lastName:null, 
+          age:null, 
+          classYear:null, 
+          snapchat:null, 
+          instagram:null, 
+          sex:null,
+          bio:null }, 
+          function (err, user) {
+            console.log("44", user);
+            return cb(err, user);
         });
       } else {
         await User.findOrCreate({ msId: profile.id, email: profile.emails[0].value}, function (err, user) {
-          console.log("44", user);
+          console.log("45", user);
           if(!err){
+            console.log("66", err);
+            return cb(err, user);
           }
           return cb(err, user);
         });
@@ -80,9 +94,13 @@ router.get('/auth/ms',
     //console.log("68", req.user);
     //console.log("\nAuth info", req.user)
     //console.log(req)
-    res.redirect("http://localhost:3000/logged-in-good");
+    if(!req.user.registrationComplete){
+      res.redirect('/signup-form');
+    } else if(req.user.picture === null){
+      console.log("here");
+      res.redirect('/submit-pic')
+    }
     
-    //res.json({"Message": "Success", token: req.authInfo, userId: req.user.id, email: req.user.email, picture: req.user.picture});
 }, function(err, req, res, next){
     console.log("ms-auth 77: ", err)
     res.redirect("http://localhost:3000/login-failed-error");
@@ -92,6 +110,7 @@ router.get('/auth/ms',
 router.get("/check", (req, res) =>{
   console.log(req.isAuthenticated());
   if(req.isAuthenticated()){
+    console.log(req.user);
     res.redirect("/good-check");
   } else {
     res.redirect("/bad-check");

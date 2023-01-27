@@ -7,34 +7,34 @@
         <div class="card-body">
 
           <!-- Makes POST request to /signup route -->
-          <form action="/signup" method="POST">
+          <form id="signup-form" action="/signup" method="POST">
             <div style="display: flex;">
               <div class="form-group" style="width: 47.5%; ">
                 <label for="firstName">First Name</label>
-                <input type="text" class="form-control" name="firstName">
+                <input id="fname" type="text" class="form-control" name="firstName" required>
               </div>
               <div class="form-group" style="width: 47.5%; margin-left: 5%;">
                 <label for="lastName">Last Name</label>
-                <input type="text" class="form-control" name="lastName">
+                <input id="lname" type="text" class="form-control" name="lastName" required>
               </div>
             </div>
             <div style="display: flex;">
               <div class="form-group" style="width: 45%; ">
                 <label for="age">Age</label>
-                <input type="number" class="form-control" name="age">
+                <input id="age" type="number" class="form-control" name="age" required>
               </div>
               <div class="form-group" style="width: 45%; margin-left: 5%;">
                 <label for="sex">Sex</label>
-                <select name ="sex" class="form-select form-control" aria-label="Default select example">
-                  <option selected>Click to Open</option>
+                <select id="sex" name ="sex" class="form-select form-control" aria-label="Default select example" required>
+                  <option value="0" selected>Click to Open</option>
                   <option value="male">Male</option>
                   <option value="female">Female</option>
                 </select>
               </div>
               <div class="form-group" style="width: 45%; margin-left: 5%;">
                 <label for="classYear">Class Year</label>
-                <select name ="classYear" class="form-select form-control" aria-label="Default select example" style="font-size: 15px;">
-                  <option selected >Choose Your Class Year</option>
+                <select id="cy-form" name ="classYear" class="form-select form-control" aria-label="Default select example" style="font-size: 15px;" required>
+                  <option value=0 selected>Choose Your Class Year</option>
                   <option value=2024>2024</option>
                   <option value=2025>2025</option>
                   <option value=2026>2026</option>
@@ -44,7 +44,7 @@
             </div>
             <div class="form-group">
               <label for="bio">Bio</label>
-              <textarea class="form-control" name="bio" rows="3"></textarea>
+              <textarea id="bio" class="form-control" name="bio" rows="3" required></textarea>
             </div>
             <div style="display: flex;">
             <div class="form-group" style="width: 47.5%;">
@@ -57,11 +57,12 @@
             </div>
           </div>
             <br>
-            <button type="submit" class="btn btn-dark">Register</button>
           </form>
+          <button onclick=validSubmit() class="btn btn-dark">Register</button>
         </div>
       </div>
     </div>
   </div>
 </div>
+
 

@@ -16,14 +16,17 @@ const userSchema = new Schema({
     sex: String,
     classYear: Number,
     email: String,
-    password: String,
     bio: String,
-    userCompletedSignup: Boolean
+    picture: String,
+    registrationComplete:Boolean,
+    questionsFormComplete: Boolean,
+    snapchat: String,
+    instagram: String,
+    
 });
-
 userSchema.plugin(passportLocalMongoose);
 userSchema.plugin(findOrCreate);
 
-const User = new mongoose.model("User", userSchema);
+const User = mongoose.model("User", userSchema);
 
 module.exports = {User};
