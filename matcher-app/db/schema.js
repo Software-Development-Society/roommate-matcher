@@ -17,7 +17,7 @@ const userSchema = new Schema({
     classYear: Number,
     email: String,
     bio: String,
-    picture: String,
+    picture: Buffer,
     registrationComplete:Boolean,
     questionsFormComplete: Boolean,
     snapchat: String,
