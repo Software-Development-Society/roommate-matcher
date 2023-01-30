@@ -1,0 +1,27 @@
+<%- include('../partials/header'); %>
+  <div style="height: 100%; width: 100%; display: flex; justify-content: center;">
+    <div >
+      <form method="POST" action="/submit-pic" enctype="multipart/form-data">
+          <img style="margin-left: 20%; width: 256px;" src="https://cdn-icons-png.flaticon.com/512/847/847969.png">
+          <br>
+          <br>
+          <h2>Please submit a profile picture.</h2>
+          <br>
+          <br>
+            <% if(fileError === "Too Big"){ %>
+              <h1 style="color: orange;">Your file is too large, please submit a smaller one. Max of 10MB</h1>
+              <br>
+            <% } %>
+            <% if(fileError === "Wrong Type"){ %>
+              <h1 style="color: orange;">You must submit a valid image file, please try again.</h1>
+              <br>
+            <% } %>
+            <input type="file" accept="image/png, image/jpeg" name="image">
+            <input type="submit">
+      </form>
+    </div>
+  </div>
+
+</body>
+</html>
+
