@@ -31,9 +31,6 @@ app.get("/", function (req, res) {
     res.render('homepage/homepage', {styleInput: "homepage", isLoggedIn: req.isAuthenticated()});
 });
 
-app.get("/get-started", function (req, res) {
-    res.render('login/login', {styleInput: "homepage", isLoggedIn: req.isAuthenticated()});
-});
 
 app.get("/dashboard", function (req, res) {
     res.render('dashboard/dashboard', {styleInput: "dashboard", isLoggedIn: req.isAuthenticated()});
