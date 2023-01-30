@@ -32,6 +32,30 @@ class Questions {
         this.responses = responses
     }
 
+    ObjectId getUser_id() {
+        return user_id
+    }
+
+    String getSex() {
+        return sex
+    }
+
+    ArrayList<ArrayList<Integer>> getResponses() {
+        return responses
+    }
+
+    void setUser_id(ObjectId user_id) {
+        this.user_id = user_id
+    }
+
+    void setSex(String sex) {
+        this.sex = sex
+    }
+
+    void setResponses(ArrayList<ArrayList<Integer>> responses) {
+        this.responses = responses
+    }
+
     @Override
     public String toString() {
         return "Questions{" +

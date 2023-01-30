@@ -9,7 +9,11 @@ const app = express();
 
 app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 app.use(express.static("public"));
+
+
+
 
 var isLoggedIn;
 
@@ -41,9 +45,13 @@ app.get("/dashboard", function (req, res) {
 app.get("/problem", function (req, res) {
     res.render('problem/problem', {styleInput: "problem", isLoggedIn: req.isAuthenticated()});
 });
+
 app.get("/form", function (req, res) {
-    res.render('form/form', {styleInput: "homepage", isLoggedIn: req.isAuthenticated()});
+    const questions = require('./Questions.json');
+    //console.log(questions)
+    res.render('form/form', {styleInput: "homepage", isLoggedIn: req.isAuthenticated(), questions: questions});
 });
+
 app.get("/signout", function (req, res) {
     req.logout(function(err) {
         if (err){ 

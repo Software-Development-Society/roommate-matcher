@@ -14,7 +14,7 @@ h2 {
 
 .div1 {
     width: 80%;
-    max-width: 1400px;
+    
     margin: 0 auto;
 }
 
@@ -22,8 +22,7 @@ h2 {
     background-color: #dbdbe2;
     width: 100%;
     height: 65vh;
-    max-height: 700px;
-    min-height: 500px;
+    
     border-radius: 30px;
     margin-bottom: 13%;
     padding: 20px;
@@ -31,8 +30,13 @@ h2 {
 
 @media screen and (max-width:600px) {
     .matchBox{
-        min-width: 350px;
-        
+        min-width: 360px; 
+        overflow-x: hidden;
+        overflow-y: scroll;
+    }
+
+    .div1{
+        max-width: 1400px;
     }
 }
 

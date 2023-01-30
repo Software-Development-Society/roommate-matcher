@@ -1,6 +1,7 @@
 package com.vsds.matcherapi.Controllers
 
 import com.vsds.matcherapi.MatcherApiApplication
+import com.vsds.matcherapi.User.MatchUsers
 import com.vsds.matcherapi.User.User
 import com.vsds.matcherapi.database.Questions
 import com.vsds.matcherapi.database.QuestionsRepository
@@ -39,20 +40,8 @@ class MatcherLoginController {
 
     @GetMapping("/test")
     String addUser(){
-        ArrayList<ArrayList<Integer>> questions = new ArrayList<>()
-        ArrayList<Integer> question1 = new ArrayList<>()
-        question1.add(5)
-        question1.add(3)
-
-        ArrayList<Integer> question2 = new ArrayList<>()
-        question2.add(2)
-        question2.add(3)
-
-        questions.addAll(question1, question2)
-
-
-        Questions addQuestions = new Questions(questions)
-        MatcherApiApplication.visableQuestionRepo.save(addQuestions)
+        MatchUsers.matchUsers()
+        return "works"
     }
 
 
