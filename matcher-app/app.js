@@ -31,9 +31,12 @@ app.get("/", function (req, res) {
     res.render('homepage/homepage', {styleInput: "homepage", isLoggedIn: req.isAuthenticated()});
 });
 
-
 app.get("/dashboard", function (req, res) {
-    res.render('dashboard/dashboard', {styleInput: "dashboard", isLoggedIn: req.isAuthenticated()});
+    if(req.user.questionsFormComplete){
+        res.render('dashboard/dashboard', {styleInput: "dashboard", isLoggedIn: req.isAuthenticated()}); 
+    } else {
+        res.redirect('/signup-form')
+    }
 });
 app.get("/problem", function (req, res) {
     res.render('problem/problem', {styleInput: "problem", isLoggedIn: req.isAuthenticated()});
