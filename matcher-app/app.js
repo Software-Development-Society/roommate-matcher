@@ -2,11 +2,8 @@ const express = require("express");
 const session = require("express-session");
 const bodyParser = require('body-parser');
 const axios = require('axios').default;
-
-const validateEmail = require('./functions/validateEmail');
-const { loginRequest } = require("./requests/login");
-const { usePassport, authRouter } = require("./routes/auth");
-const { User } = require("./db/schema");
+const router = require("./routes/ms-auth");
+const signUpRouter = require('./routes/signup');
 
 const app = express();
 
@@ -30,25 +27,20 @@ app.use(session({
 
 
 
-app.use(usePassport.initialize());
-app.use(usePassport.session());
 
-app.use('/', authRouter);
+app.use('/', router);
+app.use("/", signUpRouter);
 
 app.get("/", function (req, res) {
     res.render('homepage/homepage', {styleInput: "homepage", isLoggedIn: req.isAuthenticated()});
 });
 
-app.get("/signup", function (req, res) {
-    res.render('signup/signup', {styleInput: "homepage", isLoggedIn: req.isAuthenticated()});
-});
-
-app.get("/login", function (req, res) {
-    res.render('login/login', {styleInput: "homepage", isLoggedIn: req.isAuthenticated()});
-});
-
 app.get("/dashboard", function (req, res) {
-    res.render('dashboard/dashboard', {styleInput: "dashboard", isLoggedIn: req.isAuthenticated()});
+    if(req.user.questionsFormComplete){
+        res.render('dashboard/dashboard', {styleInput: "dashboard", isLoggedIn: req.isAuthenticated()}); 
+    } else {
+        res.redirect('/signup-form')
+    }
 });
 app.get("/problem", function (req, res) {
     res.render('problem/problem', {styleInput: "problem", isLoggedIn: req.isAuthenticated()});
