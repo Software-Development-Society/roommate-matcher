@@ -39,12 +39,13 @@ textarea {
   }
   
 textarea {
-    background-color: #0a0a23;
     border: 1px solid #0a0a23;
-    color: #ffffff;
+    border-radius: 10px;
+   
   }
   
 input[type="submit"] {
+    border-radius: 10px;
     display: block;
     width: 60%;
     margin: 1em auto;
