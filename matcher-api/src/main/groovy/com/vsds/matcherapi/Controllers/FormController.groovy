@@ -39,9 +39,6 @@ class FormController {
 
         MatchUsers.matchUsers()
 
-
-
-
         JSONObject returnPayload = new JSONObject()
         returnPayload.put("true", "Form response saved!")
     }
