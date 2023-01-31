@@ -10,7 +10,7 @@ router.post("/upload-form", (req, res) => {
         //Not all questions were answered
         console.log("Questions unanswered")
     //console.log(req.body)
-    
+
     }else{
         let json = makeFormJsonToSendToBackend(req) 
         res.redirect('/dashboard')
@@ -44,6 +44,7 @@ function makeFormJsonToSendToBackend(req){
 //Below Methods here to convert the values from the form to the values we are using in the backend
 //Ex: if there are only two possible answers, then the form will give the node js becakend either 1 or 2
 //but we want it to be either 1 or 5
+//I know these are hard coded and all but they are good enough
 function getQuestionValue(answer, numOfAnswers){
     if(numOfAnswers == '2' && answer == '2'){
         answer = '5'
