@@ -26,7 +26,8 @@ passport.deserializeUser(function(id, done) {
 });
 
 passport.use(new MicrosoftStrategy({
-
+    clientID: "",
+    clientSecret: "",
     callbackURL: "http://localhost:3000/auth/ms",
     scope: ['user.read'],
   },
