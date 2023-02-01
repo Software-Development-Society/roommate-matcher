@@ -5,6 +5,7 @@ const axios = require('axios').default;
 const router = require("./routes/ms-auth");
 const signUpRouter = require('./routes/signup');
 const { Problem } = require("./db/schema");
+const {imagesRouter} = require('./routes/images');
 
 const app = express();
 
@@ -31,19 +32,20 @@ app.use(session({
 
 app.use('/', router);
 app.use("/", signUpRouter);
+app.use("/", imagesRouter);
 
 app.get("/", function (req, res) {
     res.render('homepage/homepage', {styleInput: "homepage", isLoggedIn: req.isAuthenticated()});
 });
 
 app.get("/dashboard", function (req, res) {
-    if(req.user.questionsFormComplete){
+    //if(req.user.questionsFormComplete){
         res.render('dashboard/dashboard', {styleInput: "dashboard", isLoggedIn: req.isAuthenticated()}); 
-    } else {
-        res.redirect('/signup-form')
-    }
+    //} else {
+        //res.redirect('/signup-form')
+    //}
 });
-app.get("/problem", function (req, res) {
+app.get("/problem", function (req, res) {   
     if(!req.isAuthenticated()){
         req.headers.problem = true;
         console.log("problem 48", req.headers.problem)
@@ -58,6 +60,29 @@ app.get("/form", function (req, res) {
     //console.log(questions)
     res.render('form/form', {styleInput: "homepage", isLoggedIn: req.isAuthenticated(), questions: questions});
 });
+
+app.get('/profile', (req, res) =>{
+    if(!req.isAuthenticated()){
+        const placeHolders = {
+            firstName: req.user.firstName,
+            lastName: req.user.lastName,
+            age: req.user.age,
+            sex: req.user.age,
+            instagram: req.user.instagram,
+            snapchat: req.user.snapchat,
+            picture: req.user.picture,
+            classYear: req.user.classYear,
+            bio: req.user.bio,   
+        }
+        //if(!req.user.registrationComplete){
+            res.render('changeProfile/changeProfile', {styleInput: "changeProfile", isLoggedIn: req.isAuthenticated(), userInfo: placeHolders});
+        //} else {
+          //  res.redirect('/signup-form');
+        //}
+    } else {
+        res.redirect('/login')
+    }
+})
 
 app.get("/signout", function (req, res) {
     req.logout(function(err) {

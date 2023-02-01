@@ -26,6 +26,7 @@ const userSchema = new Schema({
     email: String,
     bio: String,
     picture: Buffer,
+    pictureName: String,
     registrationComplete:Boolean,
     questionsFormComplete: Boolean,
     snapchat: String,

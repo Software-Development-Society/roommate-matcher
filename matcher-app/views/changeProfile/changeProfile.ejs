@@ -1,0 +1,50 @@
+<%- include('../partials/header'); %>
+        <div class="container rounded bg-white mt-5 mb-5">
+            <div class="row">
+                <div class="col-md-3 border-right">
+                    <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img class="rounded-circle mt-5" width="150px" src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg" alt="profile picture"><span class="font-weight-bold">Edogaru</span><span class="text-black-50">edogaru@mail.com.my</span><span> </span></div>
+                </div>
+                <div class="col-md-5 border-right">
+                    <div class="p-3 py-5">
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                            <h4 class="text-right">Profile Settings</h4>
+                        </div>
+                        <div class="fieldform">
+                            <form>
+                                <fieldset>
+                                    <label for="firstName" id="name-label">First Name: <input id="name" name="name" type="text" placeholder="John" required /></label>
+                                    <label for="lastName" id="name-label">Last Name: <input id="name" name="name" type="text" placeholder="Smitch" required /></label>
+                                    <label for="number" id="number-label">Age (years): <input id="number" type="number" name="age" min="18" max="120" placeholder="18" required/></label>
+                                    <label for="sex">Sex
+                                        <select id="dropdown1" name="sex">
+                                            <option value="">(select one)</option>
+                                            <option value="1">Male</option>
+                                            <option value="2">Female</option>
+                                        </select>
+                                    </label>
+                                    <label for="Class">Class Year
+                                        <select id="dropdown2" name="Class">
+                                            <option value="">(select one)</option>
+                                            <option value="1">Freshman</option>
+                                            <option value="2">Sophomore</option>
+                                            <option value="3">Junior</option>
+                                            <option value="4">Senior</option>
+                                        </select>
+                                    </label>
+                                    <label for="bio">Bio</label>
+                                    <textarea name="bio" id="bio" cols="50" rows="3" placeholder="Update your bio..."></textarea>
+                                    <label for="instagram" id="name-label">Instagram<input id="name" name="name" type="text" placeholder="Smitch" required /></label>
+                                    <label for="snapchat" id="name-label">Snapchat <input id="name" name="name" type="text" placeholder="Smitch" required /></label>
+                                </fieldset>
+                                <div class="mt-5 text-center">
+                                    <button class="btn profile-button" type="button">Save Profile</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+        </div>
+        </div>
+        </div>
+    </body>
+</html>
