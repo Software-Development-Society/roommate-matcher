@@ -1,5 +1,4 @@
 const express = require('express');
-const { User } = require('../db/schema');
 const fs = require("fs");
 
 const imagesRouter = express.Router();
