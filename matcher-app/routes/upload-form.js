@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+const axios = require('axios').default;
 
 
 
@@ -12,7 +13,16 @@ router.post("/upload-form", (req, res) => {
     //console.log(req.body)
 
     }else{
-        let json = makeFormJsonToSendToBackend(req) 
+        let json = makeFormJsonToSendToBackend(req)
+        let data = JSON.stringify(json)
+        axios({
+            method: 'post',
+            url: 'http://localhost:8080/save-responses',
+            data: {
+                data
+            }
+        })
+
         res.redirect('/dashboard')
     }
     
