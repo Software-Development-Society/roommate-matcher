@@ -13,15 +13,26 @@ router.post("/upload-form", (req, res) => {
     //console.log(req.body)
 
     }else{
-        let json = makeFormJsonToSendToBackend(req)
-        let data = JSON.stringify(json)
+        //formats the JSON
+        let data = makeFormJsonToSendToBackend(req)
+
+        //Makes its JSON
+        let json = JSON.stringify(data)
+
         axios({
             method: 'post',
+            headers: {
+                "Content-Type": "application/json",
+            },
             url: 'http://localhost:8080/save-responses',
-            data: {
-                data
-            }
-        })
+            data: json
+        }).then(response => {
+        console.log(response);
+        //res.send(response);
+        }).catch(error => {
+        console.log(error);
+        //res.send(error)
+    });
 
         res.redirect('/dashboard')
     }
@@ -31,12 +42,11 @@ router.post("/upload-form", (req, res) => {
 
 //method takes the request and creates JSON to send to the backend
 function makeFormJsonToSendToBackend(req){
-    var json = {}
-    json["user_id"] = req.user.id
-        json["sex"] = req.user.sex
-        json["responses"] = []
-
-
+    var json = {
+        user_id: req.user.id,
+        sex: req.user.sex,
+        responses: []
+    }
         let keys = Object.keys(req.body)
         console.log(keys.length)
 
@@ -48,7 +58,9 @@ function makeFormJsonToSendToBackend(req){
 
             json["responses"].push([getQuestionValue(answer,numOfAnswers), getRoommateValue(roommateAnswer)])
         }
-        console.log(json)
+
+    return json
+        //console.log(json)
 }
 
 //Below Methods here to convert the values from the form to the values we are using in the backend
