@@ -31,6 +31,7 @@ class FormController {
         def response = slurper.parseText(input)
 
         ObjectId user_id = new ObjectId(response["user_id"])
+        
         String sex = response["sex"]
         ArrayList<ArrayList<Integer>> userResponse = response["response"] as ArrayList<ArrayList<Integer>>
         println(userResponse)
