@@ -68,7 +68,7 @@ function getUnansweredQuestions(keys){
 
             //first edge case: if question 1's answer is missing
             if((keyBefore == "" && key.charAt(0) == 'n') || (keyBefore.charAt(0) == 'r' && key.charAt(0) == 'n')){
-                questionsUnanswered.push(key.substring(31))
+                questionsUnanswered.push(parseInt(key.substring(31)))
                 return
             }
 
