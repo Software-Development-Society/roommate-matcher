@@ -2,15 +2,24 @@ const express = require('express');
 const router = express.Router();
 const axios = require('axios').default;
 
+const questions = require('../Questions.json')
+
+
 
 
 router.post("/upload-form", (req, res) => {
+    //console.log(questions.length)
+
+    let keys = Object.keys(req.body)
     //All questions answered will make a 66 entry long json file
     //if there is less than 66 keys we know that not all questions were answered properly
-    if(Object.keys(req.body).length < 66){
+    
+    if((keys.length / 3) < questions.length){
         //Not all questions were answered
-        console.log("Questions unanswered")
-    //console.log(req.body)
+        
+        let arrOfUnansweredQuestionIndex = getUnansweredQuestions(keys)
+
+        console.log(arrOfUnansweredQuestionIndex)
 
     }else{
         //formats the JSON
@@ -38,6 +47,37 @@ router.post("/upload-form", (req, res) => {
     }
     
 })
+
+//takes in the keys of the data received from the form and returns an array of the question number that was unanswered
+function getUnansweredQuestions(keys){
+    var questionsUnanswered = []
+        
+
+        var keyBefore = ""
+        keys.forEach(key => {
+
+            //use the first letter to distinguish what each key is
+            //ex: r = roommateQuestion , n = numOfQuestionAnswersForQuestion. and q = question
+
+
+            //gets rid of the roommatequestion keys
+            if(key.charAt(0) == 'r'){
+                keyBefore = key
+                return
+            }
+
+            //first edge case: if question 1's answer is missing
+            if((keyBefore == "" && key.charAt(0) == 'n') || (keyBefore.charAt(0) == 'r' && key.charAt(0) == 'n')){
+                questionsUnanswered.push(key.substring(31))
+                return
+            }
+
+            keyBefore = key
+            
+        });
+
+    return questionsUnanswered
+}
 
 
 //method takes the request and creates JSON to send to the backend
