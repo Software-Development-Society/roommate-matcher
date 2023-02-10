@@ -4,7 +4,9 @@ const axios = require('axios').default;
 
 const questions = require('../Questions.json')
 
-
+router.post("/unansweredQuestions-form", (req, res)=>{
+    console.log(req.body)
+})
 
 
 router.post("/upload-form", (req, res) => {
@@ -20,7 +22,7 @@ router.post("/upload-form", (req, res) => {
         let arrOfUnansweredQuestionIndex = getUnansweredQuestions(keys)
 
         //console.log(questions)
-        res.render('../views/form/unansweredQuestionsForm', {styleInput: "homepage", isLoggedIn: req.isAuthenticated(), questions: questions, unansweredQuestions: arrOfUnansweredQuestionIndex, previousAnswers : req.body});
+        res.render('../views/form/unansweredQuestionsForm', {styleInput: "homepage", isLoggedIn: req.isAuthenticated(), questions: questions, unansweredQuestions: arrOfUnansweredQuestionIndex, previousAnswers : makeFormJsonToSendToBackend(req)});
 
     }else{
         //formats the JSON

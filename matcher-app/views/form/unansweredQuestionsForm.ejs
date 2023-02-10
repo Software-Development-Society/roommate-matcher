@@ -2,15 +2,15 @@
 
 
 
-<form class="scroll-view" action="/upload-form" method="POST">
+<form class="scroll-view" action="unansweredQuestions-form" method="POST">
 
 <h1>Looks Like you forgot a few!</h1>
 
-<%  for(let x = 0; x < questions.length; x++) { %>
-
+<%  unansweredQuestions.forEach( question => { %>
+<% var x = question - 1; %>
         <% //IN ORDER TO MODIFY THE QUESTIONS PLEASE GO TO QUESTIONS.JSON!!! %>
 
-        <% if(questions[x].answers.length > 0) { %>
+        
         <div class="question">
 
             <h4 class="question-title"><%= (x+1) + '. ' + questions[x].question%></h1>
@@ -54,8 +54,10 @@
                     
         </div>
 
-        <% } %>
-<% }; %>
+<% }); %>
+
+    <input type="hidden" id="" name="previousQuestions" value="<%= previousAnswers%>">
+
         <div class="center-submit-button">
             <input id="userinfo-submit-button" type="submit" class="btn btn-dark"></input>
         </div>
