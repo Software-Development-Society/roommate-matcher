@@ -1,12 +1,18 @@
 <%- include('../partials/header'); %>
     <h1>Report A Problem</h1>
-    <form>
+    <% if(!submitted){ %>
+    <form method="POST" action="/problem">
     <fieldset>
         <label for="bio">Having a problem?
-          <textarea id="bio" name="bio" rows="12" cols="30" placeholder="Tell us what's wrong..."></textarea>
+          <textarea id="bio" name="problemDescription" rows="12" cols="30" placeholder="Tell us what's wrong..."></textarea>
         </label>
       </fieldset>
       <input type="submit" value="Submit" />
     </form>
+    <% } else if(error) { %>
+      <h1>There was an issue submitting your request, please try again.</h1>  
+    <% } else { %>
+      <h1>Thank you for submitting an issue.</h1>
+    <% } %>
   </body>
 </html>

@@ -8,6 +8,14 @@ const Schema = mongoose.Schema;
 //mongoose.connect("mongodb+srv://vsds:lnBKl03NLjuCiieO@vsds.nio2wr0.mongodb.net/roommateMatcher?retryWrites=true&w=majority" /*, {useNewUrlParser:true}*/ );
 mongoose.connect('mongodb://localhost/rm', {useNewUrlParser: true});
 
+const reportProblemSchema = new Schema({
+   msId: String,
+   firstName: String,
+   lastName: String,
+   email: String, 
+   problemDescription: String, 
+});
+
 const userSchema = new Schema({
     msId: String,
     firstName: String,
@@ -28,5 +36,6 @@ userSchema.plugin(passportLocalMongoose);
 userSchema.plugin(findOrCreate);
 
 const User = mongoose.model("User", userSchema);
+const Problem = mongoose.model("Problem", reportProblemSchema)
 
-module.exports = {User};
+module.exports = {User, Problem};
