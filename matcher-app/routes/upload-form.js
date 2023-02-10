@@ -19,7 +19,8 @@ router.post("/upload-form", (req, res) => {
         
         let arrOfUnansweredQuestionIndex = getUnansweredQuestions(keys)
 
-        console.log(arrOfUnansweredQuestionIndex)
+        //console.log(questions)
+        res.render('../views/form/unansweredQuestionsForm', {styleInput: "homepage", isLoggedIn: req.isAuthenticated(), questions: questions, unansweredQuestions: arrOfUnansweredQuestionIndex, previousAnswers : req.body});
 
     }else{
         //formats the JSON
