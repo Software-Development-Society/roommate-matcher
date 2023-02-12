@@ -16,10 +16,6 @@ app.use(bodyParser.json());
 app.use(express.static("public"));
 
 
-
-
-var isLoggedIn;
-
 //ABSOLUTELY MAKE SURE TO CHANGE AND HIDE SECRET KEY BEFORE PRODUCTION
 app.use(session({
     secret: 'keyboard cat',
@@ -38,11 +34,15 @@ app.get("/", function (req, res) {
 });
 
 app.get("/dashboard", function (req, res) {
-    //if(req.user.questionsFormComplete){
-        res.render('dashboard/dashboard', {styleInput: "dashboard", isLoggedIn: req.isAuthenticated()}); 
-    //} else {
-        //res.redirect('/signup-form')
-    //}
+    if(req.isAuthenticated()){
+        if(req.user.questionsFormComplete){
+            res.render('dashboard/dashboard', {styleInput: "dashboard", isLoggedIn: req.isAuthenticated()}); 
+        } else {
+            res.redirect('/form')
+        }
+    } else {
+        res.redirect('/login');
+    }
 });
 app.get("/problem", function (req, res) {   
     if(!req.isAuthenticated()){
@@ -81,6 +81,7 @@ app.get("/signout", function (req, res) {
     req.logout(function(err) {
         if (err){ 
             res.send("There was an error signing you out");
+            return
         }
         res.redirect('/');
     });

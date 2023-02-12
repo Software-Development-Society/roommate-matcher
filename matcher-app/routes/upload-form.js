@@ -137,6 +137,4 @@ function getRoommateValue(roommateAnswer) {
     return roommateAnswer
 }
 
-
-
 module.exports = router
