@@ -14,11 +14,11 @@
             <h4 class="question-title"><%= (x+1) + '. ' + questions[x].question%></h1>
 
             
-            <div class="row g-5 answer-row "> 
+            <div id="question<%=x%>Row" class="row g-5 answer-row notAnswered"> 
                 <% for(let y = 0; y < questions[x].answers.length; y++) { %>
                     <div class="col" >
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="question<%= x + 1 %>" id="inlineRadioDefault<%= y %>" value="<%= y+1%>">
+                            <input class="form-check-input" type="radio" name="question<%= x + 1 %>" id="inlineRadioDefault<%= y %>" value="<%= y+1%>" onclick="updateQuestionClassList('question<%=x%>Row' , '<%=questions.length%>' )">
                             <label class="form-check-label" for="inlineRadioDefault<%= y %>"><%= questions[x].answers[y] %></label>
                         </div>
                     </div>
@@ -55,7 +55,7 @@
         <% } %>
 <% }; %>
         <div class="center-submit-button">
-            <input id="userinfo-submit-button" type="submit" class="btn btn-dark"></input>
+            <input id="userinfo-submit-button" type="submit" class="btn btn-dark" disabled></input>
         </div>
 </form>
 </html>
