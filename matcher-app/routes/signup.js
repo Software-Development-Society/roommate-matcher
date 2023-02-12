@@ -2,6 +2,13 @@ const express = require('express');
 const router = express.Router();
 const { User } = require('../db/schema');
 const multer = require('multer');
+
+
+//This is used to import the router for upload-form.js
+//Used to help differentiate the router and make the code more readable
+const uploadFormRouter = require('./upload-form')
+router.use(uploadFormRouter)
+
 router.get("/signup-form", (req, res) =>{
     console.log("here");
     console.log()
@@ -18,7 +25,7 @@ router.get("/signup-form", (req, res) =>{
 
 
 router.post("/signup", function (req, res) {
-    console.log("here ", req.body);
+    //console.log("here ", req.body);
     if(req.isAuthenticated()){
         if(req.user.registrationComplete){
             res.json({"Message": "Ayooo??? You already completed registration, wyd homie."});
@@ -26,7 +33,7 @@ router.post("/signup", function (req, res) {
         }
         User.findById(req.user.id, function(err, user) {
             if(!err){
-                console.log("herex", user);
+                //console.log("herex", user);
                 User.findByIdAndUpdate(req.user.id, {
                     firstName: req.body.firstName,
                     lastName: req.body.lastName,
@@ -37,14 +44,9 @@ router.post("/signup", function (req, res) {
                     registrationComplete: true,
                     snapchat: req.body.snapchat,
                     instagram: req.body.instagram
-                }, (docs, err)=>{
-                    if(!err){
-                        console.log("35",docs);
-                        res.redirect("/submit-pic")
-                    } else {
-                        console.log("37", err);
-                        res.redirect("/submit-pic");
-                    }
+                }, (docs)=>{
+                    //console.log("41", docs);
+                    res.redirect("/submit-pic");
                 })
             } else {
                 res.redirect('/404');
@@ -70,20 +72,22 @@ router.get("/submit-pic", (req, res) =>{
         if(!req.user.picture){
             res.render('pfp/pfp', {styleInput: "homepage", isLoggedIn: req.isAuthenticated(), fileError: ""});
         } else {
-            
+            res.redirect('/form');
         }
     } else {
         res.redirect('/login');
     }
 });
 const path = require('path');
+const { imageToBase64, deleteFile } = require('./images');
 
 const storage = multer.diskStorage({
     destination: (req, file, cb) =>{
         cb(null, path.join(__dirname,'../uploadedImages'))
     },
     filename: (req, file, cb) =>{
-        cb(null, "fname-"+req.user.firstName+"-MongoID-"+req.user.id +  path.extname(file.originalname));
+        req.headers.fileName = "fname-"+req.user.firstName+"-MongoID-"+req.user.id + ".jpg";
+        cb(null, "fname-"+req.user.firstName+"-MongoID-"+req.user.id + ".jpg");
     }
 })
 // let regex = new RegExp(/\.(gif|jpe?g|tiff?|png|webp|bmp)$/i);
@@ -117,14 +121,23 @@ const upload = multer({
 router.post("/submit-pic", upload.single('image'),(req, res) =>{
     if(req.isAuthenticated()){
         if(!req.user.picture){
-            const file = req.file;
-            console.log("102x", req.body.fileError);
+            //console.log("102x", err);
             //console.log("102", err);
             //The first condition runs if the file is too big or if the file is of the wrong type
             if(req.body.fileError !== ""){
                 res.render('pfp/pfp', {styleInput: "homepage", isLoggedIn: req.isAuthenticated(), fileError: req.body.fileError});
             } else{//This condition means the user has successfully submitted a picture
                 console.log("Good");
+                const buffer = imageToBase64(path.join(__dirname,'../uploadedImages/')+req.headers.fileName);
+                User.findByIdAndUpdate(req.user.id, {
+                    picture: buffer,
+                    pictureName: req.headers.fileName
+                }, (docs, err)=>{
+                    //console.log("37", docs, err);
+                    //res.redirect("/submit-pic");
+                })
+                deleteFile(path.join(__dirname,'../uploadedImages/')+req.headers.fileName)
+                console.log("buffer",buffer);
                 res.send("yerr");
                 
             }
@@ -140,5 +153,8 @@ router.post("/submit-pic", upload.single('image'),(req, res) =>{
         res.redirect('/login');
     }
 });
+
+
+
 
 module.exports = router;

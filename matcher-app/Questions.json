@@ -87,10 +87,6 @@
       ]
     },
     {
-      "question": "Do you mind sharing condiments/paper products/cleaning materials?",
-      "answers": []
-    },
-    {
       "question": "Do you plan to be around on the weekends?",
       "answers": [
         "Will never be around on weekends",
@@ -119,10 +115,6 @@
         "A few people every now and then",
         "Would rather no other people be inside the room"
       ]
-    },
-    {
-      "question": "Do you listen to music out loud in the room?",
-      "answers": []
     },
     {
       "question": "Do you snore?",
@@ -211,13 +203,5 @@
         "couple times a week",
         "never"
       ]
-    },
-    {
-      "question": "How comfortable are you with alcohol in the room (Even if you dont drink)?",
-      "answers": []
-    },
-    {
-      "question": "How comfortable are you with other intoxicating substances in the room (even if you do not consme them)",
-      "answers": []
     }
   ]
