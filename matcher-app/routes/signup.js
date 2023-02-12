@@ -78,6 +78,24 @@ router.get("/submit-pic", (req, res) =>{
         res.redirect('/login');
     }
 });
+
+router.get("/update-pic", (req, res) =>{
+    if(req.isAuthenticated()){
+        if(!req.user.registrationComplete){
+            res.redirect('/signup-form');
+            return;
+        }
+        if(req.user.picture){
+            req.headers.update = true;
+            res.render('pfp/pfp', {styleInput: "homepage", isLoggedIn: req.isAuthenticated(), fileError: ""});
+        } else {
+            res.redirect('/submit-pic');
+        }
+    } else {
+        res.redirect('/login');
+    }
+});
+
 const path = require('path');
 const { imageToBase64, deleteFile } = require('./images');
 
@@ -120,7 +138,7 @@ const upload = multer({
 
 router.post("/submit-pic", upload.single('image'),(req, res) =>{
     if(req.isAuthenticated()){
-        if(!req.user.picture){
+        if(req.user.registrationComplete){
             //console.log("102x", err);
             //console.log("102", err);
             //The first condition runs if the file is too big or if the file is of the wrong type
@@ -138,16 +156,16 @@ router.post("/submit-pic", upload.single('image'),(req, res) =>{
                 })
                 deleteFile(path.join(__dirname,'../uploadedImages/')+req.headers.fileName)
                 console.log("buffer",buffer);
-                res.redirect("/form");
-                
+                console.log("req headers update", req.headers.update);
+                if(req.headers.update){
+                    res.redirect('/profile')
+                } else {
+                    res.redirect("/form");
+                }
             }
             
         } else {
-            if(req.user.questionsFormComplete){
-                res.redirect('/dashboard');
-            } else {
-                res.redirect('/form');//send them to the questions form
-            }
+            res.redirect('/signup-form');
         }
     } else {
         res.redirect('/login');
