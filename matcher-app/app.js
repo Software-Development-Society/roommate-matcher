@@ -55,9 +55,24 @@ app.get("/problem", function (req, res) {
 });
 
 app.get("/form", function (req, res) {
-    const questions = require('./Questions.json');
-    //console.log(questions)
-    res.render('form/form', {styleInput: "homepage", isLoggedIn: req.isAuthenticated(), questions: questions});
+    if(req.isAuthenticated()){
+        if(req.user.registrationComplete){
+            if(req.user.pictureName){
+                const questions = require('./Questions.json');
+                //console.log(questions)
+                res.render('form/form', {styleInput: "homepage", isLoggedIn: req.isAuthenticated(), questions: questions, error:false});
+            } else {
+                res.redirect('/submit-pic');
+                return;
+            }
+        } else {
+            res.redirect('/signup-form');
+            return;
+        }
+    } else {
+        res.redirect('/login');
+        return;
+    }
 });
 
 

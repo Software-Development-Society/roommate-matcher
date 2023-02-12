@@ -25,8 +25,8 @@ passport.deserializeUser(function(id, done) {
 });
 
 passport.use(new MicrosoftStrategy({
-    clientID: "",
-    clientSecret: "",
+    clientID: "25edda00-5ff3-4300-8ad5-4674943afe76",
+    clientSecret: "5X78Q~otkD4H_6DvpXONFx1VCk9zuZ1Im311Tcxa",
     callbackURL: "http://localhost:3000/auth/ms",
     scope: ['user.read'],
   },
@@ -42,7 +42,6 @@ passport.use(new MicrosoftStrategy({
         //console.log(results);
         if(results.length < 1){
             //It is users first time
-            
             return true;
         } else {
             return false;
@@ -101,7 +100,7 @@ router.get('/auth/ms',
     } else if(req.user.picture === null){
       console.log("here");
       res.redirect('/submit-pic')
-    } else if(req.user.questionsFormComplete){
+    } else if(!req.user.questionsFormComplete){
         res.redirect('/form');
     } else {
         res.redirect('/dashboard');

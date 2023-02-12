@@ -1,13 +1,14 @@
 <%- include('../partials/header'); %>
 
 
-
+<% if(error){ %>
+    <h1 style="text-align: center; color: black;">There was an error, please try resubmitting the form.<br>If the error persists, submit the error <a style="color: white;" href="/problem">here.</a></h1>
+<% } %>
 <form class="scroll-view" action="/upload-form" method="POST">
 
 <%  for(let x = 0; x < questions.length; x++) { %>
 
         <% //IN ORDER TO MODIFY THE QUESTIONS PLEASE GO TO QUESTIONS.JSON!!! %>
-
         <% if(questions[x].answers.length > 0) { %>
         <div class="question">
 

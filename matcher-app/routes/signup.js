@@ -138,7 +138,7 @@ router.post("/submit-pic", upload.single('image'),(req, res) =>{
                 })
                 deleteFile(path.join(__dirname,'../uploadedImages/')+req.headers.fileName)
                 console.log("buffer",buffer);
-                res.send("yerr");
+                res.redirect("/form");
                 
             }
             
@@ -146,7 +146,7 @@ router.post("/submit-pic", upload.single('image'),(req, res) =>{
             if(req.user.questionsFormComplete){
                 res.redirect('/dashboard');
             } else {
-                res.redirect(url);//send them to the questions form
+                res.redirect('/form');//send them to the questions form
             }
         }
     } else {
