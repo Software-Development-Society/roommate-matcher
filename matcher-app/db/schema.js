@@ -17,6 +17,7 @@ const reportProblemSchema = new Schema({
 });
 
 const userSchema = new Schema({
+    username: String,
     msId: String,
     firstName: String,
     lastName: String,

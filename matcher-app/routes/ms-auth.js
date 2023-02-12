@@ -52,6 +52,7 @@ passport.use(new MicrosoftStrategy({
       console.log("first time", firstTime);
       if(firstTime){
         await User.findOrCreate({ 
+          username: profile.emails[0].value,
           msId: profile.id, 
           email: profile.emails[0].value, 
           registrationComplete: false, 
