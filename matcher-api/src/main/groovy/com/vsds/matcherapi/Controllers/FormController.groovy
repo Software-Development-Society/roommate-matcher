@@ -33,9 +33,8 @@ class FormController {
         ObjectId user_id = new ObjectId(response["user_id"])
         
         String sex = response["sex"]
-        ArrayList<ArrayList<Integer>> userResponse = response["response"] as ArrayList<ArrayList<Integer>>
-        println(userResponse)
-
+        ArrayList<ArrayList<Integer>> userResponse = response["responses"] as ArrayList<ArrayList<Integer>>
+        println("user responses is " +userResponse)
         DatabaseServices.saveFormResponses(user_id, sex, userResponse)
 
         MatchUsers.matchUsers()
