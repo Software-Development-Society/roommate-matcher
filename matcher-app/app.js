@@ -5,6 +5,8 @@ const axios = require('axios').default;
 const router = require("./routes/ms-auth");
 const signUpRouter = require('./routes/signup');
 const { Problem } = require("./db/schema");
+const {imagesRouter} = require('./routes/images');
+const { profileRouter } = require("./routes/updateProfile");
 
 const app = express();
 
@@ -28,22 +30,21 @@ app.use(session({
 
 app.use('/', router);
 app.use("/", signUpRouter);
+app.use("/", imagesRouter);
+app.use("/", profileRouter);
 
 app.get("/", function (req, res) {
     res.render('homepage/homepage', {styleInput: "homepage", isLoggedIn: req.isAuthenticated()});
 });
 
 app.get("/dashboard", function (req, res) {
-    res.render('dashboard/dashboard', {styleInput: "dashboard", isLoggedIn: req.isAuthenticated()});
-    /*
-    if(req.user.questionsFormComplete){
+    //if(req.user.questionsFormComplete){
         res.render('dashboard/dashboard', {styleInput: "dashboard", isLoggedIn: req.isAuthenticated()}); 
-    } else {
-        res.redirect('/signup-form')
-        
-    }*/
+    //} else {
+        //res.redirect('/signup-form')
+    //}
 });
-app.get("/problem", function (req, res) {
+app.get("/problem", function (req, res) {   
     if(!req.isAuthenticated()){
         req.headers.problem = true;
         console.log("problem 48", req.headers.problem)
@@ -58,6 +59,8 @@ app.get("/form", function (req, res) {
     //console.log(questions)
     res.render('form/form', {styleInput: "homepage", isLoggedIn: req.isAuthenticated(), questions: questions});
 });
+
+
 
 app.get("/signout", function (req, res) {
     req.logout(function(err) {

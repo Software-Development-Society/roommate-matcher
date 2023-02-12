@@ -1,5 +1,4 @@
 const express = require('express');
-const bodyParser = require('body-parser');
 const passport = require('passport');
 var MicrosoftStrategy = require('passport-microsoft').Strategy;
 require('dotenv').config()
@@ -40,7 +39,7 @@ passport.use(new MicrosoftStrategy({
     console.log(profile.emails[0].value, email);
     if(regex.test(email)){
       let firstTime = await User.find({email: email}).then(results =>{
-        console.log(results);
+        //console.log(results);
         if(results.length < 1){
             //It is users first time
             
@@ -66,14 +65,16 @@ passport.use(new MicrosoftStrategy({
           snapchat:null, 
           instagram:null, 
           sex:null,
-          bio:null }, 
+          bio:null,
+          pictureName: null,
+        }, 
           function (err, user) {
-            console.log("44", user);
+            //console.log("44", user);
             return cb(err, user);
         });
       } else {
         await User.findOrCreate({ msId: profile.id, email: profile.emails[0].value}, function (err, user) {
-          console.log("45", user);
+          //console.log("45", user);
           if(!err){
             console.log("66", err);
             return cb(err, user);
@@ -100,6 +101,10 @@ router.get('/auth/ms',
     } else if(req.user.picture === null){
       console.log("here");
       res.redirect('/submit-pic')
+    } else if(req.user.questionsFormComplete){
+        res.redirect('/form');
+    } else {
+        res.redirect('/dashboard');
     }
     
 }, function(err, req, res, next){
