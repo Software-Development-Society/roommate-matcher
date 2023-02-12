@@ -26,9 +26,6 @@ app.use(session({
     //cookie: {secure: true}
 }));
 
-
-
-
 app.use('/', router);
 app.use("/", signUpRouter);
 
@@ -37,11 +34,14 @@ app.get("/", function (req, res) {
 });
 
 app.get("/dashboard", function (req, res) {
+    res.render('dashboard/dashboard', {styleInput: "dashboard", isLoggedIn: req.isAuthenticated()});
+    /*
     if(req.user.questionsFormComplete){
         res.render('dashboard/dashboard', {styleInput: "dashboard", isLoggedIn: req.isAuthenticated()}); 
     } else {
         res.redirect('/signup-form')
-    }
+        
+    }*/
 });
 app.get("/problem", function (req, res) {
     if(!req.isAuthenticated()){
