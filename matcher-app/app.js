@@ -28,9 +28,6 @@ app.use(session({
     //cookie: {secure: true}
 }));
 
-
-
-
 app.use('/', router);
 app.use("/", signUpRouter);
 app.use("/", imagesRouter);

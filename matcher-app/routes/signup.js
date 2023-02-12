@@ -2,6 +2,13 @@ const express = require('express');
 const router = express.Router();
 const { User } = require('../db/schema');
 const multer = require('multer');
+
+
+//This is used to import the router for upload-form.js
+//Used to help differentiate the router and make the code more readable
+const uploadFormRouter = require('./upload-form')
+router.use(uploadFormRouter)
+
 router.get("/signup-form", (req, res) =>{
     console.log("here");
     console.log()
@@ -146,5 +153,8 @@ router.post("/submit-pic", upload.single('image'),(req, res) =>{
         res.redirect('/login');
     }
 });
+
+
+
 
 module.exports = router;
