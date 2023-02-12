@@ -4,6 +4,7 @@ const bodyParser = require('body-parser');
 const axios = require('axios').default;
 const router = require("./routes/ms-auth");
 const signUpRouter = require('./routes/signup');
+const { Problem } = require("./db/schema");
 
 const app = express();
 
@@ -43,7 +44,13 @@ app.get("/dashboard", function (req, res) {
     }*/
 });
 app.get("/problem", function (req, res) {
-    res.render('problem/problem', {styleInput: "problem", isLoggedIn: req.isAuthenticated()});
+    if(!req.isAuthenticated()){
+        req.headers.problem = true;
+        console.log("problem 48", req.headers.problem)
+        res.redirect('/login');
+    } else {
+        res.render('problem/problem', {styleInput: "problem", isLoggedIn: req.isAuthenticated(), submitted: false});
+    } 
 });
 
 app.get("/form", function (req, res) {
@@ -70,7 +77,32 @@ app.get("/secret", (req, res) => {
         res.redirect("/login");
     }
 })
-
+app.post('/problem', (req, res) =>{
+   if(!req.isAuthenticated()){
+    req.headers.problem = true;
+    res.redirect('/login');
+   } else {
+    console.log("problem description", req.body.problemDescription)
+    var problem = new Problem({ 
+        msId: req.user.msId,
+        firstName: req.user.firstName,
+        lastName: req.user.lastName,
+        email: req.user.email, 
+        problemDescription: req.body.problemDescription, 
+    });
+ 
+    // save model to database
+    problem.save(function (err, book) {
+      if (err){
+        console.log(err)
+        res.render('problem/problem', {styleInput: "problem", isLoggedIn: req.isAuthenticated(), submitted: true, error: true});
+      } else {
+        res.render('problem/problem', {styleInput: "problem", isLoggedIn: req.isAuthenticated(), submitted: true, error: false});
+      }
+    });
+    
+   } 
+});
 app.get("/test", async (req, res) => {
     const userID = req.query.userID;
     console.log(userID);

@@ -57,7 +57,7 @@ class MatchUsers {
             else{
                 println("matching" +currentResponse.toString())
                 Integer scoresSum = 0
-                for(int questionNum = 0; questionNum < 30; questionNum++){
+                for(int questionNum = 0; questionNum < currentResponse.getResponses().size(); questionNum++){
                     // each question score
                     int userQuestion1 = userToMatchResponse.getResponses().get(questionNum).get(0)
                     int userQuestion2 = currentResponse.getResponses().get(questionNum).get(1)
