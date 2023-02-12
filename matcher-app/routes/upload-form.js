@@ -17,14 +17,7 @@ router.post("/upload-form", (req, res) => {
     //All questions answered will make a 66 entry long json file
     //if there is less than 66 keys we know that not all questions were answered properly
     
-    if((keys.length / 3) < questions.length){
-        //Not all questions were answered
-        
-        let arrOfUnansweredQuestionIndex = getUnansweredQuestions(keys)
 
-        //console.log(questions)
-
-    }else{
         //formats the JSON
         let data = makeFormJsonToSendToBackend(req)
 
@@ -47,7 +40,6 @@ router.post("/upload-form", (req, res) => {
     });
 
         res.redirect('/dashboard')
-    }
     
 })
 
