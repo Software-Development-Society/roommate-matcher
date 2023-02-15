@@ -100,10 +100,6 @@ form {
       position: absolute;
       top: 72px;
   }
-  img {
-      max-width: 100%;
-      height: auto;
-  }
   .p-image {
     position: absolute;
     top: 167px;
