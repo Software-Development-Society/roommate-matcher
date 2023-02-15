@@ -1,5 +1,6 @@
 const express = require('express');
 const fs = require("fs");
+const { User } = require('../db/schema');
 
 const imagesRouter = express.Router();
 
@@ -20,15 +21,22 @@ function deleteFile(path){
     })
 }
 
-imagesRouter.get("/images/:pictureName", function(req, res) {
+imagesRouter.get("/images/:pictureName", async function(req, res) {
     if(req.isAuthenticated()){
-        var data = req.user.picture;
-        var img = Buffer.from(data, 'base64');
-        res.writeHead(200, {
-            'Content-Type': 'image/png',
-            'Content-Length': img.length
-        });
-        res.end(img); 
+        try {
+            const results = await User.findOne({pictureName:  req.params.pictureName})
+            var data = results.picture;
+            var img = Buffer.from(data, 'binary');
+            res.writeHead(200, {
+                'Content-Type': 'image/png',
+                'Content-Length': img.length
+            });
+            res.end(img);
+        } catch (error) {
+            console.log(error)
+            res.send('There was an error');
+        }
+        
     } else {
         res.redirect('/login')
     }

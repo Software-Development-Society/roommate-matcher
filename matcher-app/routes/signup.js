@@ -10,8 +10,7 @@ const uploadFormRouter = require('./upload-form')
 router.use(uploadFormRouter)
 
 router.get("/signup-form", (req, res) =>{
-    console.log("here");
-    console.log()
+    //console.log("here");
    if(req.isAuthenticated()){
         if(req.user.registrationComplete){
             res.redirect("/submit-pic");
@@ -78,6 +77,23 @@ router.get("/submit-pic", (req, res) =>{
         res.redirect('/login');
     }
 });
+
+router.get("/update-pic", (req, res) =>{
+    if(req.isAuthenticated()){
+        if(!req.user.registrationComplete){
+            res.redirect('/signup-form');
+            return;
+        }
+        if(req.user.picture){
+            res.render('pfp/pfp', {styleInput: "homepage", isLoggedIn: req.isAuthenticated(), fileError: ""});
+        } else {
+            res.redirect('/submit-pic');
+        }
+    } else {
+        res.redirect('/login');
+    }
+});
+
 const path = require('path');
 const { imageToBase64, deleteFile } = require('./images');
 
@@ -120,14 +136,14 @@ const upload = multer({
 
 router.post("/submit-pic", upload.single('image'),(req, res) =>{
     if(req.isAuthenticated()){
-        if(!req.user.picture){
+        if(req.user.registrationComplete){
             //console.log("102x", err);
             //console.log("102", err);
             //The first condition runs if the file is too big or if the file is of the wrong type
             if(req.body.fileError !== ""){
                 res.render('pfp/pfp', {styleInput: "homepage", isLoggedIn: req.isAuthenticated(), fileError: req.body.fileError});
             } else{//This condition means the user has successfully submitted a picture
-                console.log("Good");
+                //console.log("Good");
                 const buffer = imageToBase64(path.join(__dirname,'../uploadedImages/')+req.headers.fileName);
                 User.findByIdAndUpdate(req.user.id, {
                     picture: buffer,
@@ -137,17 +153,17 @@ router.post("/submit-pic", upload.single('image'),(req, res) =>{
                     //res.redirect("/submit-pic");
                 })
                 deleteFile(path.join(__dirname,'../uploadedImages/')+req.headers.fileName)
-                console.log("buffer",buffer);
-                res.send("yerr");
-                
+                //console.log("buffer",buffer);
+                //console.log("req headers update", req);
+                if(req.user.questionsFormComplete){
+                    res.redirect('/profile')
+                } else {
+                    res.redirect("/form");
+                }
             }
             
         } else {
-            if(req.user.questionsFormComplete){
-                res.redirect('/dashboard');
-            } else {
-                res.redirect(url);//send them to the questions form
-            }
+            res.redirect('/signup-form');
         }
     } else {
         res.redirect('/login');

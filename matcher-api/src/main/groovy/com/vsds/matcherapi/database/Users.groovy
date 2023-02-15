@@ -29,24 +29,27 @@ class Users {
     @Field
     private String bio
     @Field
+    private String pictureName
+    @Field
     private String instagram
     @Field
-    private String snapChat
+    private String snapchat
 
 
 
     public Users(){}
 
-    Users(String firstName, String lastName, String username, String sex, int classYear, int age, String bio, String instagram, String snapChat) {
+    Users(String firstName, String lastName, String username, String sex, int classYear, int age, String pictureName, String bio, String instagram, String snapChat) {
         this.firstName = firstName
         this.lastName = lastName
         this.username = username
         this.sex = sex
         this.classYear = classYear
         this.age = age
+        this.pictureName = pictureName
         this.bio = bio
         this.instagram = instagram
-        this.snapChat = snapChat
+        this.snapchat = snapchat
     }
 
     ObjectId getUserId() {
@@ -75,6 +78,9 @@ class Users {
 
     int getAge() {
         return age
+    }
+    String getPictureName() {
+        return pictureName
     }
 
     String getBio() {
@@ -113,20 +119,24 @@ class Users {
         this.bio = bio
     }
 
+    void setPictureName(String pictureName) {
+        this.pictureName = pictureName
+    }
+
     String getInstagram() {
         return instagram
     }
 
-    String getSnapChat() {
-        return snapChat
+    String getSnapchat() {
+        return snapchat
     }
 
     void setInstagram(String instagram) {
         this.instagram = instagram
     }
 
-    void setSnapChat(String snapChat) {
-        this.snapChat = snapChat
+    void setSnapchat(String snapchat) {
+        this.snapchat = snapchat
     }
 
 
@@ -140,7 +150,8 @@ class Users {
                 ", classYear=" + classYear +
                 ", age=" + age +
                 ", bio='" + bio + '\'' +
+                ", pictureName='" + pictureName + '\'' +
                 ", instagram='" + instagram + '\'' +
-                ", snapChat='" + snapChat + '}\''
+                ", snapchat='" + snapchat + '}\''
     }
 }

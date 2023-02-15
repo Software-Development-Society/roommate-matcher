@@ -25,24 +25,23 @@ passport.deserializeUser(function(id, done) {
 });
 
 passport.use(new MicrosoftStrategy({
-    clientID: "",
-    clientSecret: "",
+    clientID: "25edda00-5ff3-4300-8ad5-4674943afe76",
+    clientSecret: "5X78Q~otkD4H_6DvpXONFx1VCk9zuZ1Im311Tcxa",
     callbackURL: "http://localhost:3000/auth/ms",
     scope: ['user.read'],
   },
   async function(accessToken, refreshToken, profile, cb) {
-    console.log("here");
+    //console.log("ms-auth 34 here");
     const regex = new RegExp('^[A-Za-z0-9._%+-]+@villanova.edu$')
     //console.log("profile info:", profile);
     const email = profile.emails[0].value;
     
-    console.log(profile.emails[0].value, email);
+    //console.log(profile.emails[0].value, email);
     if(regex.test(email)){
       let firstTime = await User.find({email: email}).then(results =>{
         //console.log(results);
         if(results.length < 1){
             //It is users first time
-            
             return true;
         } else {
             return false;
@@ -50,9 +49,10 @@ passport.use(new MicrosoftStrategy({
       }).catch(error =>{
         console.log(error);
       });
-      console.log("first time", firstTime);
+      //console.log("first time", firstTime);
       if(firstTime){
         await User.findOrCreate({ 
+          username: profile.emails[0].value,
           msId: profile.id, 
           email: profile.emails[0].value, 
           registrationComplete: false, 
@@ -99,9 +99,9 @@ router.get('/auth/ms',
     if(!req.user.registrationComplete){
       res.redirect('/signup-form');
     } else if(req.user.picture === null){
-      console.log("here");
+      //console.log("ms-auth 103: here");
       res.redirect('/submit-pic')
-    } else if(req.user.questionsFormComplete){
+    } else if(!req.user.questionsFormComplete){
         res.redirect('/form');
     } else {
         res.redirect('/dashboard');
@@ -113,14 +113,14 @@ router.get('/auth/ms',
 });
 
 
-router.get("/check", (req, res) =>{
-  console.log(req.isAuthenticated());
-  if(req.isAuthenticated()){
-    console.log(req.user);
-    res.redirect("/good-check");
-  } else {
-    res.redirect("/bad-check");
-  }
-})
+// router.get("/check", (req, res) =>{
+//   //console.log(req.isAuthenticated());
+//   if(req.isAuthenticated()){
+//     console.log(req.user);
+//     res.redirect("/good-check");
+//   } else {
+//     res.redirect("/bad-check");
+//   }
+// })
 
 module.exports = router;

@@ -16,10 +16,6 @@ app.use(bodyParser.json());
 app.use(express.static("public"));
 
 
-
-
-var isLoggedIn;
-
 //ABSOLUTELY MAKE SURE TO CHANGE AND HIDE SECRET KEY BEFORE PRODUCTION
 app.use(session({
     secret: 'keyboard cat',
@@ -37,12 +33,31 @@ app.get("/", function (req, res) {
     res.render('homepage/homepage', {styleInput: "homepage", isLoggedIn: req.isAuthenticated()});
 });
 
-app.get("/dashboard", function (req, res) {
-    //if(req.user.questionsFormComplete){
-        res.render('dashboard/dashboard', {styleInput: "dashboard", isLoggedIn: req.isAuthenticated()}); 
-    //} else {
-        //res.redirect('/signup-form')
-    //}
+app.get("/dashboard", async function (req, res) {
+    if(req.isAuthenticated()){
+        let matchesArray = [];
+        try {
+            const response = await axios({
+                method: 'post',
+                url: 'http://localhost:8080/get-matches',
+                data: {
+                    user_id: req.user.id,
+                }
+            });
+            const data = response.data;
+            matchesArray = [...data.match_array];
+            //console.log(matchesArray[0])
+        } catch (error) {
+            console.log(error);
+        }
+        if(req.user.questionsFormComplete){
+            res.render('dashboard/dashboard', {styleInput: "dashboard", isLoggedIn: req.isAuthenticated(), matchesArray: matchesArray}); 
+        } else {
+            res.redirect('/form')
+        }
+    } else {
+        res.redirect('/login');
+    }
 });
 app.get("/problem", function (req, res) {   
     if(!req.isAuthenticated()){
@@ -55,9 +70,24 @@ app.get("/problem", function (req, res) {
 });
 
 app.get("/form", function (req, res) {
-    const questions = require('./Questions.json');
-    //console.log(questions)
-    res.render('form/form', {styleInput: "homepage", isLoggedIn: req.isAuthenticated(), questions: questions});
+    if(req.isAuthenticated()){
+        if(req.user.registrationComplete){
+            if(req.user.pictureName){
+                const questions = require('./Questions.json');
+                //console.log(questions)
+                res.render('form/form', {styleInput: "homepage", isLoggedIn: req.isAuthenticated(), questions: questions, error:false});
+            } else {
+                res.redirect('/submit-pic');
+                return;
+            }
+        } else {
+            res.redirect('/signup-form');
+            return;
+        }
+    } else {
+        res.redirect('/login');
+        return;
+    }
 });
 
 
@@ -66,6 +96,7 @@ app.get("/signout", function (req, res) {
     req.logout(function(err) {
         if (err){ 
             res.send("There was an error signing you out");
+            return
         }
         res.redirect('/');
     });
