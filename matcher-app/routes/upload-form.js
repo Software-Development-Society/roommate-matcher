@@ -9,7 +9,7 @@ const axios = require('axios').default;
 const questions = require('../Questions.json')
 
 router.post("/unansweredQuestions-form", (req, res) => {
-    console.log(req.body)
+    //console.log(req.body)
 })
 
 
@@ -43,16 +43,16 @@ router.post("/upload-form", (req, res) => {
         url: 'http://localhost:8080/save-responses',
         data: json
     }).then(response => {
-        console.log(response);
+        //console.log(response);
         User.findByIdAndUpdate(req.user.id, {
             questionsFormComplete: true,
         }, (docs, err) => {
-            //console.log("37", docs, err);
+            console.log("37", docs, err);
         })
         res.redirect('/dashboard')
         //res.send(response);
     }).catch(error => {
-        //console.log("error upload-form 49",error);
+        console.log("error upload-form 49",error);
         //res.send(error)
         res.render('form/form', {styleInput: "homepage", isLoggedIn: req.isAuthenticated(), questions: questions, error:true});
     });

@@ -10,8 +10,7 @@ const uploadFormRouter = require('./upload-form')
 router.use(uploadFormRouter)
 
 router.get("/signup-form", (req, res) =>{
-    console.log("here");
-    console.log()
+    //console.log("here");
    if(req.isAuthenticated()){
         if(req.user.registrationComplete){
             res.redirect("/submit-pic");
@@ -144,7 +143,7 @@ router.post("/submit-pic", upload.single('image'),(req, res) =>{
             if(req.body.fileError !== ""){
                 res.render('pfp/pfp', {styleInput: "homepage", isLoggedIn: req.isAuthenticated(), fileError: req.body.fileError});
             } else{//This condition means the user has successfully submitted a picture
-                console.log("Good");
+                //console.log("Good");
                 const buffer = imageToBase64(path.join(__dirname,'../uploadedImages/')+req.headers.fileName);
                 User.findByIdAndUpdate(req.user.id, {
                     picture: buffer,
@@ -154,9 +153,9 @@ router.post("/submit-pic", upload.single('image'),(req, res) =>{
                     //res.redirect("/submit-pic");
                 })
                 deleteFile(path.join(__dirname,'../uploadedImages/')+req.headers.fileName)
-                console.log("buffer",buffer);
-                console.log("req headers update", req.headers.update);
-                if(req.headers.update){
+                //console.log("buffer",buffer);
+                //console.log("req headers update", req);
+                if(req.user.questionsFormComplete){
                     res.redirect('/profile')
                 } else {
                     res.redirect("/form");

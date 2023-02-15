@@ -28,7 +28,7 @@ profileRouter.get('/profile', (req, res) =>{
 });
 
 profileRouter.post('/profile', (req, res) =>{
-    console.log("31", req.body)
+    //console.log("31", req.body)
     if(req.isAuthenticated()){
         if(req.user.registrationComplete){
             User.findById(req.user.id, function(err, user) {
@@ -44,7 +44,7 @@ profileRouter.post('/profile', (req, res) =>{
                         snapchat: req.body.snapchat,
                         instagram: req.body.instagram
                     }, (docs)=>{
-                        console.log("41", docs);
+                        //console.log("41", docs);
                         res.redirect("/profile");
                     })
                 } else {

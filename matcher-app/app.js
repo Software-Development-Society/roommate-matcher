@@ -46,7 +46,7 @@ app.get("/dashboard", async function (req, res) {
             });
             const data = response.data;
             matchesArray = [...data.match_array];
-            console.log(matchesArray[0])
+            //console.log(matchesArray[0])
         } catch (error) {
             console.log(error);
         }

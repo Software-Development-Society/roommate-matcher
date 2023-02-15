@@ -31,12 +31,12 @@ passport.use(new MicrosoftStrategy({
     scope: ['user.read'],
   },
   async function(accessToken, refreshToken, profile, cb) {
-    console.log("here");
+    //console.log("ms-auth 34 here");
     const regex = new RegExp('^[A-Za-z0-9._%+-]+@villanova.edu$')
     //console.log("profile info:", profile);
     const email = profile.emails[0].value;
     
-    console.log(profile.emails[0].value, email);
+    //console.log(profile.emails[0].value, email);
     if(regex.test(email)){
       let firstTime = await User.find({email: email}).then(results =>{
         //console.log(results);
@@ -49,7 +49,7 @@ passport.use(new MicrosoftStrategy({
       }).catch(error =>{
         console.log(error);
       });
-      console.log("first time", firstTime);
+      //console.log("first time", firstTime);
       if(firstTime){
         await User.findOrCreate({ 
           username: profile.emails[0].value,
@@ -99,7 +99,7 @@ router.get('/auth/ms',
     if(!req.user.registrationComplete){
       res.redirect('/signup-form');
     } else if(req.user.picture === null){
-      console.log("here");
+      //console.log("ms-auth 103: here");
       res.redirect('/submit-pic')
     } else if(!req.user.questionsFormComplete){
         res.redirect('/form');
@@ -113,14 +113,14 @@ router.get('/auth/ms',
 });
 
 
-router.get("/check", (req, res) =>{
-  console.log(req.isAuthenticated());
-  if(req.isAuthenticated()){
-    console.log(req.user);
-    res.redirect("/good-check");
-  } else {
-    res.redirect("/bad-check");
-  }
-})
+// router.get("/check", (req, res) =>{
+//   //console.log(req.isAuthenticated());
+//   if(req.isAuthenticated()){
+//     console.log(req.user);
+//     res.redirect("/good-check");
+//   } else {
+//     res.redirect("/bad-check");
+//   }
+// })
 
 module.exports = router;
