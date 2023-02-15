@@ -51,7 +51,7 @@ app.get("/dashboard", async function (req, res) {
             console.log(error);
         }
         if(req.user.questionsFormComplete){
-            res.render('dashboard/dashboard', {styleInput: "dashboard", isLoggedIn: req.isAuthenticated(), matchesArray: matchesArray}); 
+            res.render('dashboard/dashboard', {styleInput: "dashboard", isLoggedIn: req.isAuthenticated(), matchesArray: matchesArray , userProfileImage: "http://localhost:3000/images/" + req.user.pictureName}); 
         } else {
             res.redirect('/form')
         }
