@@ -33,10 +33,25 @@ app.get("/", function (req, res) {
     res.render('homepage/homepage', {styleInput: "homepage", isLoggedIn: req.isAuthenticated()});
 });
 
-app.get("/dashboard", function (req, res) {
+app.get("/dashboard", async function (req, res) {
     if(req.isAuthenticated()){
+        let matchesArray = [];
+        try {
+            const response = await axios({
+                method: 'post',
+                url: 'http://localhost:8080/get-matches',
+                data: {
+                    user_id: req.user.id,
+                }
+            });
+            const data = response.data;
+            matchesArray = [...data.match_array];
+            console.log(matchesArray[0])
+        } catch (error) {
+            console.log(error);
+        }
         if(req.user.questionsFormComplete){
-            res.render('dashboard/dashboard', {styleInput: "dashboard", isLoggedIn: req.isAuthenticated()}); 
+            res.render('dashboard/dashboard', {styleInput: "dashboard", isLoggedIn: req.isAuthenticated(), matchesArray: matchesArray}); 
         } else {
             res.redirect('/form')
         }
