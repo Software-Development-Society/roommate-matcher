@@ -27,18 +27,18 @@ class DashBoardController {
 
         MatchList currentUserMatches = DatabaseServices.getMatches(user_id)
         Map<ObjectId, Integer> matches = currentUserMatches.getMatchList()
-        ArrayList<Users> resultList = new ArrayList<>()
+        ArrayList<String> resultList = new ArrayList<>()
 
         for (ObjectId match_id : matches.keySet()){
             Users currentUser = DatabaseServices.getUserFromId(match_id)
             if (currentUser.getSex() == DatabaseServices.getUserFromId(user_id).getSex() && currentUser.getUserId() != DatabaseServices.getUserFromId(user_id).getUserId()){
-                resultList.add(currentUser)
+                resultList.add(currentUser as String)
             }
 
         }
 
         JSONObject result = new JSONObject()
-        result.put("match_array", resultList.toString())
+        result.put("match_array", resultList)
 
         return result as String
     }
