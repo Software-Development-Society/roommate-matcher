@@ -29,6 +29,8 @@ class Users {
     @Field
     private String bio
     @Field
+    private String pictureName
+    @Field
     private String instagram
     @Field
     private String snapChat
@@ -37,13 +39,14 @@ class Users {
 
     public Users(){}
 
-    Users(String firstName, String lastName, String username, String sex, int classYear, int age, String bio, String instagram, String snapChat) {
+    Users(String firstName, String lastName, String username, String sex, int classYear, int age, String pictureName, String bio, String instagram, String snapChat) {
         this.firstName = firstName
         this.lastName = lastName
         this.username = username
         this.sex = sex
         this.classYear = classYear
         this.age = age
+        this.pictureName = pictureName
         this.bio = bio
         this.instagram = instagram
         this.snapChat = snapChat
@@ -75,6 +78,9 @@ class Users {
 
     int getAge() {
         return age
+    }
+    String getPictureName() {
+        return pictureName
     }
 
     String getBio() {
@@ -113,6 +119,10 @@ class Users {
         this.bio = bio
     }
 
+    void setPictureName(String pictureName) {
+        this.pictureName = pictureName
+    }
+
     String getInstagram() {
         return instagram
     }
@@ -140,6 +150,7 @@ class Users {
                 ", classYear=" + classYear +
                 ", age=" + age +
                 ", bio='" + bio + '\'' +
+                ", pictureName='" + pictureName + '\'' +
                 ", instagram='" + instagram + '\'' +
                 ", snapChat='" + snapChat + '}\''
     }
