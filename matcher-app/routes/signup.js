@@ -86,7 +86,6 @@ router.get("/update-pic", (req, res) =>{
             return;
         }
         if(req.user.picture){
-            req.headers.update = true;
             res.render('pfp/pfp', {styleInput: "homepage", isLoggedIn: req.isAuthenticated(), fileError: ""});
         } else {
             res.redirect('/submit-pic');
