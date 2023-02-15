@@ -33,7 +33,7 @@ class Users {
     @Field
     private String instagram
     @Field
-    private String snapChat
+    private String snapchat
 
 
 
@@ -49,7 +49,7 @@ class Users {
         this.pictureName = pictureName
         this.bio = bio
         this.instagram = instagram
-        this.snapChat = snapChat
+        this.snapchat = snapchat
     }
 
     ObjectId getUserId() {
@@ -127,16 +127,16 @@ class Users {
         return instagram
     }
 
-    String getSnapChat() {
-        return snapChat
+    String getSnapchat() {
+        return snapchat
     }
 
     void setInstagram(String instagram) {
         this.instagram = instagram
     }
 
-    void setSnapChat(String snapChat) {
-        this.snapChat = snapChat
+    void setSnapchat(String snapchat) {
+        this.snapchat = snapchat
     }
 
 
@@ -152,6 +152,6 @@ class Users {
                 ", bio='" + bio + '\'' +
                 ", pictureName='" + pictureName + '\'' +
                 ", instagram='" + instagram + '\'' +
-                ", snapChat='" + snapChat + '}\''
+                ", snapchat='" + snapchat + '}\''
     }
 }
