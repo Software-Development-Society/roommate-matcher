@@ -43,6 +43,7 @@ class DashBoardController {
                 currentUserObject.put("picture_name", currentUser.getPictureName())
                 currentUserObject.put("instagram", currentUser.getInstagram())
                 currentUserObject.put("snap", currentUser.getSnapchat())
+                currentUserObject.put("match_score", matches.get(match_id))
 
 
                 resultList.add(currentUserObject)
