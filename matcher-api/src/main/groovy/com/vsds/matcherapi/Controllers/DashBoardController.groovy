@@ -20,7 +20,7 @@ class DashBoardController {
     result is structured as {"matches_array" : ["user_id" : "13rg234tg34g", "first_name" : "John", "last_name" : "Doe", ......]}
      */
     @PostMapping("/get-matches")
-    String getMatches(@RequestBody String input){
+    JSONObject getMatches(@RequestBody String input){
         println("Matches requested for:" +input)
         def inputString = slurper.parseText(input)
         ObjectId user_id = new ObjectId(inputString["user_id"])
@@ -54,7 +54,7 @@ class DashBoardController {
         JSONObject result = new JSONObject()
         result.put("match_array", resultList)
 
-        return result as String
+        return result
     }
 
 
