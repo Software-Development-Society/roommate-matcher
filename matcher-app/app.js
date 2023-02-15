@@ -75,19 +75,7 @@ app.get("/form", async function (req, res) {
             if(req.user.pictureName){
                 const questions = require('./Questions.json');
                 //console.log(questions)
-                if(req.user.questionsFormComplete){
-                    let answers = [];
-                    try {
-                        const result = await Question.findById(req.user.id)
-                        answers = [...result.responses]
-                        console.log("result here line 83 app.js", result.responses)
-                    } catch (error) {
-                        console.log(error)                      
-                    }
-                    res.render('form/form2', {styleInput: "homepage", isLoggedIn: req.isAuthenticated(), questions: questions, error:false, answers: answers});
-                } else {
-                    res.render('form/form', {styleInput: "homepage", isLoggedIn: req.isAuthenticated(), questions: questions, error:false});
-                }
+                res.render('form/form', {styleInput: "homepage", isLoggedIn: req.isAuthenticated(), questions: questions, error:false});
             } else {
                 res.redirect('/submit-pic');
                 return;
