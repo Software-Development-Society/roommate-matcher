@@ -1,0 +1,62 @@
+<%- include('../partials/header'); %>
+
+
+<% if(error){ %>
+    <h1 style="text-align: center; color: black;">There was an error, please try resubmitting the form.<br>If the error persists, submit the error <a style="color: white;" href="/problem">here.</a></h1>
+<% } %>
+<form class="scroll-view" action="/upload-form" method="POST">
+
+<%  for(let x = 0; x < questions.length; x++) { %>
+
+        <% //IN ORDER TO MODIFY THE QUESTIONS PLEASE GO TO QUESTIONS.JSON!!! %>
+        <% if(questions[x].answers.length > 0) { %>
+        <div class="question">
+
+            <h4 class="question-title"><%= (x+1) + '. ' + questions[x].question%></h1>
+
+            
+            <div id="question<%=x%>Row" class="row g-5 answer-row notAnswered"> 
+                <% for(let y = 0; y < questions[x].answers.length; y++) { %>
+                    <div class="col" >
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="question<%= x + 1 %>" id="inlineRadioDefault<%= y %>" value="<%= y+1%>" onclick="updateQuestionClassList('question<%=x%>Row' , '<%=questions.length%>' )">
+                            <label class="form-check-label" ><%= questions[x].answers[y] %></label>
+                        </div>
+                    </div>
+                <% } %>
+            </div>
+            
+            <h4 class="question-title">How Important is it for your roommate to share the same answer?</h4>
+
+            <input type="hidden" id="" name="numOfQuestionAnswersForQuestion<%=x+1%>" value="<%= questions[x].answers.length%>">
+
+            <div class="importanceSlider">
+                <input type="range" name= "roommateQuestion<%= x + 1 %>" class="form-range" min="1" max="4" step="1" id="formRange" value="3">
+            </div>
+            
+            <div class="row g-5 importance-slider-labels">
+                <div class="col">
+                    <p>Not at all</p>
+                </div>
+                <div class="col">
+                    <p>Not Really</p>
+                </div>
+                <div class="col">
+                    <p>A little</p>
+                </div>
+                <div class="col">
+                    <p>Yeah, it matters</p>
+                </div>
+            </div>
+
+            
+                    
+        </div>
+
+        <% } %>
+<% }; %>
+        <div class="center-submit-button">
+            <input id="userinfo-submit-button" type="submit" class="btn btn-dark" disabled></input>
+        </div>
+</form>
+</html>

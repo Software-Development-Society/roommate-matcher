@@ -16,6 +16,12 @@ const reportProblemSchema = new Schema({
    problemDescription: String, 
 });
 
+const questionAnswersSchema = new Schema({
+    sex: String,
+    responses: Schema.Types.Mixed,
+    _class: String
+})
+
 const userSchema = new Schema({
     username: String,
     msId: String,
@@ -39,5 +45,6 @@ userSchema.plugin(findOrCreate);
 
 const User = mongoose.model("User", userSchema);
 const Problem = mongoose.model("Problem", reportProblemSchema)
+const Question = mongoose.model("Question", questionAnswersSchema)
 
-module.exports = {User, Problem};
+module.exports = {User, Problem, Question};

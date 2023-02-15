@@ -4,7 +4,7 @@ const bodyParser = require('body-parser');
 const axios = require('axios').default;
 const router = require("./routes/ms-auth");
 const signUpRouter = require('./routes/signup');
-const { Problem } = require("./db/schema");
+const { Problem, Question } = require("./db/schema");
 const {imagesRouter} = require('./routes/images');
 const { profileRouter } = require("./routes/updateProfile");
 
@@ -46,7 +46,7 @@ app.get("/dashboard", async function (req, res) {
             });
             const data = response.data;
             matchesArray = [...data.match_array];
-            //console.log(matchesArray[0])
+            //console.log(data)
         } catch (error) {
             console.log(error);
         }
@@ -69,13 +69,25 @@ app.get("/problem", function (req, res) {
     } 
 });
 
-app.get("/form", function (req, res) {
+app.get("/form", async function (req, res) {
     if(req.isAuthenticated()){
         if(req.user.registrationComplete){
             if(req.user.pictureName){
                 const questions = require('./Questions.json');
                 //console.log(questions)
-                res.render('form/form', {styleInput: "homepage", isLoggedIn: req.isAuthenticated(), questions: questions, error:false});
+                if(req.user.questionsFormComplete){
+                    let answers = [];
+                    try {
+                        const result = await Question.findById(req.user.id)
+                        answers = [...result.responses]
+                        console.log("result here line 83 app.js", result.responses)
+                    } catch (error) {
+                        console.log(error)                      
+                    }
+                    res.render('form/form2', {styleInput: "homepage", isLoggedIn: req.isAuthenticated(), questions: questions, error:false, answers: answers});
+                } else {
+                    res.render('form/form', {styleInput: "homepage", isLoggedIn: req.isAuthenticated(), questions: questions, error:false});
+                }
             } else {
                 res.redirect('/submit-pic');
                 return;
