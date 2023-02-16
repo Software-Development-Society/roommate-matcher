@@ -85,7 +85,7 @@ router.get("/update-pic", (req, res) =>{
             return;
         }
         if(req.user.picture){
-            res.render('pfp/pfp', {styleInput: "homepage", isLoggedIn: req.isAuthenticated(), fileError: ""});
+            res.render('pfp/pfp', {styleInput: "homepage", isLoggedIn: req.isAuthenticated(), fileError: "", userProfileImage: "http://localhost:3000/images/" + req.user.pictureName});
         } else {
             res.redirect('/submit-pic');
         }
