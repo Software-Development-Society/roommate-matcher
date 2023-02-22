@@ -18,7 +18,7 @@ profileRouter.get('/profile', (req, res) =>{
             bio: req.user.bio,   
         }
         //if(!req.user.registrationComplete){
-            res.render('changeProfile/changeProfile', {styleInput: "changeProfile", isLoggedIn: req.isAuthenticated(), userInfo: placeHolders});
+            res.render('changeProfile/changeProfile', {styleInput: "changeProfile", isLoggedIn: req.isAuthenticated(), userInfo: placeHolders, userProfileImage: "http://localhost:3000/images/" + req.user.pictureName});
         //} else {
           //  res.redirect('/signup-form');
         //}

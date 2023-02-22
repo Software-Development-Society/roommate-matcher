@@ -30,7 +30,12 @@ app.use("/", imagesRouter);
 app.use("/", profileRouter);
 
 app.get("/", function (req, res) {
-    res.render('homepage/homepage', {styleInput: "homepage", isLoggedIn: req.isAuthenticated()});
+    let isAuthenticated = req.isAuthenticated()
+    if(isAuthenticated){
+        res.render('homepage/homepage', {styleInput: "homepage", isLoggedIn: req.isAuthenticated(), userProfileImage: "http://localhost:3000/images/" + req.user.pictureName});
+    }else{
+        res.render('homepage/homepage', {styleInput: "homepage", isLoggedIn: req.isAuthenticated()});
+    }
 });
 
 app.get("/dashboard", async function (req, res) {
@@ -51,7 +56,7 @@ app.get("/dashboard", async function (req, res) {
             console.log(error);
         }
         if(req.user.questionsFormComplete){
-            res.render('dashboard/dashboard', {styleInput: "dashboard", isLoggedIn: req.isAuthenticated(), matchesArray: matchesArray}); 
+            res.render('dashboard/dashboard', {styleInput: "dashboard", isLoggedIn: req.isAuthenticated(), matchesArray: matchesArray , userProfileImage: "http://localhost:3000/images/" + req.user.pictureName}); 
         } else {
             res.redirect('/form')
         }
@@ -65,7 +70,7 @@ app.get("/problem", function (req, res) {
         console.log("problem 48", req.headers.problem)
         res.redirect('/login');
     } else {
-        res.render('problem/problem', {styleInput: "problem", isLoggedIn: req.isAuthenticated(), submitted: false});
+        res.render('problem/problem', {styleInput: "problem", isLoggedIn: req.isAuthenticated(), submitted: false, userProfileImage: "http://localhost:3000/images/" + req.user.pictureName});
     } 
 });
 
@@ -75,7 +80,7 @@ app.get("/form", async function (req, res) {
             if(req.user.pictureName){
                 const questions = require('./Questions.json');
                 //console.log(questions)
-                res.render('form/form', {styleInput: "homepage", isLoggedIn: req.isAuthenticated(), questions: questions, error:false});
+                res.render('form/form', {styleInput: "homepage", isLoggedIn: req.isAuthenticated(), questions: questions, error:false, userProfileImage: "http://localhost:3000/images/" + req.user.pictureName});
             } else {
                 res.redirect('/submit-pic');
                 return;
@@ -129,9 +134,9 @@ app.post('/problem', (req, res) =>{
     problem.save(function (err, book) {
       if (err){
         console.log(err)
-        res.render('problem/problem', {styleInput: "problem", isLoggedIn: req.isAuthenticated(), submitted: true, error: true});
+        res.render('problem/problem', {styleInput: "problem", isLoggedIn: req.isAuthenticated(), submitted: true, error: true, userProfileImage: "http://localhost:3000/images/" + req.user.pictureName});
       } else {
-        res.render('problem/problem', {styleInput: "problem", isLoggedIn: req.isAuthenticated(), submitted: true, error: false});
+        res.render('problem/problem', {styleInput: "problem", isLoggedIn: req.isAuthenticated(), submitted: true, error: false, userProfileImage: "http://localhost:3000/images/" + req.user.pictureName});
       }
     });
     
@@ -158,7 +163,13 @@ app.get("/test", async (req, res) => {
 
 //404 Route
 app.get('*', function(req, res){
-    res.render('404/404', {styleInput: "404styles", isLoggedIn: req.isAuthenticated()})
+    let pictureUrl = "";
+    if(req.isAuthenticated()){
+        if(req.user.pictureName){
+            pictureUrl = "http://localhost:3000/images/" + req.user.pictureName;
+        }
+    }
+    res.render('404/404', {styleInput: "404styles", isLoggedIn: req.isAuthenticated(), userProfileImage: pictureUrl})
 });
 
 app.listen(3000, function () {
