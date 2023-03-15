@@ -27,67 +27,74 @@ class MatchUsers {
     the lowest score is the persons best match
      */
 
-
     static void matchUsers(){
-        ArrayList<Questions> users = DatabaseServices.getUsersResponses()
-        for (Questions currentUser : users){
-            ObjectId user_id = currentUser.getUser_id()
-            HashMap<ObjectId, Integer> matches = createMatches(user_id)
-            MatchList userMatches = new MatchList(user_id, matches)
+        // user list that will be iterated through to create each users match list. This array containes the user that is having a match list created for.
+        ArrayList<Users> currentUserMatchingList = DatabaseServices.getUsersResponses()
+
+        for(Users currentUserMatching : currentUserMatchingList){
+            Map<ObjectId, Integer> currentMatchArray = createMatchArrayForUser(currentUserMatching)
+            MatchList userMatches = new MatchList(currentUserMatching.getUserId(), currentMatchArray)
             DatabaseServices.saveMatches(userMatches)
         }
 
+
     }
 
+    static Map<ObjectId, Integer> createMatchArrayForUser(Users currentMatchUser){
+        // question list for the base user that the match list is being created for
+        Questions currentMatchUserQuestions = DatabaseServices.returnQuestions(currentMatchUser.getUserId())
+        ArrayList<ArrayList<Integer>> currentMatchUserResponse = currentMatchUserQuestions.getResponses()
+        // match list for this user
+        Map<ObjectId, Integer> currentMatchMap = new HashMap<>()
+
+        for(Questions responseThatsBeingMatched : MatcherApiApplication.visableQuestionRepo.findAll()){
+            ArrayList<ArrayList<Integer>> responsesThatAreCurrentlyBeingMatched = responseThatsBeingMatched.getResponses()
+            // testing to see if the response is a different gender and different user_id
+            if(currentMatchUser.getSex() == responseThatsBeingMatched.getSex() && currentMatchUser.getUserId() != responseThatsBeingMatched.getUser_id()){
+                Integer scoreSum = 0
+                for(int questionNumber = 0; questionNumber < currentMatchUserQuestions.getResponses().size(); questionNumber++){
+
+                    // base user responses for this question
+                    Integer baseUserQuestion1 = currentMatchUserResponse.get(questionNumber).get(0)
+                    Integer baseUserQuestion2 = currentMatchUserResponse.get(questionNumber).get(1)
+
+                    // user that is being matched question
+                    Integer matchingUserQuestion1 = responsesThatAreCurrentlyBeingMatched.get(questionNumber).get(0)
+                    Integer matchingUserQuestion2 = responsesThatAreCurrentlyBeingMatched.get(questionNumber).get(0)
 
 
-
-    static Map<ObjectId, Integer> createMatches(ObjectId user_id){
-        Users userToMatch = DatabaseServices.getUserFromId(user_id)
-        Questions userToMatchResponse = DatabaseServices.returnQuestions(user_id)
-        HashMap<ObjectId, Integer> matches = new HashMap<>()
-
-        for(Questions currentResponse : MatcherApiApplication.visableQuestionRepo.findAll()){
-            // each user total score
-            println("current user sex: " +currentResponse.getSex())
-            println("match user sex: " + userToMatch.getSex())
-            if(user_id == currentResponse.getUser_id() || userToMatch.getSex() != currentResponse.getSex()){
-                println("not matching" +currentResponse.toString())
-            }
-            else{
-                println("matching" +currentResponse.toString())
-                Integer scoresSum = 0
-                for(int questionNum = 0; questionNum < currentResponse.getResponses().size(); questionNum++){
-                    // each question score
-                    int userQuestion1 = userToMatchResponse.getResponses().get(questionNum).get(0)
-                    int userQuestion2 = currentResponse.getResponses().get(questionNum).get(1)
-
-                    int matchQuestion1 = userToMatchResponse.getResponses().get(questionNum).get(0)
-                    int matchQuestion2 = currentResponse.getResponses().get(questionNum).get(1)
-
-                    String xscore = Math.abs(userQuestion1-matchQuestion1) as String
-                    String yscore = (userQuestion2 + matchQuestion2) as String
+                    String xScore = Math.abs(baseUserQuestion1 - matchingUserQuestion1) as String
+                    String yScore = (baseUserQuestion2 - matchingUserQuestion2) as String
 
                     HashMap<String, Integer> scoresMap = populatingScores()
 
-                    String key = xscore + yscore
+                    String key = xScore + yScore
                     int score = scoresMap.get(key)
-
-
-                    //weighting
                     ArrayList<Integer> weights = getWeights()
-                    int matchScoreForThisQuestion = weights.get(questionNum) * score
-                    scoresSum += matchScoreForThisQuestion
+                    int matchScoreForThisQuestion = weights.get(questionNumber) * score
+                    scoreSum += matchScoreForThisQuestion
+
                 }
-                matches.put(currentResponse.getUser_id(), scoresSum)
-                println(scoresSum)
+                currentMatchMap.put(responseThatsBeingMatched.getUser_id(), scoreSum)
             }
         }
 
-        // could have issues here
-       HashMap<ObjectId, Integer> result = matches.sort { a, b -> a.value <=> b.value} as HashMap<ObjectId, Integer>
-        return result as Map<ObjectId, Integer>
+
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     static HashMap<String, Integer> populatingScores(){
          Map<String, Integer> scoresMap = new HashMap<>()
