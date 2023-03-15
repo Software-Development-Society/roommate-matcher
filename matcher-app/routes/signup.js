@@ -15,7 +15,7 @@ router.get("/signup-form", (req, res) =>{
         if(req.user.registrationComplete){
             res.redirect("/submit-pic");
         } else {
-            res.render('signup/signup', {styleInput: "homepage", isLoggedIn: req.isAuthenticated()});
+            res.render('signup/signup', {styleInput: "homepage", isLoggedIn: req.isAuthenticated(), userProfileImage: "http://localhost:3000/images/" + req.user.pictureName});
         }
     } else {
         res.redirect("/login");
@@ -69,7 +69,7 @@ router.get("/submit-pic", (req, res) =>{
             return;
         }
         if(!req.user.picture){
-            res.render('pfp/pfp', {styleInput: "homepage", isLoggedIn: req.isAuthenticated(), fileError: ""});
+            res.render('pfp/pfp', {styleInput: "homepage", isLoggedIn: req.isAuthenticated(), fileError: "", userProfileImage: "http://localhost:3000/images/" + req.user.pictureName});
         } else {
             res.redirect('/form');
         }
@@ -141,7 +141,7 @@ router.post("/submit-pic", upload.single('image'),(req, res) =>{
             //console.log("102", err);
             //The first condition runs if the file is too big or if the file is of the wrong type
             if(req.body.fileError !== ""){
-                res.render('pfp/pfp', {styleInput: "homepage", isLoggedIn: req.isAuthenticated(), fileError: req.body.fileError});
+                res.render('pfp/pfp', {styleInput: "homepage", isLoggedIn: req.isAuthenticated(), fileError: req.body.fileError, userProfileImage: "http://localhost:3000/images/" + req.user.pictureName});
             } else{//This condition means the user has successfully submitted a picture
                 //console.log("Good");
                 const buffer = imageToBase64(path.join(__dirname,'../uploadedImages/')+req.headers.fileName);

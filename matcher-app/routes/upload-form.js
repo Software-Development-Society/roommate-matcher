@@ -54,7 +54,7 @@ router.post("/upload-form", (req, res) => {
     }).catch(error => {
         console.log("error upload-form 49",error);
         //res.send(error)
-        res.render('form/form', {styleInput: "homepage", isLoggedIn: req.isAuthenticated(), questions: questions, error:true});
+        res.render('form/form', {styleInput: "homepage", isLoggedIn: req.isAuthenticated(), questions: questions, error:true, userProfileImage: "http://localhost:3000/images/" + req.user.pictureName});
     });
     
     

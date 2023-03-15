@@ -25,6 +25,10 @@ imagesRouter.get("/images/:pictureName", async function(req, res) {
     if(req.isAuthenticated()){
         try {
             const results = await User.findOne({pictureName:  req.params.pictureName})
+            if(!results){
+                //console.log("No results, returning")
+                return
+            }
             var data = results.picture;
             var img = Buffer.from(data, 'binary');
             res.writeHead(200, {
