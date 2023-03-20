@@ -110,18 +110,33 @@ function makeFormJsonToSendToBackend(req) {
 }
 
 //Below Methods here to convert the values from the form to the values we are using in the backend
-//Ex: if there are only two possible answers, then the form will give the node js becakend either 1 or 2
-//but we want it to be either 1 or 5
-//I know these are hard coded and all but they are good enough
+//Sorry for nested hell
+//converts values for backend to understand
+//Ex: getQuestionValue(2,2) -> 11
+//getQuestionValue(3,5) -> 6
+//getQuestionValue(2,3) -> 6
 function getQuestionValue(answer, numOfAnswers) {
     if (numOfAnswers == '2' && answer == '2') {
-        answer = '5'
-    } else if (numOfAnswers == '3') {
+        answer = '11'
+    }else if (numOfAnswers == '3') {
         if (answer == '2') {
-            answer = '3'
+            answer = '6'
         } else if (answer == '3') {
-            answer = '5'
+            answer = '11'
         }
+    }else if(numOfAnswers == '5'){
+        if(answer == '2'){
+            answer = '3'
+        }else if(answer == '3'){
+            answer = '6'
+        }else if(answer == '4'){
+            answer == '9';
+        }else if(answer == '5'){
+            answer == '11';
+        }
+    }else{
+        //Debugging output
+        console.log("Question has " + numOfAnswers + " number of answers which is not accounted for in getQuestionValue in upload-form.js on line 118")
     }
     return answer
 }
