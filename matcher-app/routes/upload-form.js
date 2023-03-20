@@ -130,9 +130,9 @@ function getQuestionValue(answer, numOfAnswers) {
         }else if(answer == '3'){
             answer = '6'
         }else if(answer == '4'){
-            answer == '9';
+            answer = '9';
         }else if(answer == '5'){
-            answer == '11';
+            answer = '11';
         }
     }else{
         //Debugging output
